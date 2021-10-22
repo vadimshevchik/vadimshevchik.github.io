@@ -1,0 +1,35 @@
+{
+  "version": "20211019",
+  "default_language": "de",
+  "dse_languages": [
+    {
+      "lang": "de",
+      "url": "https://blog.onliner.by/manifest"
+    },
+    {
+      "lang": "en",
+      "url": "https://stackoverflow.com/legal/privacy-policy"
+    },
+    {
+      "lang": "pt",
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/en?format=html"
+    },
+    {
+      "lang": "zh",
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/en?format=html"
+    },
+    {
+      "lang": "fr",
+      "url": "https://www.apple.com/legal/privacy/"
+    },
+    {
+      "lang": "it",
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/it?format=html"
+    }
+  ],
+  "impressum_languages": [
+    {
+      "lang": "de"
+    }
+  ]
+}
