@@ -1,5 +1,5 @@
 {
-  "version": "20211020",
+  "version": "202110234",
   "default_language": "de",
   "dse_languages": [
     {
@@ -8,11 +8,11 @@
     },
     {
       "lang": "en",
-      "url": "http://static.pms-software.com/default/"
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/de?format=html"
     },
     {
       "lang": "pt",
-      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/en?format=html"
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/de?format=html"
     },
     {
       "lang": "zh",
@@ -29,12 +29,11 @@
   ],
   "impressum_languages": [
     {
-      "lang": "de",
-      "url": "http://static.pms-software.com/default/"
+      "lang": "de"
     },
-    
     {
       "lang": "en",
+      "url": "https://dse.cortina-consult.com/privacy/613b1694b4885/de?format=html"
     }
   ]
 }
