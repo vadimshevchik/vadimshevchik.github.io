@@ -8,7 +8,7 @@
     },
     {
       "lang": "en",
-      "url": "https://stackoverflow.com/legal/privacy-policy"
+      "url": "http://static.pms-software.com/default/"
     },
     {
       "lang": "pt",
@@ -29,7 +29,12 @@
   ],
   "impressum_languages": [
     {
-      "lang": "de"
+      "lang": "de",
+      "url": "http://static.pms-software.com/default/"
+    },
+    
+    {
+      "lang": "en",
     }
   ]
 }
