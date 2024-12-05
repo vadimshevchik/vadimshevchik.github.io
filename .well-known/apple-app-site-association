@@ -1,0 +1,18 @@
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+            {
+                "appIDs": [
+                    "XXXXXXXXXX.com.vadimshevchik.experimental"
+                ],
+                "paths": [
+                    "*"
+                ],
+                "components": [
+                    {"/": "/*"}
+                ]
+            }
+        ]
+    }
+}
