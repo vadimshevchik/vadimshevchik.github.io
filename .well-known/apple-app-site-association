@@ -1,15 +1,1 @@
-{
-    "applinks": {
-        "apps": [],
-        "details": [
-            {
-                "appIDs": [
-                    "4Q2425V429.com.vadimshevchik.experimental"
-                ],
-                "paths": [
-                    "*"
-                ]
-            }
-        ]
-    }
-}
+{"applinks":{"apps":[],"details":[{"appID":"6WPJAGNWVE.com.vadimshevchik.experimental","paths":["NOT /_/*","/*"]}]}}
