@@ -4,13 +4,10 @@
         "details": [
             {
                 "appIDs": [
-                    "XXXXXXXXXX.com.vadimshevchik.experimental"
+                    "4Q2425V429.com.vadimshevchik.experimental"
                 ],
                 "paths": [
                     "*"
-                ],
-                "components": [
-                    {"/": "/*"}
                 ]
             }
         ]
