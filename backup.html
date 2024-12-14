@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<title>Vadim Shevchik on GitHub (EDITED)</title>
+<!--<meta name="apple-itunes-app" content="app-id=687848359, affiliate-data=SilkCode, app-argument=https://silkcodeapps.de/desktop/lookup/#doc/222">
+
+<meta name="google-play-app" content="app-id=de.silkcodeapps.lookup">
+<link rel="stylesheet" href="/jquery.smartbanner.css" type="text/css" media="screen">
+//-->
+
+<!--<meta name="apple-itunes-app" content="app-id=687848359">-->
+    <meta name="google-play-app" content="app-id=de.silkcodeapps.lookup">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="smart-app-banner.css" type="text/css" media="screen">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="android-touch-icon" href="icon.png" />
+
+<body>
+
+<h1>apple</h1>
+
+<script>
+  function getMetadata() {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200) {
+            console.log(xmlHttp.responseText);
+            callback(xmlHttp.responseText);
+          }
+    }
+    xmlHttp.open("GET", "https://itunes.apple.com/lookup?id=1637822591", true); // true for asynchronous
+    xmlHttp.send(null);
+  }
+</script>
+
+<script>
+  function openStore() {
+    window.location.replace("https://apps.apple.com/de/app/id1498233854");
+  }
+</script>
+
+<script>
+function getJSONP(url, success) {
+    var ud = '_' + +new Date,
+        script = document.createElement('script'),
+        head = document.getElementsByTagName('head')[0]
+               || document.documentElement;
+
+    window[ud] = function(data) {
+        head.removeChild(script);
+        success && success(data);
+    };
+
+    script.src = url.replace('callback=?', 'callback=' + ud);
+    head.appendChild(script);
+
+}
+</script>
+
+<script>
+function responseCallback(json) {
+  console.log(json);
+}
+
+function fetch() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = "https://itunes.apple.com/lookup?id=1637822591&format=js&callback=responseCallback";
+  document.body.appendChild(script);
+}
+</script>
+
+<script src="smart-app-banner.js"></script>
+    <script type="text/javascript">
+      new SmartBanner({
+          daysHidden: 15,   // days to hide banner after close button is clicked (defaults to 15)
+          daysReminder: 90, // days to hide banner after "VIEW" button is clicked (defaults to 90)
+          appStoreLanguage: 'us', // language code for the App Store (defaults to user's browser language)
+          title: 'LookUP!',
+          author: 'SilkCodeApps',
+          button: 'VIEW',
+          store: {
+              ios: 'On the App Store',
+              android: 'In Google Play',
+              windows: 'In Windows store'
+          },
+          price: {
+              ios: 'FREE',
+              android: 'FREE',
+              windows: 'FREE'
+          }
+          // , theme: '' // put platform type ('ios', 'android', etc.) here to force single theme on all device
+          // , icon: '' // full path to icon image if not using website icon image
+          // , force: 'ios' // Uncomment for platform emulation
+      });
+  </script>
+
+<script>
+function getJSONNN() {
+  getJSONP('https://apps.apple.com/de/app/id1498233854&callback=?', function(data){
+      console.log(data);
+  });
+}
+</script>
+
+
+<button onclick="getMetadata()">GET METADATA</button>
+<button onclick="getJSONNN()">GET JSON</button>
+<button onclick="openStore()">OPEN STORE</button>
+<button onclick="fetch()">FETCH</button>
+
+<br>Version 3<br>
+
+<a href="https://d32d5.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/brandschutzatlas&apn=com.feuertrutz.brandschutzatlas&isi=740676628&ibi=com.feuertrutz.brandschutzatlas&efr=1"><button>-------------------------</button></a><br>
+<a href="http://d32d5.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/brandschutzatlas/&apn=com.feuertrutz.brandschutzatlas&isi=740676628&ibi=com.feuertrutz.brandschutzatlas&efr=1"><button>Bez https</button></a><br>
+<a href="http://d32d5.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/brandschutzatlas/&apn=com.feuertrutz.brandschutzatlas&isi=740676628&ibi=com.feuertrutz.brandschutzatlas"><button>Bez https</button></a><br>
+
+
+
+<a href="https://v62s8.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/lookup/%23doc/15529/3&apn=de.silkcodeapps.lookup&isi=687848359&ibi=de.silkcodeapps.lookup"><button>Page 3. Firebase branch</button></a>
+<a href="https://v62s8.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/lookup/doc/15529/5/&apn=de.silkcodeapps.lookup&isi=687848359&ibi=de.silkcodeapps.lookup"><button>Page 5</button></a>
+
+<a href="https://v62s8.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/lookup/#doc/15529/6&apn=de.silkcodeapps.lookup&isi=687848359&ibi=de.silkcodeapps.lookup"><button>Page 6 with #</button></a>
+
+<a href="https://v62s8.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/lookup/&apn=de.silkcodeapps.lookup&isi=687848359&ibi=de.silkcodeapps.lookup"><button>Empty link</button></a>
+
+
+<a href="https://fceb9.app.goo.gl/?link=http://www.silkcodeapps.de/desktop/neckar#doc/15529/6&apn=de.silkcodeapps.neckar&isi=941103357&ibi=de.silkcodeapps.neckar"><button>Nektar</button></a>
+
+</body>
