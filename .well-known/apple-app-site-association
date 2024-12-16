@@ -1,1 +1,15 @@
-{"applinks":{"apps":[],"details":[{"appID":"6WPJAGNWVE.com.vadimshevchik.experimental","paths":["*"]}]}}
+{
+    "applinks": {
+        "apps": [],
+        "details": [
+        {
+            "appID": "6WPJAGNWVE.com.vadimshevchik.experimental",
+            "paths": ["/dlta1/*"]
+        },
+        {
+            "appID": "6WPJAGNWVE.com.vadimshevchik.whaleboard",
+            "paths": ["/dlta2/*"]
+        }
+        ]
+    }
+}
