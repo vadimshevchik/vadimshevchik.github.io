@@ -21,8 +21,12 @@ function getPlatgorm() {
     return 'iOS';
   }
 
-  var i, os = ['Android', 'iOS']; // 'Mac', 'Linux', 'Windows'
-  for (i = 0; i < os.length; i++) if (new RegExp(os[i],'i').test(userAgent)) return os[i];
+  var i, os = ['Android', 'iOS', 'Mac'];
+  for (i = 0; i < os.length; i++) {
+    if (new RegExp(os[i],'i').test(userAgent)) {
+      return os[i];
+    }
+  }
 }
 
 main();
