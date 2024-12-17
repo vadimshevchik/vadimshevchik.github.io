@@ -10,7 +10,7 @@ function main() {
   } else if (platform == "Android") {
     const url = "https://play.google.com/store/apps/details?id=" + bundleId;
     window.location.replace(url);
-  } else {
+  } else if (link) {
     window.location.replace(link);
   }
 }
