@@ -1,0 +1,67 @@
+[
+  {
+    "name": "Nirvana",
+    "genre": "Grunge",
+    "albums": 3,
+    "formed": 1987,
+    "active_years": "1987–1994",
+    "origin": "Aberdeen, Washington, USA",
+    "members": ["Kurt Cobain", "Krist Novoselic", "Dave Grohl"],
+    "notable_albums": ["Nevermind", "In Utero", "Bleach"],
+    "awards": ["Grammy Award for Best Alternative Music Album (1996)"],
+    "description": "An icon of 90s grunge, known for dark lyrics and powerful sound. Their album 'Nevermind' became a cultural phenomenon.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Nirvana_around_1992.jpg"
+  },
+  {
+    "name": "Radiohead",
+    "genre": "Alternative Rock",
+    "albums": 9,
+    "formed": 1985,
+    "active_years": "1985–present",
+    "origin": "Abingdon, Oxfordshire, England",
+    "members": ["Thom Yorke", "Jonny Greenwood", "Colin Greenwood", "Ed O'Brien", "Philip Selway"],
+    "notable_albums": ["OK Computer", "Kid A", "In Rainbows"],
+    "awards": ["Grammy Award for Best Alternative Music Album (2001, 2009)"],
+    "description": "Innovators who redefined rock music. Their sound blends electronic elements, art rock, and philosophical lyrics.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Radiohead.jpg"
+  },
+  {
+    "name": "Pearl Jam",
+    "genre": "Grunge",
+    "albums": 11,
+    "formed": 1990,
+    "active_years": "1990–present",
+    "origin": "Seattle, Washington, USA",
+    "members": ["Eddie Vedder", "Stone Gossard", "Jeff Ament", "Mike McCready", "Matt Cameron"],
+    "notable_albums": ["Ten", "Vs.", "Vitalogy"],
+    "awards": ["Grammy Award for Best Hard Rock Performance (1996)"],
+    "description": "One of the key bands of the grunge scene. Known for Vedder’s powerful vocals and socially conscious lyrics.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Pearl_Jam_2018.jpg"
+  },
+  {
+    "name": "Red Hot Chili Peppers",
+    "genre": "Funk Rock",
+    "albums": 13,
+    "formed": 1983,
+    "active_years": "1983–present",
+    "origin": "Los Angeles, California, USA",
+    "members": ["Anthony Kiedis", "Flea", "Chad Smith", "John Frusciante"],
+    "notable_albums": ["Californication", "Blood Sugar Sex Magik", "By the Way"],
+    "awards": ["Grammy Award for Best Rock Song (2007)"],
+    "description": "A fusion of funk, punk, and psychedelia. Famous for energetic performances and charismatic members.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Red_Hot_Chili_Peppers_Lollapalooza_2016.jpg"
+  },
+  {
+    "name": "Oasis",
+    "genre": "Britpop",
+    "albums": 7,
+    "formed": 1991,
+    "active_years": "1991–2009",
+    "origin": "Manchester, England",
+    "members": ["Liam Gallagher", "Noel Gallagher", "Paul Arthurs", "Paul McGuigan", "Tony McCarroll"],
+    "notable_albums": ["(What's the Story) Morning Glory?", "Definitely Maybe"],
+    "awards": ["BRIT Award for Best British Album (1996)"],
+    "description": "A legend of 90s Britpop. Their anthems became the soundtrack of a generation.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Oasis_MTV_2005.jpg"
+  }
+]
