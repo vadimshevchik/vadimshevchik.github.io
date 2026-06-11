@@ -6,7 +6,7 @@
     <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
     <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
     <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агросектора Беларуси">
-    <meta property="og:description" content="Автоматизированные закупки. Экономия до 80% времени на тендерах.">
+    <meta property="og:description" content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.">
     <meta property="og:type" content="website">
     <title>АгроТендерСервис - Тендеры в Telegram для агросектора</title>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
@@ -69,38 +69,33 @@
             padding: 0 20px;
         }
 
-        /* Header с фиксированной высотой 70px */
         header {
             background: var(--bg-white);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            height: 70px; /* фиксированная высота 70px */
-            display: flex;
-            align-items: center;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            width: 100%;
-            height: 100%;
+            padding: 1rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-weight: 700;
-            font-size: 18px; /* уменьшенный шрифт */
+            gap: 12px;
+            font-weight: 800;
+            font-size: 18px;
             color: var(--primary);
             text-decoration: none;
         }
 
         .logo img {
-            height: 32px; /* уменьшенный логотип */
+            height: 36px;
             width: auto;
             max-width: 48px;
             border-radius: 8px;
@@ -113,14 +108,13 @@
             gap: 1.5rem;
             align-items: center;
             list-style: none;
-            margin-left: 0; /* убираем лишние отступы */
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-gray);
             font-weight: 500;
-            font-size: 14px; /* уменьшенный шрифт пунктов меню */
+            font-size: 14px;
             transition: color 0.3s;
         }
 
@@ -128,12 +122,11 @@
             color: var(--primary);
         }
 
-        /* Кнопка в хедере – чуть больше по высоте, но аккуратно */
         .btn-header {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            padding: 8px 20px; /* увеличенная высота */
+            padding: 8px 20px;
             background: var(--cta);
             color: white !important;
             font-weight: 600;
@@ -168,9 +161,6 @@
         }
 
         @media (max-width: 768px) {
-            header {
-                height: 60px;
-            }
             .nav-links {
                 display: none;
             }
@@ -185,7 +175,7 @@
                 font-size: 16px;
             }
             .logo img {
-                height: 28px;
+                height: 30px;
             }
         }
 
@@ -821,7 +811,7 @@
 </head>
 <body>
 
-    <!-- Header с фиксированной высотой 70px -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
@@ -860,8 +850,7 @@
                 <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
                 <h1>Тендеры для агробизнеса в Telegram</h1>
                 <p class="hero-subtitle">
-                    Автоматизация закупок любых товаров и услуг для сельского хозяйства: от зерна и удобрений до техники и логистики. 
-                    Экономия до 80% времени на тендерах. Прозрачно, быстро, выгодно.
+                    Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.
                 </p>
                 
                 <div class="hero-stats">
@@ -874,8 +863,8 @@
                         <span class="stat-label">активных участников</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-value">50 000+</span>
-                        <span class="stat-label">тонн продано</span>
+                        <span class="stat-value">10+</span>
+                        <span class="stat-label">предложений на тендер</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">3 часа</span>
@@ -898,7 +887,7 @@
                     <div class="tender-info">
                         <strong>🌾 Пшеница 3 класса, 50 тонн</strong>
                         <div class="tender-details">
-                            <span>💰 Текущая цена: 482 BYN/тонна</span>
+                            <span>💰 Текущая цена: 482 BYN</span>
                             <span>⏱️ Осталось: 1 час 23 мин</span>
                             <span>✅ 5 предложений</span>
                         </div>
@@ -975,7 +964,7 @@
                 <div class="step">
                     <div class="step-number">1</div>
                     <h3>Регистрация</h3>
-                    <p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a> и нажмите «📞 Регистрация»</p>
+                    <p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a> и нажмите «Подать заявку»</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
@@ -1004,7 +993,7 @@
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Получите доступ</h3>
-                    <p>Администратор добавит вас в тендерную группу и пришлёт бота @agro_dealer_bot</p>
+                    <p>Администратор добавит вас в тендерную группу и пришлёт бота.</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
@@ -1030,7 +1019,7 @@
 
             <div class="demo-grid">
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🤖 Бот заказчика<br><span style="font-size: 14px;">(пример интерфейса)</span></div>
+                    <div class="demo-image">🤖 Бот заказчика</div>
                     <div class="demo-content">
                         <h3>Бот заказчика</h3>
                         <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
@@ -1039,7 +1028,7 @@
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🚛 Бот поставщика<br><span style="font-size: 14px;">(пример интерфейса)</span></div>
+                    <div class="demo-image">🚛 Бот поставщика</div>
                     <div class="demo-content">
                         <h3>Бот поставщика</h3>
                         <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
@@ -1048,7 +1037,7 @@
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">💬 Тендерная группа<br><span style="font-size: 14px;">(пример чата)</span></div>
+                    <div class="demo-image">💬 Тендерная группа</div>
                     <div class="demo-content">
                         <h3>Тендерная группа</h3>
                         <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
@@ -1106,7 +1095,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="telegram">Telegram (необязательно)</label>
+                            <label for="telegram">Telegram</label>
                             <input type="text" id="telegram" name="telegram" placeholder="@username">
                         </div>
 
@@ -1132,7 +1121,7 @@
                         </button>
 
                         <p class="form-note">
-                            🔒 После отправки мы добавим вас в базу и пришлём приглашение в личные сообщения Telegram
+                            🔒 После отправки мы добавим вас в сервис и пришлём приглашение в личные сообщения Telegram
                         </p>
                     </form>
                 </div>
@@ -1201,8 +1190,7 @@
                         <span>+</span>
                     </div>
                     <div class="faq-answer">
-                        Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN (12 500 RUB) 
-                        за участие в тендерах. Это покрывает поддержку сервиса и развитие платформы. 
+                        Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. 
                         Никаких дополнительных комиссий с сделок не взимаем.
                     </div>
                 </div>
@@ -1245,7 +1233,7 @@
                 <div class="footer-section">
                     <h4>АгроТендерСервис</h4>
                     <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
-                    Автоматизация закупок зерна и сельхозпродукции с 2025 года.</p>
+                    Автоматизация закупок с 2025 года.</p>
                 </div>
 
                 <div class="footer-section">
@@ -1261,7 +1249,6 @@
                     <h4>Быстрые ссылки</h4>
                     <p>
                         <a href="https://t.me/agro_tender_bot" target="_blank">🔹 Тендерный бот</a><br>
-                        <a href="https://t.me/agro_dealer_bot" target="_blank">🔹 Бот поставщика</a><br>
                         <a href="#for-sellers">Стать поставщиком</a><br>
                         <a href="#faq">FAQ</a>
                     </p>
