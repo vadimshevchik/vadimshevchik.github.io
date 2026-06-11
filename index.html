@@ -25,8 +25,10 @@
             --primary-light: #3D7A52;
             --accent: #D4AF37;
             --accent-hover: #C49F27;
-            --cta: #FF6B35;
-            --cta-hover: #E55A25;
+            --cta: #2D5A3D;
+            --cta-hover: #1E3A2A;
+            --secondary: #E8F0E9;
+            --secondary-hover: #D4E0D6;
             --bg-light: #F5F7FA;
             --bg-white: #FFFFFF;
             --text-dark: #1A1A2E;
@@ -116,6 +118,34 @@
             color: var(--primary);
         }
 
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--accent);
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-header:hover {
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+            color: var(--text-dark);
+        }
+
+        .btn-header svg {
+            flex-shrink: 0;
+        }
+
         .mobile-menu {
             display: none;
             flex-direction: column;
@@ -136,6 +166,10 @@
             }
             .mobile-menu {
                 display: flex;
+            }
+            .btn-header {
+                padding: 8px 16px;
+                font-size: 14px;
             }
         }
 
@@ -166,12 +200,13 @@
         }
 
         .btn-accent {
-            background: var(--accent);
-            color: var(--text-dark);
+            background: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-accent:hover {
-            background: var(--accent-hover);
+            background: var(--secondary-hover);
             transform: translateY(-2px);
         }
 
@@ -197,6 +232,16 @@
         .btn-outline:hover {
             background: var(--primary);
             color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
         }
 
         /* Hero Section */
@@ -518,7 +563,7 @@
 
         /* For Sellers */
         .sellers {
-            background: linear-gradient(135deg, #FFF9F0 0%, #FFF5E6 100%);
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
         }
 
         .sellers-content {
@@ -745,7 +790,7 @@
     <header>
         <nav class="container">
             <a href="#" class="logo">
-                <img src="logo-green.png" alt="АгроТендерСервис">
+                <img src="agro_group_logo.png" alt="АгроТендерСервис">
                 <span>АгроТендерСервис</span>
             </a>
             <ul class="nav-links">
@@ -754,7 +799,14 @@
                 <li><a href="#demo">Демонстрация</a></li>
                 <li><a href="#for-sellers">Поставщикам</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="https://t.me/agro_tender_bot" class="btn btn-primary" target="_blank">Бот заказчика</a></li>
+                <li>
+                    <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                        Бот заказчика
+                    </a>
+                </li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -867,7 +919,7 @@
                     <div class="feature-icon">📱</div>
                     <h3>Удобство Telegram</h3>
                     <p>Не нужно устанавливать дополнительное ПО. Всё работает в привычном мессенджере с мгновенными уведомлениями.</p>
-                    <span class="feature-stat"> Старт за 2 минуты</span>
+                    <span class="feature-stat">🚀 Старт за 2 минуты</span>
                 </div>
             </div>
         </div>
@@ -881,7 +933,7 @@
                 <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
             </div>
 
-            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍🌾 Для заказчиков</h3>
+            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍ Для заказчиков</h3>
             <div class="steps fade-in">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -1140,10 +1192,10 @@
             <h2>Начните экономить на закупках уже сегодня</h2>
             <p>Присоединяйтесь к 500+ участникам агротендеров в Беларуси</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://t.me/agro_tender_bot" class="btn btn-accent" target="_blank">
+                <a href="https://t.me/agro_tender_bot" class="btn btn-white" target="_blank">
                     📝 Создать первую заявку бесплатно
                 </a>
-                <a href="#for-sellers" class="btn" style="background: white; color: var(--primary);">
+                <a href="#for-sellers" class="btn btn-white">
                     🚚 Стать поставщиком
                 </a>
             </div>
