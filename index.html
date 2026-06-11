@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
+    <meta name="description" content="Агро Тендер - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
     <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
-    <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агросектора Беларуси">
+    <meta property="og:title" content="Агро Тендер - Тендеры в Telegram для агросектора Беларуси">
     <meta property="og:description" content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.">
     <meta property="og:type" content="website">
-    <title>АгроТендерСервис - Тендеры в Telegram для агросектора</title>
+    <title>Агро Тендер - Тендеры в Telegram для агросектора</title>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +19,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         :root {
             --primary: #2D5A3D;
             --primary-dark: #1E3A2A;
@@ -40,7 +40,7 @@
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
@@ -48,28 +48,28 @@
             overflow-x: hidden;
             background-color: white;
         }
-        
+
         h1, h2, h3, h4 {
             font-weight: 700;
             line-height: 1.2;
         }
-        
+
         h1 { font-size: 48px; }
         h2 { font-size: 36px; }
         h3 { font-size: 24px; }
-        
+
         @media (max-width: 768px) {
             h1 { font-size: 32px; }
             h2 { font-size: 28px; }
             h3 { font-size: 20px; }
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             background: var(--bg-white);
             box-shadow: var(--shadow);
@@ -78,14 +78,14 @@
             z-index: 1000;
             width: 100%;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
         }
-        
+
         .logo {
             display: flex;
             align-items: center;
@@ -95,7 +95,7 @@
             color: var(--primary);
             text-decoration: none;
         }
-        
+
         .logo img {
             height: 36px;
             width: auto;
@@ -104,14 +104,14 @@
             object-fit: contain;
             background: #f0f0f0;
         }
-        
+
         .nav-links {
             display: flex;
             gap: 1.5rem;
             align-items: center;
             list-style: none;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--text-gray);
@@ -119,11 +119,11 @@
             font-size: 14px;
             transition: color 0.3s;
         }
-        
+
         .nav-links a:hover {
             color: var(--primary);
         }
-        
+
         .btn-header {
             display: inline-flex;
             align-items: center;
@@ -140,623 +140,19 @@
             border: none;
             white-space: nowrap;
         }
-        
+
         .btn-header:hover {
             background: var(--cta-hover);
             transform: translateY(-1px);
             box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
             color: white !important;
         }
-        
+
         /* Гамбургер-кнопка скрыта на десктопе */
         .mobile-menu {
             display: none;
         }
-        
-        /* Все кнопки – capsule */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 14px 28px;
-            border-radius: 40px !important;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: var(--shadow);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-accent {
-            background: var(--secondary);
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        
-        .btn-accent:hover {
-            background: var(--secondary-hover);
-            transform: translateY(-2px);
-        }
-        
-        .btn-cta {
-            background: var(--cta);
-            color: white;
-            font-size: 18px;
-            padding: 16px 32px;
-            border-radius: 40px;
-        }
-        
-        .btn-cta:hover {
-            background: var(--cta-hover);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        .btn-white {
-            background: white;
-            color: var(--primary);
-        }
-        
-        .btn-white:hover {
-            background: var(--secondary);
-            transform: translateY(-2px);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            padding: 100px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            opacity: 0.3;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background: rgba(212, 175, 55, 0.2);
-            border: 1px solid var(--accent);
-            color: var(--accent);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            font-size: 14px;
-        }
-        
-        .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-        
-        .hero-subtitle {
-            font-size: 20px;
-            margin-bottom: 32px;
-            opacity: 0.95;
-            line-height: 1.6;
-        }
-        
-        .hero-stats {
-            display: flex;
-            gap: 32px;
-            margin: 40px 0;
-            flex-wrap: wrap;
-        }
-        
-        .stat-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .stat-value {
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--accent);
-        }
-        
-        .stat-label {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-top: 32px;
-        }
-        
-        /* Live Tender Banner */
-        .live-tender {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            margin-top: 40px;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            align-items: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            animation: slideIn 0.5s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .tender-live-badge {
-            background: #10B981;
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .tender-live-badge::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-        
-        .tender-info {
-            flex: 1;
-        }
-        
-        .tender-info strong {
-            color: var(--text-dark);
-            font-size: 16px;
-        }
-        
-        .tender-details {
-            display: flex;
-            gap: 24px;
-            margin-top: 8px;
-            font-size: 14px;
-            color: var(--text-gray);
-        }
-        
-        section {
-            padding: 80px 0;
-        }
-        
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
-        }
-        
-        .section-header h2 {
-            margin-bottom: 16px;
-            color: var(--text-dark);
-        }
-        
-        .section-header p {
-            color: var(--text-gray);
-            font-size: 18px;
-        }
-        
-        /* Features */
-        .features {
-            background: var(--bg-light);
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-        
-        .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-        
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-        
-        .feature-card p {
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-        
-        .feature-stat {
-            display: inline-block;
-            background: var(--bg-light);
-            padding: 8px 16px;
-            border-radius: 8px;
-            margin-top: 16px;
-            font-weight: 600;
-            color: var(--primary);
-            font-size: 14px;
-        }
-        
-        /* How it Works */
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            margin-top: 48px;
-        }
-        
-        .step {
-            text-align: center;
-            padding: 32px 24px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-        
-        .step-number {
-            width: 64px;
-            height: 64px;
-            background: var(--gradient);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: 800;
-            margin: 0 auto 20px;
-        }
-        
-        .step h3 {
-            margin-bottom: 12px;
-        }
-        
-        .step p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-        
-        /* Demo Section */
-        .demo {
-            background: var(--bg-light);
-        }
-        
-        .demo-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-        
-        .demo-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .demo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .demo-image {
-            background: var(--gradient);
-            height: 200px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            font-weight: 600;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .demo-content {
-            padding: 24px;
-        }
-        
-        .demo-content h3 {
-            margin-bottom: 8px;
-        }
-        
-        .demo-content p {
-            color: var(--text-gray);
-            font-size: 15px;
-        }
-        
-        /* For Sellers */
-        .sellers {
-            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
-        }
-        
-        .sellers-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        @media (max-width: 768px) {
-            .sellers-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .sellers-form {
-            background: white;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            font-size: 16px;
-            font-family: inherit;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .form-note {
-            font-size: 14px;
-            color: var(--text-light);
-            margin-top: 16px;
-            text-align: center;
-        }
-        
-        .benefits-list {
-            list-style: none;
-            margin: 24px 0;
-        }
-        
-        .benefits-list li {
-            padding: 12px 0;
-            padding-left: 36px;
-            position: relative;
-            color: var(--text-gray);
-        }
-        
-        .benefits-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 20px;
-        }
-        
-        /* FAQ */
-        .faq-item {
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 16px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-        }
-        
-        .faq-question {
-            padding: 24px;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-        
-        .faq-question:hover {
-            background: var(--bg-light);
-        }
-        
-        .faq-answer {
-            padding: 0 24px 24px;
-            color: var(--text-gray);
-            display: none;
-        }
-        
-        .faq-item.active .faq-answer {
-            display: block;
-        }
-        
-        .faq-item.active .faq-question {
-            color: var(--primary);
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient);
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-        }
-        
-        .cta-section h2 {
-            font-size: 42px;
-            margin-bottom: 20px;
-        }
-        
-        .cta-section p {
-            font-size: 20px;
-            opacity: 0.95;
-            margin-bottom: 32px;
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 0 30px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-section h4 {
-            margin-bottom: 16px;
-            color: var(--accent);
-        }
-        
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            line-height: 1.8;
-        }
-        
-        .footer-section a:hover {
-            color: var(--accent);
-        }
-        
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
-        }
-        
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Toast */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #2D5A3D;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-size: 14px;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            z-index: 1100;
-            opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
-            pointer-events: none;
-        }
-        .toast.show {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
-        }
-        
-        /* Мобильная версия */
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -775,8 +171,6 @@
             .nav-links.show {
                 display: flex;
             }
-            
-            /* Гамбургер-кнопка — только в мобильной версии */
             .mobile-menu {
                 position: relative;
                 display: flex;
@@ -820,7 +214,6 @@
                 top: 21px;
                 transform: translateX(-50%) rotate(-45deg);
             }
-            
             .btn-header {
                 padding: 6px 14px;
                 font-size: 12px;
@@ -840,6 +233,635 @@
                 top: 0;
                 margin-top: 0;
             }
+        }
+
+        /* Все кнопки – capsule */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 40px !important;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-accent {
+            background: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-accent:hover {
+            background: var(--secondary-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-cta {
+            background: var(--cta);
+            color: white;
+            font-size: 18px;
+            padding: 16px 32px;
+            border-radius: 40px;
+        }
+
+        .btn-cta:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-white:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        /* Live Tender Banner */
+        .live-tender {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tender-live-badge {
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tender-live-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .tender-info {
+            flex: 1;
+        }
+
+        .tender-info strong {
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        .tender-details {
+            display: flex;
+            gap: 24px;
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 18px;
+        }
+
+        /* Features */
+        .features {
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        .feature-stat {
+            display: inline-block;
+            background: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        /* How it Works - зеленый фон */
+        .how-it-works {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .how-it-works .section-header h2,
+        .how-it-works .section-header p {
+            color: white;
+        }
+
+        .how-it-works h3 {
+            color: white;
+        }
+
+        .how-it-works .steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .how-it-works .step {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .how-it-works .step:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .how-it-works .step p,
+        .how-it-works .step h3,
+        .how-it-works .step a {
+            color: white;
+        }
+
+        .how-it-works .step a {
+            text-decoration: underline;
+        }
+
+        .how-it-works .step-number {
+            background: white;
+            color: var(--primary);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+
+        /* Demo Section */
+        .demo {
+            background: var(--bg-light);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .demo-image {
+            background: var(--gradient);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .demo-content {
+            padding: 24px;
+        }
+
+        .demo-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .demo-content p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* For Sellers */
+        .sellers {
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
+        }
+
+        .sellers-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .sellers-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sellers-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-note {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+
+        .benefits-list li {
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+            color: var(--text-gray);
+        }
+
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: var(--text-gray);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 32px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2D5A3D;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1100;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
             .hero {
                 padding: 60px 0;
             }
@@ -863,18 +885,25 @@
                 flex-direction: column;
                 gap: 8px;
             }
+            .how-it-works .steps {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .how-it-works .step {
+                padding: 24px 16px;
+            }
         }
     </style>
 </head>
 <body>
-    
+
     <!-- Header -->
     <header>
         <div class="container">
             <nav>
                 <a href="#" class="logo">
-                    <img src="agro_group_logo.png" alt="АгроТендерСервис" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
-                    <span>АгроТендерСервис</span>
+                    <img src="agro_group_logo.png" alt="Агро Тендер" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
+                    <span>Агро Тендер</span>
                 </a>
                 <ul class="nav-links">
                     <li><a href="#features">Возможности</a></li>
@@ -899,7 +928,7 @@
             </nav>
         </div>
     </header>
-    
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -928,7 +957,7 @@
                         <span class="stat-label">среднее время торгов</span>
                     </div>
                 </div>
-                
+
                 <div class="hero-buttons">
                     <a href="https://t.me/agro_tender_bot" class="btn btn-cta" target="_blank">
                         📝 Я заказчик – создать заявку
@@ -937,12 +966,12 @@
                         🚚 Я поставщик – участвовать
                     </a>
                 </div>
-                
+
                 <!-- Live Tender Example -->
                 <div class="live-tender">
                     <div class="tender-live-badge">LIVE</div>
                     <div class="tender-info">
-                        <strong>🌾 Пшеница 3 класса, 50 тонн</strong>
+                        <strong>🌾 Пшеница 3 класс, 50 тонн</strong>
                         <div class="tender-details">
                             <span>💰 Текущая цена: 482 BYN</span>
                             <span>⏱️ Осталось: 1 час 23 мин</span>
@@ -953,15 +982,15 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Features -->
     <section id="features" class="features">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Почему АгроТендерСервис</h2>
+                <h2>Почему Агро Тендер</h2>
                 <p>Современный инструмент для эффективных закупок в агросфере</p>
             </div>
-            
+
             <div class="features-grid">
                 <div class="feature-card fade-in">
                     <div class="feature-icon">⏱️</div>
@@ -969,35 +998,35 @@
                     <p>Ручные тендеры заменены на автоматические. Заявка создаётся за 5 минут, торги длятся 3 часа, итоги подводятся мгновенно.</p>
                     <span class="feature-stat">📊 5 дней → 3 часа</span>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🎯</div>
                     <h3>Прозрачные торги без посредников</h3>
                     <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
                     <span class="feature-stat">🔒 Полное логирование</span>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">🔄</div>
                     <h3>Разделение заявки</h3>
                     <p>Можно распределить закупку между несколькими поставщиками – бот подберёт оптимальную комбинацию по цене за единицу.</p>
                     <span class="feature-stat">💡 Экономия до 15%</span>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">📦</div>
                     <h3>Частичная поставка</h3>
                     <p>Если полный объём недоступен – сервис предложит лучшие частичные предложения, вы не останетесь без товара.</p>
                     <span class="feature-stat">✅ Гарантия получения</span>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">💰</div>
                     <h3>Выгодные цены</h3>
                     <p>Конкурентная среда снижает цены. Среднее снижение стоимости – 12% от начальной цены заказчика.</p>
                     <span class="feature-stat">📉 Среднее снижение: 12%</span>
                 </div>
-                
+
                 <div class="feature-card fade-in">
                     <div class="feature-icon">📱</div>
                     <h3>Удобство Telegram</h3>
@@ -1007,16 +1036,16 @@
             </div>
         </div>
     </section>
-    
-    <!-- How it Works -->
-    <section id="how-it-works">
+
+    <!-- How it Works - зеленый фон -->
+    <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Как это работает</h2>
                 <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
             </div>
-            
-            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍🌾 Для заказчиков</h3>
+
+            <h3 style="text-align: center; margin-bottom: 32px;">👨‍🌾 Для заказчиков</h3>
             <div class="steps fade-in">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -1039,8 +1068,8 @@
                     <p>Бот присылает список победителей с контактами. Вы связываетесь с поставщиками напрямую.</p>
                 </div>
             </div>
-            
-            <h3 style="text-align: center; margin: 48px 0 32px; color: var(--primary);">🚚 Для поставщиков</h3>
+
+            <h3 style="text-align: center; margin: 48px 0 32px;">🚚 Для поставщиков</h3>
             <div class="steps fade-in">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -1065,7 +1094,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Demo Section -->
     <section id="demo" class="demo">
         <div class="container">
@@ -1073,7 +1102,7 @@
                 <h2>Как выглядит сервис</h2>
                 <p>Три компонента системы для удобной работы</p>
             </div>
-            
+
             <div class="demo-grid">
                 <div class="demo-card fade-in">
                     <div class="demo-image">🤖 Бот заказчика</div>
@@ -1083,7 +1112,7 @@
                         <a href="https://t.me/agro_tender_bot" class="btn btn-outline" style="margin-top: 16px;" target="_blank">Перейти в бот →</a>
                     </div>
                 </div>
-                
+
                 <div class="demo-card fade-in">
                     <div class="demo-image">🚛 Бот поставщика</div>
                     <div class="demo-content">
@@ -1092,7 +1121,7 @@
                         <a href="#for-sellers" class="btn btn-outline" style="margin-top: 16px;">Получить доступ →</a>
                     </div>
                 </div>
-                
+
                 <div class="demo-card fade-in">
                     <div class="demo-image">💬 Тендерная группа</div>
                     <div class="demo-content">
@@ -1103,7 +1132,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- For Sellers -->
     <section id="for-sellers" class="sellers">
         <div class="container">
@@ -1114,7 +1143,7 @@
                         Участвуйте в тендерах, получайте заказы от агропредприятий Беларуси. 
                         Расширьте клиентскую базу без холодных звонков и спама.
                     </p>
-                    
+
                     <ul class="benefits-list">
                         <li>Средний чек заказа: <strong>12 500 BYN</strong></li>
                         <li>3-5 новых клиентов в месяц</li>
@@ -1122,7 +1151,7 @@
                         <li>Мгновенные уведомления в Telegram</li>
                         <li>Без скрытых комиссий и посредников</li>
                     </ul>
-                    
+
                     <div style="background: white; padding: 24px; border-radius: 8px; margin-top: 24px; border-left: 4px solid var(--accent);">
                         <strong style="color: var(--primary);">💡 Пример:</strong>
                         <p style="margin: 8px 0 0; color: var(--text-gray); font-size: 15px;">
@@ -1132,7 +1161,7 @@
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="sellers-form fade-in">
                     <h3 style="margin-bottom: 24px; text-align: center;">Оставить заявку на участие</h3>
                     <form id="sellerForm">
@@ -1140,22 +1169,22 @@
                             <label for="company">Название компании / ИП *</label>
                             <input type="text" id="company" name="company" required placeholder="ООО «АгроПоставка»">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="contact">Контактное лицо *</label>
                             <input type="text" id="contact" name="contact" required placeholder="Иванов Иван">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="phone">Телефон *</label>
                             <input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="telegram">Telegram</label>
                             <input type="text" id="telegram" name="telegram" placeholder="@username">
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="sphere">Сфера деятельности *</label>
                             <select id="sphere" name="sphere" required>
@@ -1167,16 +1196,16 @@
                                 <option value="other">Другое</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="comment">Комментарий</label>
                             <textarea id="comment" name="comment" rows="3" placeholder="Регион работы, объёмы, опыт..."></textarea>
                         </div>
-                        
+
                         <button type="submit" class="btn btn-cta" style="width: 100%; justify-content: center;">
                             Отправить заявку → получить приглашение
                         </button>
-                        
+
                         <p class="form-note">
                             🔒 После отправки мы добавим вас в сервис и пришлём приглашение в личные сообщения Telegram
                         </p>
@@ -1185,7 +1214,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- FAQ -->
     <section id="faq">
         <div class="container">
@@ -1193,7 +1222,7 @@
                 <h2>Частые вопросы</h2>
                 <p>Всё, что нужно знать о работе сервиса</p>
             </div>
-            
+
             <div class="faq-container fade-in">
                 <div class="faq-item">
                     <div class="faq-question">
@@ -1205,7 +1234,7 @@
                         Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Что если поставщик не выполнит обязательства?
@@ -1217,7 +1246,7 @@
                         В будущем планируем систему рейтингов поставщиков.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Можно ли отменить заявку?
@@ -1228,7 +1257,7 @@
                         это нарушит доверие участников. Если торги уже начались, вы обязаны выбрать победителя.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Как происходит оплата?
@@ -1240,7 +1269,7 @@
                         предоплата/постоплата).
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Какая комиссия сервиса?
@@ -1251,7 +1280,7 @@
                         Никаких дополнительных комиссий с сделок не взимаем.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         Какие товары можно закупать?
@@ -1266,7 +1295,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -1282,17 +1311,17 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h4>АгроТендерСервис</h4>
+                    <h4>Агро Тендер</h4>
                     <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
                     Автоматизация закупок с 2025 года.</p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Контакты</h4>
                     <p>
@@ -1301,16 +1330,16 @@
                         📍 Беларусь
                     </p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Быстрые ссылки</h4>
                     <p>
-                        <a href="https://t.me/agro_tender_bot" target="_blank">🔹 Тендерный бот</a><br>
+                        <a href="https://t.me/agro_tender_bot" target="_blank">Тендерный бот</a><br>
                         <a href="#for-sellers">Стать поставщиком</a><br>
                         <a href="#faq">FAQ</a>
                     </p>
                 </div>
-                
+
                 <div class="footer-section">
                     <h4>Документы</h4>
                     <p>
@@ -1320,15 +1349,15 @@
                     </p>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
-                <p>© 2025 АгроТендерСервис — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
+                <p>© 2025 Агро Тендер — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
             </div>
         </div>
     </footer>
-    
+
     <div id="toast" class="toast"></div>
-    
+
     <script>
         // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
@@ -1339,7 +1368,7 @@
                 if (!isActive) item.classList.add('active');
             });
         });
-        
+
         // Toast function
         function showToast(message, duration = 3000) {
             const toast = document.getElementById('toast');
@@ -1349,14 +1378,14 @@
                 toast.classList.remove('show');
             }, duration);
         }
-        
+
         // Form submission
         document.getElementById('sellerForm').addEventListener('submit', function(e) {
             e.preventDefault();
             showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
             this.reset();
         });
-        
+
         // Scroll animations
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
@@ -1365,7 +1394,7 @@
             });
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1374,7 +1403,7 @@
                 if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
-        
+
         // Phone mask
         const phoneInput = document.getElementById('phone');
         if (phoneInput) {
@@ -1393,8 +1422,8 @@
                 }
             });
         }
-        
-        // Mobile menu toggle with improved styling
+
+        // Mobile menu toggle
         const mobileBtn = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         if (mobileBtn && navLinks) {
@@ -1403,7 +1432,7 @@
                 mobileBtn.classList.toggle('active');
             });
         }
-        
+
         // Закрыть меню при клике на ссылку
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
