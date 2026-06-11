@@ -1,1426 +1,1416 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-                <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
-                    <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
-                        <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агросектора Беларуси">
-                            <meta property="og:description" content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.">
-                                <meta property="og:type" content="website">
-                                    <title>АгроТендерСервис - Тендеры в Telegram для агросектора</title>
-                                    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
-                                        <link rel="preconnect" href="https://fonts.googleapis.com">
-                                            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-                                                <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-                                                    <style>
-                                                        * {
-                                                            margin: 0;
-                                                            padding: 0;
-                                                            box-sizing: border-box;
-                                                        }
-                                                        
-                                                        :root {
-                                                            --primary: #2D5A3D;
-                                                            --primary-dark: #1E3A2A;
-                                                            --primary-light: #3D7A52;
-                                                            --accent: #D4AF37;
-                                                            --accent-hover: #C49F27;
-                                                            --cta: #2D5A3D;
-                                                            --cta-hover: #1E3A2A;
-                                                            --secondary: #E8F0E9;
-                                                            --secondary-hover: #D4E0D6;
-                                                            --bg-light: #F5F7FA;
-                                                            --bg-white: #FFFFFF;
-                                                            --text-dark: #1A1A2E;
-                                                            --text-gray: #4A5568;
-                                                            --text-light: #718096;
-                                                            --border: #E2E8F0;
-                                                            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
-                                                            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-                                                            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-                                                        }
-                                                        
-                                                        body {
-                                                            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-                                                            line-height: 1.6;
-                                                            color: var(--text-dark);
-                                                            overflow-x: hidden;
-                                                            background-color: white;
-                                                        }
-                                                        
-                                                        h1, h2, h3, h4 {
-                                                            font-weight: 700;
-                                                            line-height: 1.2;
-                                                        }
-                                                        
-                                                        h1 { font-size: 48px; }
-                                                        h2 { font-size: 36px; }
-                                                        h3 { font-size: 24px; }
-                                                        
-                                                        @media (max-width: 768px) {
-                                                            h1 { font-size: 32px; }
-                                                            h2 { font-size: 28px; }
-                                                            h3 { font-size: 20px; }
-                                                        }
-                                                        
-                                                        .container {
-                                                            max-width: 1200px;
-                                                            margin: 0 auto;
-                                                            padding: 0 20px;
-                                                        }
-                                                        
-                                                        header {
-                                                            background: var(--bg-white);
-                                                            box-shadow: var(--shadow);
-                                                            position: sticky;
-                                                            top: 0;
-                                                            z-index: 1000;
-                                                            width: 100%;
-                                                        }
-                                                        
-                                                        nav {
-                                                            display: flex;
-                                                            justify-content: space-between;
-                                                            align-items: center;
-                                                            padding: 1rem 0;
-                                                        }
-                                                        
-                                                        .logo {
-                                                            display: flex;
-                                                            align-items: center;
-                                                            gap: 12px;
-                                                            font-weight: 800;
-                                                            font-size: 18px;
-                                                            color: var(--primary);
-                                                            text-decoration: none;
-                                                        }
-                                                        
-                                                        .logo img {
-                                                            height: 36px;
-                                                            width: auto;
-                                                            max-width: 48px;
-                                                            border-radius: 8px;
-                                                            object-fit: contain;
-                                                            background: #f0f0f0;
-                                                        }
-                                                        
-                                                        .nav-links {
-                                                            display: flex;
-                                                            gap: 1.5rem;
-                                                            align-items: center;
-                                                            list-style: none;
-                                                        }
-                                                        
-                                                        .nav-links a {
-                                                            text-decoration: none;
-                                                            color: var(--text-gray);
-                                                            font-weight: 500;
-                                                            font-size: 14px;
-                                                            transition: color 0.3s;
-                                                        }
-                                                        
-                                                        .nav-links a:hover {
-                                                            color: var(--primary);
-                                                        }
-                                                        
-                                                        .btn-header {
-                                                            display: inline-flex;
-                                                            align-items: center;
-                                                            gap: 6px;
-                                                            padding: 8px 20px;
-                                                            background: var(--cta);
-                                                            color: white !important;
-                                                            font-weight: 600;
-                                                            font-size: 14px;
-                                                            border-radius: 40px;
-                                                            text-decoration: none;
-                                                            transition: all 0.3s ease;
-                                                            box-shadow: 0 2px 6px rgba(45, 90, 61, 0.2);
-                                                            border: none;
-                                                            white-space: nowrap;
-                                                        }
-                                                        
-                                                        .btn-header:hover {
-                                                            background: var(--cta-hover);
-                                                            transform: translateY(-1px);
-                                                            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
-                                                            color: white !important;
-                                                        }
-                                                        
-                                                        /* Улучшенная гамбургер-иконка (более тонкие линии, стилизованная как кнопка) */
-                                                        .mobile-menu {
-                                                            position: relative;
-                                                            display: flex;
-                                                            justify-content: center;
-                                                            align-items: center;
-                                                            width: 42px; /* ⬅️ Размер круга 42px */
-                                                            height: 42px; /* ⬅️ Размер круга 42px */
-                                                            background: var(--cta);
-                                                            border-radius: 50%; /* ⬅️ Идеальный круг */
-                                                            cursor: pointer;
-                                                            transition: background 0.2s, transform 0.1s;
-                                                        }
-                                                        
-                                                        .mobile-menu:hover {
-                                                            background: var(--cta-hover);
-                                                        }
-                                                        
-                                                        .mobile-menu:active {
-                                                            transform: scale(0.92); /* Чуть более заметный отклик для компактной кнопки */
-                                                        }
-                                                        
-                                                        .mobile-menu span {
-                                                            position: absolute;
-                                                            left: 50%;
-                                                            width: 16px; /* Компактные линии */
-                                                            height: 1px; /* Тонкие линии */
-                                                            background: white;
-                                                            border-radius: 1px;
-                                                            transition: all 0.3s ease-in-out;
-                                                            transform: translateX(-50%);
-                                                        }
-                                                        
-                                                        /* Позиции для кнопки 42px (центр = 21px, шаг = 5px) */
-                                                        .mobile-menu span:nth-child(1) { top: 16px; }
-                                                        .mobile-menu span:nth-child(2) { top: 21px; } /* Ровно по центру */
-                                                        .mobile-menu span:nth-child(3) { top: 26px; }
-                                                        
-                                                        /* Состояние активного меню (крестик) */
-                                                        .mobile-menu.active span:nth-child(1) {
-                                                            top: 21px; /* Перемещаем в центр */
-                                                            transform: translateX(-50%) rotate(45deg);
-                                                        }
-                                                        
-                                                        .mobile-menu.active span:nth-child(2) {
-                                                            opacity: 0;
-                                                            transform: translateX(-50%) scale(0);
-                                                        }
-                                                        
-                                                        .mobile-menu.active span:nth-child(3) {
-                                                            top: 21px; /* Перемещаем в центр */
-                                                            transform: translateX(-50%) rotate(-45deg);
-                                                        }
-                                                        
-                                                        /* Мобильное меню (выпадающее) */
-                                                        @media (max-width: 768px) {
-                                                            .nav-links {
-                                                                display: none;
-                                                                flex-direction: column;
-                                                                position: absolute;
-                                                                top: 100%; /* прилипает к нижнему краю хидера */
-                                                                left: 0;
-                                                                right: 0;
-                                                                background: white;
-                                                                padding: 20px;
-                                                                gap: 16px;
-                                                                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                                                                z-index: 999;
-                                                                border-top: 1px solid var(--border);
-                                                            }
-                                                            .nav-links.show {
-                                                                display: flex;
-                                                            }
-                                                            .mobile-menu {
-                                                                display: flex;
-                                                            }
-                                                            .btn-header {
-                                                                padding: 6px 14px;
-                                                                font-size: 12px;
-                                                                white-space: nowrap;
-                                                            }
-                                                            .logo {
-                                                                font-size: 16px;
-                                                            }
-                                                            .logo img {
-                                                                height: 30px;
-                                                            }
-                                                            /* Исправление отступа сверху на iOS */
-                                                            body {
-                                                                padding-top: 0;
-                                                                margin-top: 0;
-                                                            }
-                                                            header {
-                                                                top: 0;
-                                                                margin-top: 0;
-                                                            }
-                                                        }
-                                                        
-                                                        /* Все кнопки – capsule */
-                                                        .btn {
-                                                            display: inline-flex;
-                                                            align-items: center;
-                                                            gap: 8px;
-                                                            padding: 14px 28px;
-                                                            border-radius: 40px !important;
-                                                            font-weight: 600;
-                                                            text-decoration: none;
-                                                            transition: all 0.3s;
-                                                            border: none;
-                                                            cursor: pointer;
-                                                            font-size: 16px;
-                                                        }
-                                                        
-                                                        .btn-primary {
-                                                            background: var(--gradient);
-                                                            color: white;
-                                                            box-shadow: var(--shadow);
-                                                        }
-                                                        
-                                                        .btn-primary:hover {
-                                                            transform: translateY(-2px);
-                                                            box-shadow: var(--shadow-lg);
-                                                        }
-                                                        
-                                                        .btn-accent {
-                                                            background: var(--secondary);
-                                                            color: var(--primary);
-                                                            border: 2px solid var(--primary);
-                                                        }
-                                                        
-                                                        .btn-accent:hover {
-                                                            background: var(--secondary-hover);
-                                                            transform: translateY(-2px);
-                                                        }
-                                                        
-                                                        .btn-cta {
-                                                            background: var(--cta);
-                                                            color: white;
-                                                            font-size: 18px;
-                                                            padding: 16px 32px;
-                                                            border-radius: 40px;
-                                                        }
-                                                        
-                                                        .btn-cta:hover {
-                                                            background: var(--cta-hover);
-                                                            transform: translateY(-2px);
-                                                            box-shadow: var(--shadow-lg);
-                                                        }
-                                                        
-                                                        .btn-outline {
-                                                            background: transparent;
-                                                            border: 2px solid var(--primary);
-                                                            color: var(--primary);
-                                                        }
-                                                        
-                                                        .btn-outline:hover {
-                                                            background: var(--primary);
-                                                            color: white;
-                                                        }
-                                                        
-                                                        .btn-white {
-                                                            background: white;
-                                                            color: var(--primary);
-                                                        }
-                                                        
-                                                        .btn-white:hover {
-                                                            background: var(--secondary);
-                                                            transform: translateY(-2px);
-                                                        }
-                                                        
-                                                        /* Hero Section */
-                                                        .hero {
-                                                            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-                                                            color: white;
-                                                            padding: 100px 0;
-                                                            position: relative;
-                                                            overflow: hidden;
-                                                        }
-                                                        
-                                                        .hero::before {
-                                                            content: '';
-                                                            position: absolute;
-                                                            top: 0;
-                                                            left: 0;
-                                                            right: 0;
-                                                            bottom: 0;
-                                                            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-                                                            background-size: cover;
-                                                            opacity: 0.3;
-                                                        }
-                                                        
-                                                        .hero-content {
-                                                            position: relative;
-                                                            z-index: 1;
-                                                            max-width: 800px;
-                                                        }
-                                                        
-                                                        .hero-badge {
-                                                            display: inline-block;
-                                                            background: rgba(212, 175, 55, 0.2);
-                                                            border: 1px solid var(--accent);
-                                                            color: var(--accent);
-                                                            padding: 8px 16px;
-                                                            border-radius: 20px;
-                                                            font-weight: 600;
-                                                            margin-bottom: 24px;
-                                                            font-size: 14px;
-                                                        }
-                                                        
-                                                        .hero h1 {
-                                                            font-size: 56px;
-                                                            margin-bottom: 20px;
-                                                            font-weight: 800;
-                                                        }
-                                                        
-                                                        .hero-subtitle {
-                                                            font-size: 20px;
-                                                            margin-bottom: 32px;
-                                                            opacity: 0.95;
-                                                            line-height: 1.6;
-                                                        }
-                                                        
-                                                        .hero-stats {
-                                                            display: flex;
-                                                            gap: 32px;
-                                                            margin: 40px 0;
-                                                            flex-wrap: wrap;
-                                                        }
-                                                        
-                                                        .stat-item {
-                                                            display: flex;
-                                                            flex-direction: column;
-                                                        }
-                                                        
-                                                        .stat-value {
-                                                            font-size: 36px;
-                                                            font-weight: 800;
-                                                            color: var(--accent);
-                                                        }
-                                                        
-                                                        .stat-label {
-                                                            font-size: 14px;
-                                                            opacity: 0.9;
-                                                        }
-                                                        
-                                                        .hero-buttons {
-                                                            display: flex;
-                                                            gap: 16px;
-                                                            flex-wrap: wrap;
-                                                            margin-top: 32px;
-                                                        }
-                                                        
-                                                        /* Live Tender Banner */
-                                                        .live-tender {
-                                                            background: white;
-                                                            border-radius: 12px;
-                                                            padding: 24px;
-                                                            margin-top: 40px;
-                                                            box-shadow: var(--shadow-lg);
-                                                            display: flex;
-                                                            align-items: center;
-                                                            gap: 24px;
-                                                            flex-wrap: wrap;
-                                                            animation: slideIn 0.5s ease-out;
-                                                        }
-                                                        
-                                                        @keyframes slideIn {
-                                                            from {
-                                                                opacity: 0;
-                                                                transform: translateY(20px);
-                                                            }
-                                                            to {
-                                                                opacity: 1;
-                                                                transform: translateY(0);
-                                                            }
-                                                        }
-                                                        
-                                                        .tender-live-badge {
-                                                            background: #10B981;
-                                                            color: white;
-                                                            padding: 8px 16px;
-                                                            border-radius: 20px;
-                                                            font-weight: 600;
-                                                            font-size: 14px;
-                                                            display: flex;
-                                                            align-items: center;
-                                                            gap: 8px;
-                                                        }
-                                                        
-                                                        .tender-live-badge::before {
-                                                            content: '';
-                                                            width: 8px;
-                                                            height: 8px;
-                                                            background: white;
-                                                            border-radius: 50%;
-                                                            animation: pulse 2s infinite;
-                                                        }
-                                                        
-                                                        @keyframes pulse {
-                                                            0%, 100% { opacity: 1; }
-                                                            50% { opacity: 0.5; }
-                                                        }
-                                                        
-                                                        .tender-info {
-                                                            flex: 1;
-                                                        }
-                                                        
-                                                        .tender-info strong {
-                                                            color: var(--text-dark);
-                                                            font-size: 16px;
-                                                        }
-                                                        
-                                                        .tender-details {
-                                                            display: flex;
-                                                            gap: 24px;
-                                                            margin-top: 8px;
-                                                            font-size: 14px;
-                                                            color: var(--text-gray);
-                                                        }
-                                                        
-                                                        section {
-                                                            padding: 80px 0;
-                                                        }
-                                                        
-                                                        .section-header {
-                                                            text-align: center;
-                                                            max-width: 700px;
-                                                            margin: 0 auto 60px;
-                                                        }
-                                                        
-                                                        .section-header h2 {
-                                                            margin-bottom: 16px;
-                                                            color: var(--text-dark);
-                                                        }
-                                                        
-                                                        .section-header p {
-                                                            color: var(--text-gray);
-                                                            font-size: 18px;
-                                                        }
-                                                        
-                                                        /* Features */
-                                                        .features {
-                                                            background: var(--bg-light);
-                                                        }
-                                                        
-                                                        .features-grid {
-                                                            display: grid;
-                                                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                                                            gap: 32px;
-                                                        }
-                                                        
-                                                        .feature-card {
-                                                            background: white;
-                                                            padding: 32px;
-                                                            border-radius: 12px;
-                                                            box-shadow: var(--shadow);
-                                                            transition: all 0.3s;
-                                                            border: 2px solid transparent;
-                                                        }
-                                                        
-                                                        .feature-card:hover {
-                                                            transform: translateY(-5px);
-                                                            box-shadow: var(--shadow-lg);
-                                                            border-color: var(--primary);
-                                                        }
-                                                        
-                                                        .feature-icon {
-                                                            width: 64px;
-                                                            height: 64px;
-                                                            background: var(--gradient);
-                                                            border-radius: 12px;
-                                                            display: flex;
-                                                            align-items: center;
-                                                            justify-content: center;
-                                                            font-size: 32px;
-                                                            margin-bottom: 20px;
-                                                        }
-                                                        
-                                                        .feature-card h3 {
-                                                            margin-bottom: 12px;
-                                                            color: var(--text-dark);
-                                                        }
-                                                        
-                                                        .feature-card p {
-                                                            color: var(--text-gray);
-                                                            line-height: 1.6;
-                                                        }
-                                                        
-                                                        .feature-stat {
-                                                            display: inline-block;
-                                                            background: var(--bg-light);
-                                                            padding: 8px 16px;
-                                                            border-radius: 8px;
-                                                            margin-top: 16px;
-                                                            font-weight: 600;
-                                                            color: var(--primary);
-                                                            font-size: 14px;
-                                                        }
-                                                        
-                                                        /* How it Works */
-                                                        .steps {
-                                                            display: grid;
-                                                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                                                            gap: 32px;
-                                                            margin-top: 48px;
-                                                        }
-                                                        
-                                                        .step {
-                                                            text-align: center;
-                                                            padding: 32px 24px;
-                                                            background: white;
-                                                            border-radius: 12px;
-                                                            box-shadow: var(--shadow);
-                                                            position: relative;
-                                                        }
-                                                        
-                                                        .step-number {
-                                                            width: 64px;
-                                                            height: 64px;
-                                                            background: var(--gradient);
-                                                            color: white;
-                                                            border-radius: 50%;
-                                                            display: flex;
-                                                            align-items: center;
-                                                            justify-content: center;
-                                                            font-size: 28px;
-                                                            font-weight: 800;
-                                                            margin: 0 auto 20px;
-                                                        }
-                                                        
-                                                        .step h3 {
-                                                            margin-bottom: 12px;
-                                                        }
-                                                        
-                                                        .step p {
-                                                            color: var(--text-gray);
-                                                            font-size: 15px;
-                                                        }
-                                                        
-                                                        /* Demo Section */
-                                                        .demo {
-                                                            background: var(--bg-light);
-                                                        }
-                                                        
-                                                        .demo-grid {
-                                                            display: grid;
-                                                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                                                            gap: 32px;
-                                                        }
-                                                        
-                                                        .demo-card {
-                                                            background: white;
-                                                            border-radius: 12px;
-                                                            overflow: hidden;
-                                                            box-shadow: var(--shadow);
-                                                            transition: transform 0.3s;
-                                                        }
-                                                        
-                                                        .demo-card:hover {
-                                                            transform: translateY(-5px);
-                                                            box-shadow: var(--shadow-lg);
-                                                        }
-                                                        
-                                                        .demo-image {
-                                                            background: var(--gradient);
-                                                            height: 200px;
-                                                            display: flex;
-                                                            align-items: center;
-                                                            justify-content: center;
-                                                            font-size: 32px;
-                                                            font-weight: 600;
-                                                            color: white;
-                                                            text-align: center;
-                                                            padding: 20px;
-                                                        }
-                                                        
-                                                        .demo-content {
-                                                            padding: 24px;
-                                                        }
-                                                        
-                                                        .demo-content h3 {
-                                                            margin-bottom: 8px;
-                                                        }
-                                                        
-                                                        .demo-content p {
-                                                            color: var(--text-gray);
-                                                            font-size: 15px;
-                                                        }
-                                                        
-                                                        /* For Sellers */
-                                                        .sellers {
-                                                            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
-                                                        }
-                                                        
-                                                        .sellers-content {
-                                                            display: grid;
-                                                            grid-template-columns: 1fr 1fr;
-                                                            gap: 60px;
-                                                            align-items: center;
-                                                        }
-                                                        
-                                                        @media (max-width: 768px) {
-                                                            .sellers-content {
-                                                                grid-template-columns: 1fr;
-                                                            }
-                                                        }
-                                                        
-                                                        .sellers-form {
-                                                            background: white;
-                                                            padding: 40px;
-                                                            border-radius: 12px;
-                                                            box-shadow: var(--shadow-lg);
-                                                        }
-                                                        
-                                                        .form-group {
-                                                            margin-bottom: 24px;
-                                                        }
-                                                        
-                                                        .form-group label {
-                                                            display: block;
-                                                            margin-bottom: 8px;
-                                                            font-weight: 600;
-                                                            color: var(--text-dark);
-                                                        }
-                                                        
-                                                        .form-group input,
-                                                        .form-group select,
-                                                        .form-group textarea {
-                                                            width: 100%;
-                                                            padding: 12px 16px;
-                                                            border: 2px solid var(--border);
-                                                            border-radius: 8px;
-                                                            font-size: 16px;
-                                                            font-family: inherit;
-                                                            transition: border-color 0.3s;
-                                                        }
-                                                        
-                                                        .form-group input:focus,
-                                                        .form-group select:focus,
-                                                        .form-group textarea:focus {
-                                                            outline: none;
-                                                            border-color: var(--primary);
-                                                        }
-                                                        
-                                                        .form-note {
-                                                            font-size: 14px;
-                                                            color: var(--text-light);
-                                                            margin-top: 16px;
-                                                            text-align: center;
-                                                        }
-                                                        
-                                                        .benefits-list {
-                                                            list-style: none;
-                                                            margin: 24px 0;
-                                                        }
-                                                        
-                                                        .benefits-list li {
-                                                            padding: 12px 0;
-                                                            padding-left: 36px;
-                                                            position: relative;
-                                                            color: var(--text-gray);
-                                                        }
-                                                        
-                                                        .benefits-list li::before {
-                                                            content: '✓';
-                                                            position: absolute;
-                                                            left: 0;
-                                                            color: var(--primary);
-                                                            font-weight: 700;
-                                                            font-size: 20px;
-                                                        }
-                                                        
-                                                        /* FAQ */
-                                                        .faq-item {
-                                                            background: white;
-                                                            border-radius: 8px;
-                                                            margin-bottom: 16px;
-                                                            box-shadow: var(--shadow);
-                                                            overflow: hidden;
-                                                        }
-                                                        
-                                                        .faq-question {
-                                                            padding: 24px;
-                                                            cursor: pointer;
-                                                            display: flex;
-                                                            justify-content: space-between;
-                                                            align-items: center;
-                                                            font-weight: 600;
-                                                            transition: background 0.3s;
-                                                        }
-                                                        
-                                                        .faq-question:hover {
-                                                            background: var(--bg-light);
-                                                        }
-                                                        
-                                                        .faq-answer {
-                                                            padding: 0 24px 24px;
-                                                            color: var(--text-gray);
-                                                            display: none;
-                                                        }
-                                                        
-                                                        .faq-item.active .faq-answer {
-                                                            display: block;
-                                                        }
-                                                        
-                                                        .faq-item.active .faq-question {
-                                                            color: var(--primary);
-                                                        }
-                                                        
-                                                        /* CTA Section */
-                                                        .cta-section {
-                                                            background: var(--gradient);
-                                                            color: white;
-                                                            text-align: center;
-                                                            padding: 100px 0;
-                                                        }
-                                                        
-                                                        .cta-section h2 {
-                                                            font-size: 42px;
-                                                            margin-bottom: 20px;
-                                                        }
-                                                        
-                                                        .cta-section p {
-                                                            font-size: 20px;
-                                                            opacity: 0.95;
-                                                            margin-bottom: 32px;
-                                                        }
-                                                        
-                                                        /* Footer */
-                                                        footer {
-                                                            background: var(--text-dark);
-                                                            color: white;
-                                                            padding: 60px 0 30px;
-                                                        }
-                                                        
-                                                        .footer-content {
-                                                            display: grid;
-                                                            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                                                            gap: 40px;
-                                                            margin-bottom: 40px;
-                                                        }
-                                                        
-                                                        .footer-section h4 {
-                                                            margin-bottom: 16px;
-                                                            color: var(--accent);
-                                                        }
-                                                        
-                                                        .footer-section p,
-                                                        .footer-section a {
-                                                            color: rgba(255, 255, 255, 0.8);
-                                                            text-decoration: none;
-                                                            line-height: 1.8;
-                                                        }
-                                                        
-                                                        .footer-section a:hover {
-                                                            color: var(--accent);
-                                                        }
-                                                        
-                                                        .footer-bottom {
-                                                            border-top: 1px solid rgba(255, 255, 255, 0.1);
-                                                            padding-top: 30px;
-                                                            text-align: center;
-                                                            color: rgba(255, 255, 255, 0.6);
-                                                            font-size: 14px;
-                                                        }
-                                                        
-                                                        /* Animations */
-                                                        .fade-in {
-                                                            opacity: 0;
-                                                            transform: translateY(30px);
-                                                            transition: all 0.6s;
-                                                        }
-                                                        
-                                                        .fade-in.visible {
-                                                            opacity: 1;
-                                                            transform: translateY(0);
-                                                        }
-                                                        
-                                                        /* Toast */
-                                                        .toast {
-                                                            position: fixed;
-                                                            bottom: 30px;
-                                                            left: 50%;
-                                                            transform: translateX(-50%) translateY(100px);
-                                                            background: #2D5A3D;
-                                                            color: white;
-                                                            padding: 12px 24px;
-                                                            border-radius: 40px;
-                                                            font-size: 14px;
-                                                            font-weight: 500;
-                                                            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-                                                            z-index: 1100;
-                                                            opacity: 0;
-                                                            transition: transform 0.3s, opacity 0.3s;
-                                                            pointer-events: none;
-                                                        }
-                                                        .toast.show {
-                                                            transform: translateX(-50%) translateY(0);
-                                                            opacity: 1;
-                                                        }
-                                                        
-                                                        @media (max-width: 768px) {
-                                                            .hero {
-                                                                padding: 60px 0;
-                                                            }
-                                                            .hero h1 {
-                                                                font-size: 32px;
-                                                            }
-                                                            .hero-stats {
-                                                                gap: 16px;
-                                                            }
-                                                            .stat-value {
-                                                                font-size: 28px;
-                                                            }
-                                                            section {
-                                                                padding: 60px 0;
-                                                            }
-                                                            .live-tender {
-                                                                flex-direction: column;
-                                                                text-align: center;
-                                                            }
-                                                            .tender-details {
-                                                                flex-direction: column;
-                                                                gap: 8px;
-                                                            }
-                                                        }
-                                                    </style>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
+    <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
+    <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агросектора Беларуси">
+    <meta property="og:description" content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.">
+    <meta property="og:type" content="website">
+    <title>АгроТендерСервис - Тендеры в Telegram для агросектора</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        <!-- Header -->
-        <header>
-            <div class="container">
-                <nav>
-                    <a href="#" class="logo">
-                        <img src="agro_group_logo.png" alt="АгроТендерСервис" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
-                            <span>АгроТендерСервис</span>
-                    </a>
-                    <ul class="nav-links">
-                        <li><a href="#features">Возможности</a></li>
-                        <li><a href="#how-it-works">Как работает</a></li>
-                        <li><a href="#demo">Демонстрация</a></li>
-                        <li><a href="#for-sellers">Поставщикам</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li>
-                            <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-                                </svg>
-                                Бот заказчика
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mobile-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </nav>
-            </div>
-        </header>
+        :root {
+            --primary: #2D5A3D;
+            --primary-dark: #1E3A2A;
+            --primary-light: #3D7A52;
+            --accent: #D4AF37;
+            --accent-hover: #C49F27;
+            --cta: #2D5A3D;
+            --cta-hover: #1E3A2A;
+            --secondary: #E8F0E9;
+            --secondary-hover: #D4E0D6;
+            --bg-light: #F5F7FA;
+            --bg-white: #FFFFFF;
+            --text-dark: #1A1A2E;
+            --text-gray: #4A5568;
+            --text-light: #718096;
+            --border: #E2E8F0;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
         
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
-                    <h1>Тендеры для агробизнеса в Telegram</h1>
-                    <p class="hero-subtitle">
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: white;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h1 { font-size: 48px; }
+        h2 { font-size: 36px; }
+        h3 { font-size: 24px; }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            h2 { font-size: 28px; }
+            h3 { font-size: 20px; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: var(--bg-white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 36px;
+            width: auto;
+            max-width: 48px;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #f0f0f0;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-gray);
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 20px;
+            background: var(--cta);
+            color: white !important;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 40px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 6px rgba(45, 90, 61, 0.2);
+            border: none;
+            white-space: nowrap;
+        }
+        
+        .btn-header:hover {
+            background: var(--cta-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+            color: white !important;
+        }
+        
+        /* Гамбургер-кнопка скрыта на десктопе */
+        .mobile-menu {
+            display: none;
+        }
+        
+        /* Все кнопки – capsule */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 40px !important;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+            box-shadow: var(--shadow);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-accent {
+            background: var(--secondary);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-accent:hover {
+            background: var(--secondary-hover);
+            transform: translateY(-2px);
+        }
+        
+        .btn-cta {
+            background: var(--cta);
+            color: white;
+            font-size: 18px;
+            padding: 16px 32px;
+            border-radius: 40px;
+        }
+        
+        .btn-cta:hover {
+            background: var(--cta-hover);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-white {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .btn-white:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+            opacity: 0.3;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            font-size: 14px;
+        }
+        
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        
+        .hero-subtitle {
+            font-size: 20px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+        
+        /* Live Tender Banner */
+        .live-tender {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 40px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .tender-live-badge {
+            background: #10B981;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tender-live-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .tender-info {
+            flex: 1;
+        }
+        
+        .tender-info strong {
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+        
+        .tender-details {
+            display: flex;
+            gap: 24px;
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        
+        .section-header h2 {
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+        
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 18px;
+        }
+        
+        /* Features */
+        .features {
+            background: var(--bg-light);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        
+        .feature-card p {
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+        
+        .feature-stat {
+            display: inline-block;
+            background: var(--bg-light);
+            padding: 8px 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 14px;
+        }
+        
+        /* How it Works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .step {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: 800;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 12px;
+        }
+        
+        .step p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+        
+        /* Demo Section */
+        .demo {
+            background: var(--bg-light);
+        }
+        
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .demo-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .demo-image {
+            background: var(--gradient);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .demo-content {
+            padding: 24px;
+        }
+        
+        .demo-content h3 {
+            margin-bottom: 8px;
+        }
+        
+        .demo-content p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+        
+        /* For Sellers */
+        .sellers {
+            background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
+        }
+        
+        .sellers-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .sellers-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .sellers-form {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        
+        .form-note {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 16px;
+            text-align: center;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 24px 0;
+        }
+        
+        .benefits-list li {
+            padding: 12px 0;
+            padding-left: 36px;
+            position: relative;
+            color: var(--text-gray);
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        /* FAQ */
+        .faq-item {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+        
+        .faq-answer {
+            padding: 0 24px 24px;
+            color: var(--text-gray);
+            display: none;
+        }
+        
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        
+        .faq-item.active .faq-question {
+            color: var(--primary);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section p {
+            font-size: 20px;
+            opacity: 0.95;
+            margin-bottom: 32px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2D5A3D;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1100;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 20px;
+                gap: 16px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                z-index: 999;
+                border-top: 0px solid var(--border);
+            }
+            .nav-links.show {
+                display: flex;
+            }
+            
+            /* Гамбургер-кнопка — только в мобильной версии */
+            .mobile-menu {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 42px;
+                height: 42px;
+                background: var(--cta);
+                border-radius: 50%;
+                cursor: pointer;
+                transition: background 0.2s, transform 0.1s;
+            }
+            .mobile-menu:hover {
+                background: var(--cta-hover);
+            }
+            .mobile-menu:active {
+                transform: scale(0.92);
+            }
+            .mobile-menu span {
+                position: absolute;
+                left: 50%;
+                width: 16px;
+                height: 1px;
+                background: white;
+                border-radius: 1px;
+                transition: all 0.3s ease-in-out;
+                transform: translateX(-50%);
+            }
+            .mobile-menu span:nth-child(1) { top: 16px; }
+            .mobile-menu span:nth-child(2) { top: 21px; }
+            .mobile-menu span:nth-child(3) { top: 26px; }
+            .mobile-menu.active span:nth-child(1) {
+                top: 21px;
+                transform: translateX(-50%) rotate(45deg);
+            }
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-50%) scale(0);
+            }
+            .mobile-menu.active span:nth-child(3) {
+                top: 21px;
+                transform: translateX(-50%) rotate(-45deg);
+            }
+            
+            .btn-header {
+                padding: 6px 14px;
+                font-size: 12px;
+                white-space: nowrap;
+            }
+            .logo {
+                font-size: 16px;
+            }
+            .logo img {
+                height: 30px;
+            }
+            body {
+                padding-top: 0;
+                margin-top: 0;
+            }
+            header {
+                top: 0;
+                margin-top: 0;
+            }
+            .hero {
+                padding: 60px 0;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .hero-stats {
+                gap: 16px;
+            }
+            .stat-value {
+                font-size: 28px;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .live-tender {
+                flex-direction: column;
+                text-align: center;
+            }
+            .tender-details {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="agro_group_logo.png" alt="АгроТендерСервис" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
+                    <span>АгроТендерСервис</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Возможности</a></li>
+                    <li><a href="#how-it-works">Как работает</a></li>
+                    <li><a href="#demo">Демонстрация</a></li>
+                    <li><a href="#for-sellers">Поставщикам</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li>
+                        <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                            Бот заказчика
+                        </a>
+                    </li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
+                <h1>Тендеры для агробизнеса в Telegram</h1>
+                <p class="hero-subtitle">
                     Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через систему ботов. Получайте лучшие цены от десятков поставщиков за 3 часа.
-                    </p>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-value">150+</span>
-                            <span class="stat-label">тендеров с 2024 года</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">500+</span>
-                            <span class="stat-label">активных участников</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">10+</span>
-                            <span class="stat-label">предложений на тендер</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-value">3 часа</span>
-                            <span class="stat-label">среднее время торгов</span>
-                        </div>
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">150+</span>
+                        <span class="stat-label">тендеров с 2024 года</span>
                     </div>
-                    
-                    <div class="hero-buttons">
-                        <a href="https://t.me/agro_tender_bot" class="btn btn-cta" target="_blank">
-                            📝 Я заказчик – создать заявку
-                        </a>
-                        <a href="#for-sellers" class="btn btn-accent">
-                            🚚 Я поставщик – участвовать
-                        </a>
+                    <div class="stat-item">
+                        <span class="stat-value">500+</span>
+                        <span class="stat-label">активных участников</span>
                     </div>
-                    
-                    <!-- Live Tender Example -->
-                    <div class="live-tender">
-                        <div class="tender-live-badge">LIVE</div>
-                        <div class="tender-info">
-                            <strong>🌾 Пшеница 3 класса, 50 тонн</strong>
-                            <div class="tender-details">
-                                <span>💰 Текущая цена: 482 BYN</span>
-                                <span>⏱️ Осталось: 1 час 23 мин</span>
-                                <span>✅ 5 предложений</span>
-                            </div>
+                    <div class="stat-item">
+                        <span class="stat-value">10+</span>
+                        <span class="stat-label">предложений на тендер</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">3 часа</span>
+                        <span class="stat-label">среднее время торгов</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="https://t.me/agro_tender_bot" class="btn btn-cta" target="_blank">
+                        📝 Я заказчик – создать заявку
+                    </a>
+                    <a href="#for-sellers" class="btn btn-accent">
+                        🚚 Я поставщик – участвовать
+                    </a>
+                </div>
+                
+                <!-- Live Tender Example -->
+                <div class="live-tender">
+                    <div class="tender-live-badge">LIVE</div>
+                    <div class="tender-info">
+                        <strong>🌾 Пшеница 3 класса, 50 тонн</strong>
+                        <div class="tender-details">
+                            <span>💰 Текущая цена: 482 BYN</span>
+                            <span>⏱️ Осталось: 1 час 23 мин</span>
+                            <span>✅ 5 предложений</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- Features -->
-        <section id="features" class="features">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Почему АгроТендерСервис</h2>
-                    <p>Современный инструмент для эффективных закупок в агросфере</p>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Почему АгроТендерСервис</h2>
+                <p>Современный инструмент для эффективных закупок в агросфере</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⏱️</div>
+                    <h3>Экономия времени до 80%</h3>
+                    <p>Ручные тендеры заменены на автоматические. Заявка создаётся за 5 минут, торги длятся 3 часа, итоги подводятся мгновенно.</p>
+                    <span class="feature-stat">📊 5 дней → 3 часа</span>
                 </div>
                 
-                <div class="features-grid">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">⏱️</div>
-                        <h3>Экономия времени до 80%</h3>
-                        <p>Ручные тендеры заменены на автоматические. Заявка создаётся за 5 минут, торги длятся 3 часа, итоги подводятся мгновенно.</p>
-                        <span class="feature-stat">📊 5 дней → 3 часа</span>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Прозрачные торги без посредников</h3>
+                    <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
+                    <span class="feature-stat">🔒 Полное логирование</span>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Разделение заявки</h3>
+                    <p>Можно распределить закупку между несколькими поставщиками – бот подберёт оптимальную комбинацию по цене за единицу.</p>
+                    <span class="feature-stat">💡 Экономия до 15%</span>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📦</div>
+                    <h3>Частичная поставка</h3>
+                    <p>Если полный объём недоступен – сервис предложит лучшие частичные предложения, вы не останетесь без товара.</p>
+                    <span class="feature-stat">✅ Гарантия получения</span>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">💰</div>
+                    <h3>Выгодные цены</h3>
+                    <p>Конкурентная среда снижает цены. Среднее снижение стоимости – 12% от начальной цены заказчика.</p>
+                    <span class="feature-stat">📉 Среднее снижение: 12%</span>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📱</div>
+                    <h3>Удобство Telegram</h3>
+                    <p>Не нужно устанавливать дополнительное ПО. Всё работает в привычном мессенджере с мгновенными уведомлениями.</p>
+                    <span class="feature-stat">🚀 Старт за 2 минуты</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How it Works -->
+    <section id="how-it-works">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Как это работает</h2>
+                <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
+            </div>
+            
+            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍🌾 Для заказчиков</h3>
+            <div class="steps fade-in">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Регистрация</h3>
+                    <p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a> и нажмите «Подать заявку»</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Создание заявки</h3>
+                    <p>Заполните форму: товар, объём, сроки, условия оплаты. Укажите опции разделения и частичной поставки.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Торги</h3>
+                    <p>Заявка попадает в очередь. Торги длятся 3 часа. Все предложения видны в реальном времени.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Результат</h3>
+                    <p>Бот присылает список победителей с контактами. Вы связываетесь с поставщиками напрямую.</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin: 48px 0 32px; color: var(--primary);">🚚 Для поставщиков</h3>
+            <div class="steps fade-in">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Оставьте заявку</h3>
+                    <p>Заполните форму ниже: компания, контакты, сфера деятельности.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Получите доступ</h3>
+                    <p>Администратор добавит вас в тендерную группу и пришлёт бота.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Участвуйте</h3>
+                    <p>Видите новые заявки в группе. Делайте предложения через бота: цена, объём, дата поставки.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Получайте заказы</h3>
+                    <p>Уведомления о перебитии цены. При победе – контакты заказчика. В среднем 3-5 новых клиентов в месяц.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Как выглядит сервис</h2>
+                <p>Три компонента системы для удобной работы</p>
+            </div>
+            
+            <div class="demo-grid">
+                <div class="demo-card fade-in">
+                    <div class="demo-image">🤖 Бот заказчика</div>
+                    <div class="demo-content">
+                        <h3>Бот заказчика</h3>
+                        <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
+                        <a href="https://t.me/agro_tender_bot" class="btn btn-outline" style="margin-top: 16px;" target="_blank">Перейти в бот →</a>
                     </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Прозрачные торги без посредников</h3>
-                        <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
-                        <span class="feature-stat">🔒 Полное логирование</span>
+                </div>
+                
+                <div class="demo-card fade-in">
+                    <div class="demo-image">🚛 Бот поставщика</div>
+                    <div class="demo-content">
+                        <h3>Бот поставщика</h3>
+                        <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
+                        <a href="#for-sellers" class="btn btn-outline" style="margin-top: 16px;">Получить доступ →</a>
                     </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">🔄</div>
-                        <h3>Разделение заявки</h3>
-                        <p>Можно распределить закупку между несколькими поставщиками – бот подберёт оптимальную комбинацию по цене за единицу.</p>
-                        <span class="feature-stat">💡 Экономия до 15%</span>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">📦</div>
-                        <h3>Частичная поставка</h3>
-                        <p>Если полный объём недоступен – сервис предложит лучшие частичные предложения, вы не останетесь без товара.</p>
-                        <span class="feature-stat">✅ Гарантия получения</span>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">💰</div>
-                        <h3>Выгодные цены</h3>
-                        <p>Конкурентная среда снижает цены. Среднее снижение стоимости – 12% от начальной цены заказчика.</p>
-                        <span class="feature-stat">📉 Среднее снижение: 12%</span>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">📱</div>
-                        <h3>Удобство Telegram</h3>
-                        <p>Не нужно устанавливать дополнительное ПО. Всё работает в привычном мессенджере с мгновенными уведомлениями.</p>
-                        <span class="feature-stat">🚀 Старт за 2 минуты</span>
+                </div>
+                
+                <div class="demo-card fade-in">
+                    <div class="demo-image">💬 Тендерная группа</div>
+                    <div class="demo-content">
+                        <h3>Тендерная группа</h3>
+                        <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- How it Works -->
-        <section id="how-it-works">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Как это работает</h2>
-                    <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
-                </div>
-                
-                <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍🌾 Для заказчиков</h3>
-                <div class="steps fade-in">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Регистрация</h3>
-                        <p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a> и нажмите «Подать заявку»</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Создание заявки</h3>
-                        <p>Заполните форму: товар, объём, сроки, условия оплаты. Укажите опции разделения и частичной поставки.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Торги</h3>
-                        <p>Заявка попадает в очередь. Торги длятся 3 часа. Все предложения видны в реальном времени.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Результат</h3>
-                        <p>Бот присылает список победителей с контактами. Вы связываетесь с поставщиками напрямую.</p>
-                    </div>
-                </div>
-                
-                <h3 style="text-align: center; margin: 48px 0 32px; color: var(--primary);">🚚 Для поставщиков</h3>
-                <div class="steps fade-in">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Оставьте заявку</h3>
-                        <p>Заполните форму ниже: компания, контакты, сфера деятельности.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Получите доступ</h3>
-                        <p>Администратор добавит вас в тендерную группу и пришлёт бота.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Участвуйте</h3>
-                        <p>Видите новые заявки в группе. Делайте предложения через бота: цена, объём, дата поставки.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Получайте заказы</h3>
-                        <p>Уведомления о перебитии цены. При победе – контакты заказчика. В среднем 3-5 новых клиентов в месяц.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Demo Section -->
-        <section id="demo" class="demo">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Как выглядит сервис</h2>
-                    <p>Три компонента системы для удобной работы</p>
-                </div>
-                
-                <div class="demo-grid">
-                    <div class="demo-card fade-in">
-                        <div class="demo-image">🤖 Бот заказчика</div>
-                        <div class="demo-content">
-                            <h3>Бот заказчика</h3>
-                            <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
-                            <a href="https://t.me/agro_tender_bot" class="btn btn-outline" style="margin-top: 16px;" target="_blank">Перейти в бот →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-card fade-in">
-                        <div class="demo-image">🚛 Бот поставщика</div>
-                        <div class="demo-content">
-                            <h3>Бот поставщика</h3>
-                            <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
-                            <a href="#for-sellers" class="btn btn-outline" style="margin-top: 16px;">Получить доступ →</a>
-                        </div>
-                    </div>
-                    
-                    <div class="demo-card fade-in">
-                        <div class="demo-image">💬 Тендерная группа</div>
-                        <div class="demo-content">
-                            <h3>Тендерная группа</h3>
-                            <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- For Sellers -->
-        <section id="for-sellers" class="sellers">
-            <div class="container">
-                <div class="sellers-content">
-                    <div class="fade-in">
-                        <h2>Стать поставщиком (дилером)</h2>
-                        <p style="font-size: 18px; color: var(--text-gray); margin: 16px 0 24px;">
+        </div>
+    </section>
+    
+    <!-- For Sellers -->
+    <section id="for-sellers" class="sellers">
+        <div class="container">
+            <div class="sellers-content">
+                <div class="fade-in">
+                    <h2>Стать поставщиком (дилером)</h2>
+                    <p style="font-size: 18px; color: var(--text-gray); margin: 16px 0 24px;">
                         Участвуйте в тендерах, получайте заказы от агропредприятий Беларуси. 
                         Расширьте клиентскую базу без холодных звонков и спама.
-                        </p>
-                        
-                        <ul class="benefits-list">
-                            <li>Средний чек заказа: <strong>12 500 BYN</strong></li>
-                            <li>3-5 новых клиентов в месяц</li>
-                            <li>Прозрачные условия торгов</li>
-                            <li>Мгновенные уведомления в Telegram</li>
-                            <li>Без скрытых комиссий и посредников</li>
-                        </ul>
-                        
-                        <div style="background: white; padding: 24px; border-radius: 8px; margin-top: 24px; border-left: 4px solid var(--accent);">
-                            <strong style="color: var(--primary);">💡 Пример:</strong>
-                            <p style="margin: 8px 0 0; color: var(--text-gray); font-size: 15px;">
+                    </p>
+                    
+                    <ul class="benefits-list">
+                        <li>Средний чек заказа: <strong>12 500 BYN</strong></li>
+                        <li>3-5 новых клиентов в месяц</li>
+                        <li>Прозрачные условия торгов</li>
+                        <li>Мгновенные уведомления в Telegram</li>
+                        <li>Без скрытых комиссий и посредников</li>
+                    </ul>
+                    
+                    <div style="background: white; padding: 24px; border-radius: 8px; margin-top: 24px; border-left: 4px solid var(--accent);">
+                        <strong style="color: var(--primary);">💡 Пример:</strong>
+                        <p style="margin: 8px 0 0; color: var(--text-gray); font-size: 15px;">
                             Поставщик зерна участвует в 10-15 тендерах в месяц. 
                             Выигрывает 3-5. Средний месячный доход от сервиса – 
                             <strong>37 500 – 62 500 BYN</strong>
-                            </p>
-                        </div>
+                        </p>
                     </div>
-                    
-                    <div class="sellers-form fade-in">
-                        <h3 style="margin-bottom: 24px; text-align: center;">Оставить заявку на участие</h3>
-                        <form id="sellerForm">
-                            <div class="form-group">
-                                <label for="company">Название компании / ИП *</label>
-                                <input type="text" id="company" name="company" required placeholder="ООО «АгроПоставка»">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="contact">Контактное лицо *</label>
-                                <input type="text" id="contact" name="contact" required placeholder="Иванов Иван">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="phone">Телефон *</label>
-                                <input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="telegram">Telegram</label>
-                                <input type="text" id="telegram" name="telegram" placeholder="@username">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="sphere">Сфера деятельности *</label>
-                                <select id="sphere" name="sphere" required>
-                                    <option value="">Выберите вариант</option>
-                                    <option value="grain">Зерновые культуры</option>
-                                    <option value="oilseeds">Масличные культуры</option>
-                                    <option value="fertilizers">Удобрения</option>
-                                    <option value="equipment">Сельхозтехника</option>
-                                    <option value="other">Другое</option>
-                                </select>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="comment">Комментарий</label>
-                                <textarea id="comment" name="comment" rows="3" placeholder="Регион работы, объёмы, опыт..."></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-cta" style="width: 100%; justify-content: center;">
-                                Отправить заявку → получить приглашение
-                            </button>
-                            
-                            <p class="form-note">
-                            🔒 После отправки мы добавим вас в сервис и пришлём приглашение в личные сообщения Telegram
-                            </p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- FAQ -->
-        <section id="faq">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Частые вопросы</h2>
-                    <p>Всё, что нужно знать о работе сервиса</p>
                 </div>
                 
-                <div class="faq-container fade-in">
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Как гарантируется честность торгов?
-                            <span>+</span>
+                <div class="sellers-form fade-in">
+                    <h3 style="margin-bottom: 24px; text-align: center;">Оставить заявку на участие</h3>
+                    <form id="sellerForm">
+                        <div class="form-group">
+                            <label for="company">Название компании / ИП *</label>
+                            <input type="text" id="company" name="company" required placeholder="ООО «АгроПоставка»">
                         </div>
-                        <div class="faq-answer">
-                            Все ставки видны участникам в реальном времени. Победитель определяется автоматически по минимальной цене. 
-                            Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.
+                        
+                        <div class="form-group">
+                            <label for="contact">Контактное лицо *</label>
+                            <input type="text" id="contact" name="contact" required placeholder="Иванов Иван">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Телефон *</label>
+                            <input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telegram">Telegram</label>
+                            <input type="text" id="telegram" name="telegram" placeholder="@username">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sphere">Сфера деятельности *</label>
+                            <select id="sphere" name="sphere" required>
+                                <option value="">Выберите вариант</option>
+                                <option value="grain">Зерновые культуры</option>
+                                <option value="oilseeds">Масличные культуры</option>
+                                <option value="fertilizers">Удобрения</option>
+                                <option value="equipment">Сельхозтехника</option>
+                                <option value="other">Другое</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment">Комментарий</label>
+                            <textarea id="comment" name="comment" rows="3" placeholder="Регион работы, объёмы, опыт..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-cta" style="width: 100%; justify-content: center;">
+                            Отправить заявку → получить приглашение
+                        </button>
+                        
+                        <p class="form-note">
+                            🔒 После отправки мы добавим вас в сервис и пришлём приглашение в личные сообщения Telegram
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Частые вопросы</h2>
+                <p>Всё, что нужно знать о работе сервиса</p>
+            </div>
+            
+            <div class="faq-container fade-in">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Как гарантируется честность торгов?
+                        <span>+</span>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Что если поставщик не выполнит обязательства?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            Сервис обеспечивает только проведение торгов. Договорённости о поставке, оплате и условиях 
-                            заказчик и поставщик заключают напрямую. Мы рекомендуем работать по предоплате или с обеспечением. 
-                            В будущем планируем систему рейтингов поставщиков.
-                        </div>
+                    <div class="faq-answer">
+                        Все ставки видны участникам в реальном времени. Победитель определяется автоматически по минимальной цене. 
+                        Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Можно ли отменить заявку?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            Да, заказчик может отменить заявку до начала торгов. После старта торгов отмена невозможна – 
-                            это нарушит доверие участников. Если торги уже начались, вы обязаны выбрать победителя.
-                        </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Что если поставщик не выполнит обязательства?
+                        <span>+</span>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Как происходит оплата?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            Сервис не участвует в финансовых расчётах между заказчиком и поставщиком. 
-                            Оплата происходит напрямую по договорённости сторон (наличный/безналичный расчёт, 
-                            предоплата/постоплата).
-                        </div>
+                    <div class="faq-answer">
+                        Сервис обеспечивает только проведение торгов. Договорённости о поставке, оплате и условиях 
+                        заказчик и поставщик заключают напрямую. Мы рекомендуем работать по предоплате или с обеспечением. 
+                        В будущем планируем систему рейтингов поставщиков.
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Какая комиссия сервиса?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. 
-                            Никаких дополнительных комиссий с сделок не взимаем.
-                        </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Можно ли отменить заявку?
+                        <span>+</span>
                     </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            Какие товары можно закупать?
-                            <span>+</span>
-                        </div>
-                        <div class="faq-answer">
-                            В основном это сельхозпродукция: зерновые (пшеница, ячмень, кукуруза), масличные (подсолнечник, рапс), 
-                            удобрения, семена, корма. Также возможна закупка сельхозтехники, запчастей, ГСМ. 
-                            Если ваш товар связан с агросферой – пишите, обсудим.
-                        </div>
+                    <div class="faq-answer">
+                        Да, заказчик может отменить заявку до начала торгов. После старта торгов отмена невозможна – 
+                        это нарушит доверие участников. Если торги уже начались, вы обязаны выбрать победителя.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Как происходит оплата?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Сервис не участвует в финансовых расчётах между заказчиком и поставщиком. 
+                        Оплата происходит напрямую по договорённости сторон (наличный/безналичный расчёт, 
+                        предоплата/постоплата).
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Какая комиссия сервиса?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. 
+                        Никаких дополнительных комиссий с сделок не взимаем.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Какие товары можно закупать?
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        В основном это сельхозпродукция: зерновые (пшеница, ячмень, кукуруза), масличные (подсолнечник, рапс), 
+                        удобрения, семена, корма. Также возможна закупка сельхозтехники, запчастей, ГСМ. 
+                        Если ваш товар связан с агросферой – пишите, обсудим.
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- CTA Section -->
-        <section class="cta-section">
-            <div class="container">
-                <h2>Начните экономить на закупках уже сегодня</h2>
-                <p>Присоединяйтесь к 500+ участникам агротендеров в Беларуси</p>
-                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-                    <a href="https://t.me/agro_tender_bot" class="btn btn-white" target="_blank">
-                        📝 Создать первую заявку бесплатно
-                    </a>
-                    <a href="#for-sellers" class="btn btn-white">
-                        🚚 Стать поставщиком
-                    </a>
-                </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Начните экономить на закупках уже сегодня</h2>
+            <p>Присоединяйтесь к 500+ участникам агротендеров в Беларуси</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://t.me/agro_tender_bot" class="btn btn-white" target="_blank">
+                    📝 Создать первую заявку бесплатно
+                </a>
+                <a href="#for-sellers" class="btn btn-white">
+                    🚚 Стать поставщиком
+                </a>
             </div>
-        </section>
-        
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h4>АгроТендерСервис</h4>
-                        <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
-                        Автоматизация закупок с 2025 года.</p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Контакты</h4>
-                        <p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>АгроТендерСервис</h4>
+                    <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
+                    Автоматизация закупок с 2025 года.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакты</h4>
+                    <p>
                         📩 Email: <a href="mailto:agro@tenderbot.by">agro@tenderbot.by</a><br>
                         💬 Telegram: <a href="https://t.me/agro_tender_support" target="_blank">@agro_tender_support</a><br>
                         📍 Беларусь
-                        </p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Быстрые ссылки</h4>
-                        <p>
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Быстрые ссылки</h4>
+                    <p>
                         <a href="https://t.me/agro_tender_bot" target="_blank">🔹 Тендерный бот</a><br>
                         <a href="#for-sellers">Стать поставщиком</a><br>
                         <a href="#faq">FAQ</a>
-                        </p>
-                    </div>
-                    
-                    <div class="footer-section">
-                        <h4>Документы</h4>
-                        <p>
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Документы</h4>
+                    <p>
                         <a href="#">Пользовательское соглашение</a><br>
                         <a href="#">Политика конфиденциальности</a><br>
                         <a href="#">Правила участия в тендерах</a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="footer-bottom">
-                    <p>© 2025 АгроТендерСервис — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
+                    </p>
                 </div>
             </div>
-        </footer>
-        
-        <div id="toast" class="toast"></div>
-        
-        <script>
-            // FAQ Accordion
-            document.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', () => {
-                    const item = question.parentElement;
-                    const isActive = item.classList.contains('active');
-                    document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
-                    if (!isActive) item.classList.add('active');
-                });
+            
+            <div class="footer-bottom">
+                <p>© 2025 АгроТендерСервис — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
+            </div>
+        </div>
+    </footer>
+    
+    <div id="toast" class="toast"></div>
+    
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
             });
-            
-            // Toast function
-            function showToast(message, duration = 3000) {
-                const toast = document.getElementById('toast');
-                toast.textContent = message;
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, duration);
-            }
-            
-            // Form submission
-            document.getElementById('sellerForm').addEventListener('submit', function(e) {
+        });
+        
+        // Toast function
+        function showToast(message, duration = 3000) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
+        }
+        
+        // Form submission
+        document.getElementById('sellerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+            this.reset();
+        });
+        
+        // Scroll animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-                this.reset();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
-            
-            // Scroll animations
-            const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, observerOptions);
-            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-            
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                });
+        });
+        
+        // Phone mask
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length > 0) {
+                    if (value[0] === '7' || value[0] === '8') value = value.substring(1);
+                    let formatted = '+375';
+                    if (value.length > 0) formatted += ' (' + value.substring(0, 2);
+                    if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
+                    if (value.length >= 5) formatted += '-' + value.substring(5, 7);
+                    if (value.length >= 7) formatted += '-' + value.substring(7, 9);
+                    e.target.value = formatted;
+                } else {
+                    e.target.value = '';
+                }
             });
-            
-            // Phone mask
-            const phoneInput = document.getElementById('phone');
-            if (phoneInput) {
-                phoneInput.addEventListener('input', function(e) {
-                    let value = e.target.value.replace(/\D/g, '');
-                    if (value.length > 0) {
-                        if (value[0] === '7' || value[0] === '8') value = value.substring(1);
-                        let formatted = '+375';
-                        if (value.length > 0) formatted += ' (' + value.substring(0, 2);
-                        if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
-                        if (value.length >= 5) formatted += '-' + value.substring(5, 7);
-                        if (value.length >= 7) formatted += '-' + value.substring(7, 9);
-                        e.target.value = formatted;
-                    } else {
-                        e.target.value = '';
-                    }
-                });
-            }
-            
-            // Mobile menu toggle with improved styling
-            const mobileBtn = document.querySelector('.mobile-menu');
-            const navLinks = document.querySelector('.nav-links');
-            if (mobileBtn && navLinks) {
-                mobileBtn.addEventListener('click', () => {
-                    navLinks.classList.toggle('show');
-                    mobileBtn.classList.toggle('active');
-                });
-            }
-            
-            // Закрыть меню при клике на ссылку
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('show');
-                    mobileBtn.classList.remove('active');
-                });
+        }
+        
+        // Mobile menu toggle with improved styling
+        const mobileBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                navLinks.classList.toggle('show');
+                mobileBtn.classList.toggle('active');
             });
-        </script>
-    </body>
+        }
+        
+        // Закрыть меню при клике на ссылку
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('show');
+                mobileBtn.classList.remove('active');
+            });
+        });
+    </script>
+</body>
 </html>
