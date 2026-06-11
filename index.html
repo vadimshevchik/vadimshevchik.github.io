@@ -2,13 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для сельского хозяйства Беларуси. Экономия до 80% времени на закупках зерна и сельхозпродукции.">
-    <meta name="keywords" content="тендеры Беларусь, закупки сельхозпродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
-    <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агробизнеса Беларуси">
-    <meta property="og:description" content="Автоматизированные закупки зерна и сельхозпродукции. Экономия до 80% времени на тендерах.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="АгроТендерСервис - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
+    <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
+    <meta property="og:title" content="АгроТендерСервис - Тендеры в Telegram для агросектора Беларуси">
+    <meta property="og:description" content="Автоматизированные закупки. Экономия до 80% времени на тендерах.">
     <meta property="og:type" content="website">
-    <title>АгроТендерСервис - Тендеры в Telegram для агробизнеса Беларуси</title>
+    <title>АгроТендерСервис - Тендеры в Telegram для агросектора</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -68,49 +69,58 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header с фиксированной высотой 70px */
         header {
             background: var(--bg-white);
             box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
+            height: 70px; /* фиксированная высота 70px */
+            display: flex;
+            align-items: center;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            width: 100%;
+            height: 100%;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-weight: 800;
-            font-size: 24px;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 18px; /* уменьшенный шрифт */
             color: var(--primary);
             text-decoration: none;
         }
 
         .logo img {
-            width: 48px;
-            height: 48px;
+            height: 32px; /* уменьшенный логотип */
+            width: auto;
+            max-width: 48px;
             border-radius: 8px;
+            object-fit: contain;
+            background: #f0f0f0;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
             list-style: none;
+            margin-left: 0; /* убираем лишние отступы */
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-gray);
             font-weight: 500;
+            font-size: 14px; /* уменьшенный шрифт пунктов меню */
             transition: color 0.3s;
         }
 
@@ -118,32 +128,29 @@
             color: var(--primary);
         }
 
+        /* Кнопка в хедере – чуть больше по высоте, но аккуратно */
         .btn-header {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            background: var(--accent);
-            color: var(--text-dark);
-            font-weight: 700;
-            font-size: 15px;
-            border-radius: 8px;
+            gap: 6px;
+            padding: 8px 20px; /* увеличенная высота */
+            background: var(--cta);
+            color: white !important;
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 40px;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-            border: 2px solid var(--accent);
+            box-shadow: 0 2px 6px rgba(45, 90, 61, 0.2);
+            border: none;
+            white-space: nowrap;
         }
 
         .btn-header:hover {
-            background: var(--accent-hover);
-            border-color: var(--accent-hover);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
-            color: var(--text-dark);
-        }
-
-        .btn-header svg {
-            flex-shrink: 0;
+            background: var(--cta-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(45, 90, 61, 0.3);
+            color: white !important;
         }
 
         .mobile-menu {
@@ -161,6 +168,9 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                height: 60px;
+            }
             .nav-links {
                 display: none;
             }
@@ -168,18 +178,24 @@
                 display: flex;
             }
             .btn-header {
-                padding: 8px 16px;
-                font-size: 14px;
+                padding: 6px 14px;
+                font-size: 12px;
+            }
+            .logo {
+                font-size: 16px;
+            }
+            .logo img {
+                height: 28px;
             }
         }
 
-        /* Buttons */
+        /* Все кнопки – capsule */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
             padding: 14px 28px;
-            border-radius: 8px;
+            border-radius: 40px !important;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
@@ -215,6 +231,7 @@
             color: white;
             font-size: 18px;
             padding: 16px 32px;
+            border-radius: 40px;
         }
 
         .btn-cta:hover {
@@ -394,7 +411,6 @@
             color: var(--text-gray);
         }
 
-        /* Sections */
         section {
             padding: 80px 0;
         }
@@ -539,13 +555,16 @@
         }
 
         .demo-image {
-            background: var(--bg-light);
-            height: 300px;
+            background: var(--gradient);
+            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 80px;
-            border-bottom: 3px solid var(--border);
+            font-size: 32px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            padding: 20px;
         }
 
         .demo-content {
@@ -750,33 +769,49 @@
             transform: translateY(0);
         }
 
-        /* Responsive */
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #2D5A3D;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 1100;
+            opacity: 0;
+            transition: transform 0.3s, opacity 0.3s;
+            pointer-events: none;
+        }
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         @media (max-width: 768px) {
             .hero {
                 padding: 60px 0;
             }
-
             .hero h1 {
                 font-size: 32px;
             }
-
             .hero-stats {
                 gap: 16px;
             }
-
             .stat-value {
                 font-size: 28px;
             }
-
             section {
                 padding: 60px 0;
             }
-
             .live-tender {
                 flex-direction: column;
                 text-align: center;
             }
-
             .tender-details {
                 flex-direction: column;
                 gap: 8px;
@@ -786,34 +821,36 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header с фиксированной высотой 70px -->
     <header>
-        <nav class="container">
-            <a href="#" class="logo">
-                <img src="agro_group_logo.png" alt="АгроТендерСервис">
-                <span>АгроТендерСервис</span>
-            </a>
-            <ul class="nav-links">
-                <li><a href="#features">Возможности</a></li>
-                <li><a href="#how-it-works">Как работает</a></li>
-                <li><a href="#demo">Демонстрация</a></li>
-                <li><a href="#for-sellers">Поставщикам</a></li>
-                <li><a href="#faq">FAQ</a></li>
-                <li>
-                    <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
-                        </svg>
-                        Бот заказчика
-                    </a>
-                </li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="agro_group_logo.png" alt="АгроТендерСервис" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
+                    <span>АгроТендерСервис</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#features">Возможности</a></li>
+                    <li><a href="#how-it-works">Как работает</a></li>
+                    <li><a href="#demo">Демонстрация</a></li>
+                    <li><a href="#for-sellers">Поставщикам</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li>
+                        <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                            </svg>
+                            Бот заказчика
+                        </a>
+                    </li>
+                </ul>
+                <div class="mobile-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
@@ -823,14 +860,14 @@
                 <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
                 <h1>Тендеры для агробизнеса в Telegram</h1>
                 <p class="hero-subtitle">
-                    Автоматизированные закупки зерна и сельхозпродукции. 
+                    Автоматизация закупок любых товаров и услуг для сельского хозяйства: от зерна и удобрений до техники и логистики. 
                     Экономия до 80% времени на тендерах. Прозрачно, быстро, выгодно.
                 </p>
                 
                 <div class="hero-stats">
                     <div class="stat-item">
                         <span class="stat-value">150+</span>
-                        <span class="stat-label">проведенных тендеров</span>
+                        <span class="stat-label">тендеров с 2024 года</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">500+</span>
@@ -891,7 +928,7 @@
                     <div class="feature-icon">🎯</div>
                     <h3>Прозрачные торги без посредников</h3>
                     <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
-                    <span class="feature-stat">🔒 Blockchain-логирование</span>
+                    <span class="feature-stat">🔒 Полное логирование</span>
                 </div>
 
                 <div class="feature-card fade-in">
@@ -933,7 +970,7 @@
                 <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
             </div>
 
-            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍ Для заказчиков</h3>
+            <h3 style="text-align: center; margin-bottom: 32px; color: var(--primary);">👨‍🌾 Для заказчиков</h3>
             <div class="steps fade-in">
                 <div class="step">
                     <div class="step-number">1</div>
@@ -993,7 +1030,7 @@
 
             <div class="demo-grid">
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🤖</div>
+                    <div class="demo-image">🤖 Бот заказчика<br><span style="font-size: 14px;">(пример интерфейса)</span></div>
                     <div class="demo-content">
                         <h3>Бот заказчика</h3>
                         <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
@@ -1002,7 +1039,7 @@
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🚛</div>
+                    <div class="demo-image">🚛 Бот поставщика<br><span style="font-size: 14px;">(пример интерфейса)</span></div>
                     <div class="demo-content">
                         <h3>Бот поставщика</h3>
                         <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
@@ -1011,7 +1048,7 @@
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">💬</div>
+                    <div class="demo-image">💬 Тендерная группа<br><span style="font-size: 14px;">(пример чата)</span></div>
                     <div class="demo-content">
                         <h3>Тендерная группа</h3>
                         <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
@@ -1035,7 +1072,6 @@
                     <ul class="benefits-list">
                         <li>Средний чек заказа: <strong>12 500 BYN</strong></li>
                         <li>3-5 новых клиентов в месяц</li>
-                        <li>Прямые контакты заказчиков</li>
                         <li>Прозрачные условия торгов</li>
                         <li>Мгновенные уведомления в Telegram</li>
                         <li>Без скрытых комиссий и посредников</li>
@@ -1066,7 +1102,7 @@
 
                         <div class="form-group">
                             <label for="phone">Телефон *</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+375 (29) 123-45-67">
+                            <input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67">
                         </div>
 
                         <div class="form-group">
@@ -1208,7 +1244,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>АгроТендерСервис</h4>
-                    <p>Готовый сервис тендеров в Telegram для сельского хозяйства Беларуси. 
+                    <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
                     Автоматизация закупок зерна и сельхозпродукции с 2025 года.</p>
                 </div>
 
@@ -1242,94 +1278,92 @@
             </div>
 
             <div class="footer-bottom">
-                <p>© 2025 АгроТендерСервис — готовый сервис тендеров в Telegram для сельского хозяйства Беларуси</p>
+                <p>© 2025 АгроТендерСервис — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
             </div>
         </div>
     </footer>
 
+    <div id="toast" class="toast"></div>
+
     <script>
-        // FAQ Accordion
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 const isActive = item.classList.contains('active');
-                
-                // Close all
-                document.querySelectorAll('.faq-item').forEach(faq => {
-                    faq.classList.remove('active');
-                });
-                
-                // Open clicked if wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
+                document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
+                if (!isActive) item.classList.add('active');
             });
         });
 
-        // Form submission
+        function showToast(message, duration = 3000) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, duration);
+        }
+
         document.getElementById('sellerForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Here you would normally send data to server
-            alert('Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
+            showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
             this.reset();
         });
 
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
         }, observerOptions);
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
 
-        // Phone mask
-        document.getElementById('phone').addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 0) {
-                if (value[0] === '7' || value[0] === '8') {
-                    value = value.substring(1);
-                }
-                let formattedValue = '+375';
+        const phoneInput = document.getElementById('phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
                 if (value.length > 0) {
-                    formattedValue += ' (' + value.substring(0, 2);
+                    if (value[0] === '7' || value[0] === '8') value = value.substring(1);
+                    let formatted = '+375';
+                    if (value.length > 0) formatted += ' (' + value.substring(0, 2);
+                    if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
+                    if (value.length >= 5) formatted += '-' + value.substring(5, 7);
+                    if (value.length >= 7) formatted += '-' + value.substring(7, 9);
+                    e.target.value = formatted;
+                } else {
+                    e.target.value = '';
                 }
-                if (value.length >= 2) {
-                    formattedValue += ') ' + value.substring(2, 5);
+            });
+        }
+
+        const mobileBtn = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                if (navLinks.style.display === 'flex') {
+                    navLinks.style.display = 'none';
+                } else {
+                    navLinks.style.display = 'flex';
+                    navLinks.style.flexDirection = 'column';
+                    navLinks.style.position = 'absolute';
+                    navLinks.style.top = '70px';
+                    navLinks.style.left = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.background = 'white';
+                    navLinks.style.padding = '20px';
+                    navLinks.style.gap = '16px';
+                    navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
                 }
-                if (value.length >= 5) {
-                    formattedValue += '-' + value.substring(5, 7);
-                }
-                if (value.length >= 7) {
-                    formattedValue += '-' + value.substring(7, 9);
-                }
-                e.target.value = formattedValue;
-            }
-        });
+            });
+        }
     </script>
 </body>
 </html>
