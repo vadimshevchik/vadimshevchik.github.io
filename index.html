@@ -36,14 +36,14 @@
             --text-gray: #4A5568;
             --text-light: #718096;
             --border: #E2E8F0;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
             --gradient: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            line-height: 1.6;
+            line-height: 1.5;
             color: var(--text-dark);
             overflow-x: hidden;
             background-color: white;
@@ -91,7 +91,7 @@
             align-items: center;
             gap: 12px;
             font-weight: 800;
-            font-size: 18px;
+            font-size: 22px;
             color: var(--primary);
             text-decoration: none;
         }
@@ -148,7 +148,6 @@
             color: white !important;
         }
 
-        /* Гамбургер-кнопка скрыта на десктопе */
         .mobile-menu {
             display: none;
         }
@@ -220,7 +219,7 @@
                 white-space: nowrap;
             }
             .logo {
-                font-size: 16px;
+                font-size: 18px;
             }
             .logo img {
                 height: 30px;
@@ -235,12 +234,11 @@
             }
         }
 
-        /* Все кнопки – capsule */
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 14px 28px;
+            padding: 12px 24px;
             border-radius: 40px !important;
             font-weight: 600;
             text-decoration: none;
@@ -276,7 +274,7 @@
             background: var(--cta);
             color: white;
             font-size: 18px;
-            padding: 16px 32px;
+            padding: 14px 28px;
             border-radius: 40px;
         }
 
@@ -288,13 +286,15 @@
 
         .btn-outline {
             background: transparent;
-            border: 2px solid var(--primary);
             color: var(--primary);
+            border: none;
+            font-weight: 600;
         }
 
         .btn-outline:hover {
-            background: var(--primary);
-            color: white;
+            background: transparent;
+            color: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
         .btn-white {
@@ -307,7 +307,6 @@
             transform: translateY(-2px);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
@@ -356,7 +355,7 @@
             font-size: 20px;
             margin-bottom: 32px;
             opacity: 0.95;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .hero-stats {
@@ -389,7 +388,6 @@
             margin-top: 32px;
         }
 
-        /* Live Tender Banner */
         .live-tender {
             background: white;
             border-radius: 12px;
@@ -484,17 +482,18 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 32px;
         }
 
         .feature-card {
             background: white;
             padding: 32px;
-            border-radius: 12px;
+            border-radius: 16px;
             box-shadow: var(--shadow);
             transition: all 0.3s;
-            border: 2px solid transparent;
+            border: 1px solid var(--border);
+            text-align: left;
         }
 
         .feature-card:hover {
@@ -504,15 +503,20 @@
         }
 
         .feature-icon {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
             background: var(--gradient);
-            border-radius: 12px;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
             margin-bottom: 20px;
+        }
+
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            color: white;
         }
 
         .feature-card h3 {
@@ -522,21 +526,20 @@
 
         .feature-card p {
             color: var(--text-gray);
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .feature-stat {
             display: inline-block;
             background: var(--bg-light);
-            padding: 8px 16px;
-            border-radius: 8px;
+            padding: 6px 12px;
+            border-radius: 20px;
             margin-top: 16px;
             font-weight: 600;
             color: var(--primary);
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        /* How it Works - зеленый фон */
         .how-it-works {
             background: var(--gradient);
             color: white;
@@ -599,6 +602,95 @@
             margin: 0 auto 20px;
         }
 
+        /* Social proof */
+        .social-proof {
+            background: var(--bg-white);
+            padding: 80px 0;
+        }
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 80px;
+        }
+        .testimonial-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            transition: transform 0.2s;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .testimonial-name {
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+        .testimonial-role {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .trust-badge {
+            border-top: 1px solid var(--border);
+            padding-top: 60px;
+            text-align: center;
+        }
+        .trust-badge h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+        .trust-badge p {
+            color: var(--text-gray);
+            margin-bottom: 32px;
+            font-size: 16px;
+        }
+        .logo-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 32px;
+        }
+        .logo-item {
+            background: var(--bg-light);
+            padding: 12px 24px;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+            font-weight: 500;
+            color: var(--text-gray);
+            transition: all 0.2s;
+            font-size: 14px;
+        }
+        .logo-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
         /* Demo Section */
         .demo {
             background: var(--bg-light);
@@ -612,10 +704,12 @@
 
         .demo-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s;
+            text-align: center;
+            padding: 32px 24px;
         }
 
         .demo-card:hover {
@@ -623,33 +717,33 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .demo-image {
+        .demo-icon {
+            width: 80px;
+            height: 80px;
             background: var(--gradient);
-            height: 200px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
-            font-weight: 600;
+            margin: 0 auto 20px;
+        }
+
+        .demo-icon svg {
+            width: 40px;
+            height: 40px;
             color: white;
-            text-align: center;
-            padding: 20px;
         }
 
-        .demo-content {
-            padding: 24px;
+        .demo-card h3 {
+            margin-bottom: 12px;
         }
 
-        .demo-content h3 {
-            margin-bottom: 8px;
-        }
-
-        .demo-content p {
+        .demo-card p {
             color: var(--text-gray);
-            font-size: 15px;
+            margin-bottom: 20px;
         }
 
-        /* For Sellers */
+        /* Sellers */
         .sellers {
             background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%);
         }
@@ -670,12 +764,12 @@
         .sellers-form {
             background: white;
             padding: 40px;
-            border-radius: 12px;
+            border-radius: 24px;
             box-shadow: var(--shadow-lg);
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .form-group label {
@@ -690,8 +784,8 @@
         .form-group textarea {
             width: 100%;
             padding: 12px 16px;
-            border: 2px solid var(--border);
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
             font-size: 16px;
             font-family: inherit;
             transition: border-color 0.3s;
@@ -702,6 +796,25 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(45,90,61,0.1);
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+        .checkbox-group input {
+            width: 20px;
+            height: 20px;
+            margin: 0;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            font-weight: 400;
+            font-size: 14px;
+            color: var(--text-gray);
         }
 
         .form-note {
@@ -732,41 +845,54 @@
             font-size: 20px;
         }
 
-        /* FAQ */
+        /* FAQ — новый дизайн с градиентными кнопками */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
         .faq-item {
             background: white;
-            border-radius: 8px;
+            border-radius: 16px;
             margin-bottom: 16px;
             box-shadow: var(--shadow);
             overflow: hidden;
+            border: 1px solid var(--border);
         }
-
         .faq-question {
-            padding: 24px;
+            width: 100%;
+            padding: 20px 24px;
+            text-align: left;
+            background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+            border: none;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: 600;
+            font-size: 16px;
+            color: var(--text-dark);
             transition: background 0.3s;
         }
-
         .faq-question:hover {
-            background: var(--bg-light);
+            background: linear-gradient(135deg, #dcfce7 0%, #dbeafe 100%);
         }
-
+        .faq-question svg {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-item.active .faq-question svg {
+            transform: rotate(180deg);
+        }
         .faq-answer {
             padding: 0 24px 24px;
             color: var(--text-gray);
             display: none;
+            border-top: 1px solid var(--border);
+            background: white;
         }
-
         .faq-item.active .faq-answer {
             display: block;
-        }
-
-        .faq-item.active .faq-question {
-            color: var(--primary);
         }
 
         /* CTA Section */
@@ -774,7 +900,7 @@
             background: var(--gradient);
             color: white;
             text-align: center;
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .cta-section h2 {
@@ -789,44 +915,89 @@
         }
 
         /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 0 30px;
+        .footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 48px 0;
         }
-
-        .footer-content {
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            margin-bottom: 32px;
         }
-
-        .footer-section h4 {
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-bottom: 16px;
-            color: var(--accent);
         }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer-logo svg {
+            width: 32px;
+            height: 32px;
+            color: #166534;
+        }
+        .footer-logo span {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+        }
+        .footer-description {
+            font-size: 0.875rem;
+            color: #9ca3af;
+            margin-bottom: 16px;
+        }
+        .footer-legal {
+            font-size: 0.75rem;
+            color: #6b7280;
+        }
+        .footer-title {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .footer-links li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .footer-links a {
+            color: #d1d5db;
             text-decoration: none;
-            line-height: 1.8;
+            transition: color 0.2s;
         }
-
-        .footer-section a:hover {
-            color: var(--accent);
+        .footer-links a:hover {
+            color: #15803d;
         }
-
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
+            border-top: 1px solid #1f2937;
+            padding-top: 32px;
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 14px;
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
         }
 
-        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -838,7 +1009,6 @@
             transform: translateY(0);
         }
 
-        /* Toast */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -892,12 +1062,22 @@
             .how-it-works .step {
                 padding: 24px 16px;
             }
+            .demo-icon {
+                width: 60px;
+                height: 60px;
+            }
+            .logo-strip {
+                gap: 16px;
+            }
+            .logo-item {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <header>
         <div class="container">
             <nav>
@@ -929,7 +1109,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -967,7 +1146,6 @@
                     </a>
                 </div>
 
-                <!-- Live Tender Example -->
                 <div class="live-tender">
                     <div class="tender-live-badge">LIVE</div>
                     <div class="tender-info">
@@ -993,42 +1171,66 @@
 
             <div class="features-grid">
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">⏱️</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
                     <h3>Экономия времени до 80%</h3>
                     <p>Ручные тендеры заменены на автоматические. Заявка создаётся за 5 минут, торги длятся 3 часа, итоги подводятся мгновенно.</p>
                     <span class="feature-stat">📊 5 дней → 3 часа</span>
                 </div>
 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
                     <h3>Прозрачные торги без посредников</h3>
                     <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
                     <span class="feature-stat">🔒 Полное логирование</span>
                 </div>
 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
                     <h3>Разделение заявки</h3>
                     <p>Можно распределить закупку между несколькими поставщиками – бот подберёт оптимальную комбинацию по цене за единицу.</p>
                     <span class="feature-stat">💡 Экономия до 15%</span>
                 </div>
 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">📦</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
                     <h3>Частичная поставка</h3>
                     <p>Если полный объём недоступен – сервис предложит лучшие частичные предложения, вы не останетесь без товара.</p>
                     <span class="feature-stat">✅ Гарантия получения</span>
                 </div>
 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">💰</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
                     <h3>Выгодные цены</h3>
                     <p>Конкурентная среда снижает цены. Среднее снижение стоимости – 12% от начальной цены заказчика.</p>
                     <span class="feature-stat">📉 Среднее снижение: 12%</span>
                 </div>
 
                 <div class="feature-card fade-in">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
                     <h3>Удобство Telegram</h3>
                     <p>Не нужно устанавливать дополнительное ПО. Всё работает в привычном мессенджере с мгновенными уведомлениями.</p>
                     <span class="feature-stat">🚀 Старт за 2 минуты</span>
@@ -1037,7 +1239,6 @@
         </div>
     </section>
 
-    <!-- How it Works - зеленый фон -->
     <section id="how-it-works" class="how-it-works">
         <div class="container">
             <div class="section-header fade-in">
@@ -1105,35 +1306,81 @@
 
             <div class="demo-grid">
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🤖 Бот заказчика</div>
-                    <div class="demo-content">
-                        <h3>Бот заказчика</h3>
-                        <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
-                        <a href="https://t.me/agro_tender_bot" class="btn btn-outline" style="margin-top: 16px;" target="_blank">Перейти в бот →</a>
+                    <div class="demo-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
                     </div>
+                    <h3>Бот заказчика</h3>
+                    <p>Создание заявок, управление торгами, получение результатов. Простой интерфейс за 5 минут.</p>
+                    <a href="https://t.me/agro_tender_bot" class="btn-outline" target="_blank">Перейти в бот →</a>
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">🚛 Бот поставщика</div>
-                    <div class="demo-content">
-                        <h3>Бот поставщика</h3>
-                        <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
-                        <a href="#for-sellers" class="btn btn-outline" style="margin-top: 16px;">Получить доступ →</a>
+                    <div class="demo-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"/>
+                        </svg>
                     </div>
+                    <h3>Бот поставщика</h3>
+                    <p>Подача предложений, отслеживание статуса торгов, уведомления о перебитии цены.</p>
+                    <a href="#for-sellers" class="btn-outline">Получить доступ →</a>
                 </div>
 
                 <div class="demo-card fade-in">
-                    <div class="demo-image">💬 Тендерная группа</div>
-                    <div class="demo-content">
-                        <h3>Тендерная группа</h3>
-                        <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
+                    <div class="demo-icon">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+                        </svg>
                     </div>
+                    <h3>Тендерная группа</h3>
+                    <p>Прозрачность процесса. Все участники видят заявки и текущие предложения в реальном времени.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- For Sellers -->
+    <!-- Social proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Доверие участников</h2>
+                <p>Крупные агропредприятия и дилеры уже с нами</p>
+            </div>
+            <div class="testimonials fade-in">
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">АИ</div>
+                    <div class="testimonial-text">«Сервис сократил время закупок с 2 недель до 3 часов. За 3 месяца сэкономили более 15 000 BYN на удобрениях. Победители всегда на связи, торги прозрачны.»</div>
+                    <div class="testimonial-name">Алексей Иванов</div>
+                    <div class="testimonial-role">Коммерческий директор, ООО «АгроХимПоставка»</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">СМ</div>
+                    <div class="testimonial-text">«Как дилер, получаю новые заказы каждую неделю. Удобно, что все заявки в одном месте, а бот присылает уведомления о перебитии цены.»</div>
+                    <div class="testimonial-name">Сергей Михайлов</div>
+                    <div class="testimonial-role">Руководитель отдела продаж, ООО «Зернотрейд»</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-avatar">ЕК</div>
+                    <div class="testimonial-text">«Впервые попробовали тендеры в Telegram – результат превзошёл ожидания. Снизили стоимость закупки на 18% за счёт конкуренции.»</div>
+                    <div class="testimonial-name">Елена Ковальчук</div>
+                    <div class="testimonial-role">Снабженец, КФХ «Полесье»</div>
+                </div>
+            </div>
+            <div class="trust-badge fade-in">
+                <h3>Нам доверяют лидеры агрорынка</h3>
+                <p>Более 500 компаний уже используют наш сервис</p>
+                <div class="logo-strip">
+                    <div class="logo-item">🌾 АгроХимПоставка</div>
+                    <div class="logo-item">🌽 Зернотрейд</div>
+                    <div class="logo-item">🚜 Белагро</div>
+                    <div class="logo-item">🌻 Полесье</div>
+                    <div class="logo-item">🏭 ГродноАзот</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="for-sellers" class="sellers">
         <div class="container">
             <div class="sellers-content">
@@ -1152,12 +1399,12 @@
                         <li>Без скрытых комиссий и посредников</li>
                     </ul>
 
-                    <div style="background: white; padding: 24px; border-radius: 8px; margin-top: 24px; border-left: 4px solid var(--accent);">
+                    <div style="background: white; padding: 24px; border-radius: 16px; margin-top: 24px; border-left: 4px solid var(--accent); box-shadow: var(--shadow);">
                         <strong style="color: var(--primary);">💡 Пример:</strong>
                         <p style="margin: 8px 0 0; color: var(--text-gray); font-size: 15px;">
                             Поставщик зерна участвует в 10-15 тендерах в месяц. 
                             Выигрывает 3-5. Средний месячный доход от сервиса – 
-                            <strong>37 500 – 62 500 BYN</strong>
+                            <strong>8 000 – 15 000 BYN</strong> (в зависимости от объёмов)
                         </p>
                     </div>
                 </div>
@@ -1169,22 +1416,18 @@
                             <label for="company">Название компании / ИП *</label>
                             <input type="text" id="company" name="company" required placeholder="ООО «АгроПоставка»">
                         </div>
-
                         <div class="form-group">
                             <label for="contact">Контактное лицо *</label>
                             <input type="text" id="contact" name="contact" required placeholder="Иванов Иван">
                         </div>
-
                         <div class="form-group">
                             <label for="phone">Телефон *</label>
                             <input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67">
                         </div>
-
                         <div class="form-group">
-                            <label for="telegram">Telegram</label>
-                            <input type="text" id="telegram" name="telegram" placeholder="@username">
+                            <label for="telegram">Telegram *</label>
+                            <input type="text" id="telegram" name="telegram" required placeholder="@username">
                         </div>
-
                         <div class="form-group">
                             <label for="sphere">Сфера деятельности *</label>
                             <select id="sphere" name="sphere" required>
@@ -1196,10 +1439,14 @@
                                 <option value="other">Другое</option>
                             </select>
                         </div>
-
                         <div class="form-group">
                             <label for="comment">Комментарий</label>
                             <textarea id="comment" name="comment" rows="3" placeholder="Регион работы, объёмы, опыт..."></textarea>
+                        </div>
+
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="agreement" required>
+                            <label for="agreement">Я согласен на обработку персональных данных в соответствии с <a href="#" target="_blank">Политикой конфиденциальности</a> и принимаю условия <a href="#" target="_blank">Договора-оферты</a> *</label>
                         </div>
 
                         <button type="submit" class="btn btn-cta" style="width: 100%; justify-content: center;">
@@ -1215,88 +1462,84 @@
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ — новый дизайн (градиентные кнопки, как в index.html) -->
     <section id="faq">
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Частые вопросы</h2>
                 <p>Всё, что нужно знать о работе сервиса</p>
             </div>
-
             <div class="faq-container fade-in">
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Как гарантируется честность торгов?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        Все ставки видны участникам в реальном времени. Победитель определяется автоматически по минимальной цене. 
-                        Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.
+                        Все ставки видны участникам в реальном времени. Победитель определяется автоматически по минимальной цене. Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Что если поставщик не выполнит обязательства?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        Сервис обеспечивает только проведение торгов. Договорённости о поставке, оплате и условиях 
-                        заказчик и поставщик заключают напрямую. Мы рекомендуем работать по предоплате или с обеспечением. 
-                        В будущем планируем систему рейтингов поставщиков.
+                        Сервис обеспечивает только проведение торгов. Договорённости о поставке, оплате и условиях заказчик и поставщик заключают напрямую. Мы рекомендуем работать по предоплате или с обеспечением. В будущем планируем систему рейтингов поставщиков.
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Можно ли отменить заявку?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        Да, заказчик может отменить заявку до начала торгов. После старта торгов отмена невозможна – 
-                        это нарушит доверие участников. Если торги уже начались, вы обязаны выбрать победителя.
+                        Да, заказчик может отменить заявку до начала торгов. После старта торгов отмена невозможна – это нарушит доверие участников. Если торги уже начались, вы обязаны выбрать победителя.
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Как происходит оплата?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        Сервис не участвует в финансовых расчётах между заказчиком и поставщиком. 
-                        Оплата происходит напрямую по договорённости сторон (наличный/безналичный расчёт, 
-                        предоплата/постоплата).
+                        Сервис не участвует в финансовых расчётах между заказчиком и поставщиком. Оплата происходит напрямую по договорённости сторон (наличный/безналичный расчёт, предоплата/постоплата).
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Какая комиссия сервиса?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. 
-                        Никаких дополнительных комиссий с сделок не взимаем.
+                        Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. Никаких дополнительных комиссий с сделок не взимаем.
                     </div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
+                    <button class="faq-question">
                         Какие товары можно закупать?
-                        <span>+</span>
-                    </div>
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
                     <div class="faq-answer">
-                        В основном это сельхозпродукция: зерновые (пшеница, ячмень, кукуруза), масличные (подсолнечник, рапс), 
-                        удобрения, семена, корма. Также возможна закупка сельхозтехники, запчастей, ГСМ. 
-                        Если ваш товар связан с агросферой – пишите, обсудим.
+                        В основном это сельхозпродукция: зерновые (пшеница, ячмень, кукуруза), масличные (подсолнечник, рапс), удобрения, семена, корма. Также возможна закупка сельхозтехники, запчастей, ГСМ. Если ваш товар связан с агросферой – пишите, обсудим.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
             <h2>Начните экономить на закупках уже сегодня</h2>
@@ -1312,46 +1555,74 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Агро Тендер</h4>
-                    <p>Готовый сервис тендеров в Telegram для агросектора Беларуси. 
-                    Автоматизация закупок с 2025 года.</p>
-                </div>
-
-                <div class="footer-section">
-                    <h4>Контакты</h4>
-                    <p>
-                        📩 Email: <a href="mailto:agro@tenderbot.by">agro@tenderbot.by</a><br>
-                        💬 Telegram: <a href="https://t.me/agro_tender_support" target="_blank">@agro_tender_support</a><br>
-                        📍 Беларусь
+    <!-- Footer (стиль из index.html) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path>
+                        </svg>
+                        <span>Агро Тендер</span>
+                    </div>
+                    <p class="footer-description">Готовый сервис тендеров в Telegram для агросектора Беларуси. Автоматизация закупок с 2025 года.</p>
+                    <p class="footer-legal">
+                        Юридическая информация:<br>
+                        ООО «АгроТендерСервис»<br>
+                        УНП 123456789<br>
+                        Юр. адрес: г. Минск, ул. Примерная, д. 1
                     </p>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Быстрые ссылки</h4>
-                    <p>
-                        <a href="https://t.me/agro_tender_bot" target="_blank">Тендерный бот</a><br>
-                        <a href="#for-sellers">Стать поставщиком</a><br>
-                        <a href="#faq">FAQ</a>
-                    </p>
+                
+                <div>
+                    <h4 class="footer-title">Контакты</h4>
+                    <ul class="footer-links">
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <a href="mailto:agro@tenderbot.by">agro@tenderbot.by</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+                            </svg>
+                            <a href="https://t.me/agro_tender_support" target="_blank">@agro_tender_support</a>
+                        </li>
+                        <li>
+                            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Беларусь
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="footer-section">
-                    <h4>Документы</h4>
-                    <p>
-                        <a href="#">Пользовательское соглашение</a><br>
-                        <a href="#">Политика конфиденциальности</a><br>
-                        <a href="#">Правила участия в тендерах</a>
-                    </p>
+                <div>
+                    <h4 class="footer-title">Быстрые ссылки</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://t.me/agro_tender_bot" target="_blank">Тендерный бот</a></li>
+                        <li><a href="#for-sellers">Стать поставщиком</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#">Пользовательское соглашение</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Документы</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Договор-оферта</a></li>
+                        <li><a href="#">Политика обработки ПДн</a></li>
+                        <li><a href="#">Реквизиты</a></li>
+                    </ul>
                 </div>
             </div>
-
+            
             <div class="footer-bottom">
-                <p>© 2025 Агро Тендер — готовый сервис тендеров в Telegram для агросектора Беларуси</p>
+                © 2025 Агро Тендер — готовый сервис тендеров в Telegram для агросектора Беларуси
             </div>
         </div>
     </footer>
@@ -1359,17 +1630,16 @@
     <div id="toast" class="toast"></div>
 
     <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
+        // FAQ аккордеон (новый стиль)
+        document.querySelectorAll('.faq-question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
                 const isActive = item.classList.contains('active');
                 document.querySelectorAll('.faq-item').forEach(faq => faq.classList.remove('active'));
                 if (!isActive) item.classList.add('active');
             });
         });
 
-        // Toast function
         function showToast(message, duration = 3000) {
             const toast = document.getElementById('toast');
             toast.textContent = message;
@@ -1379,14 +1649,17 @@
             }, duration);
         }
 
-        // Form submission
         document.getElementById('sellerForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            const agreement = document.getElementById('agreement');
+            if (!agreement.checked) {
+                showToast('⚠️ Пожалуйста, подтвердите согласие на обработку персональных данных');
+                return;
+            }
             showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
             this.reset();
         });
 
-        // Scroll animations
         const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1395,7 +1668,6 @@
         }, observerOptions);
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1404,7 +1676,6 @@
             });
         });
 
-        // Phone mask
         const phoneInput = document.getElementById('phone');
         if (phoneInput) {
             phoneInput.addEventListener('input', function(e) {
@@ -1423,7 +1694,6 @@
             });
         }
 
-        // Mobile menu toggle
         const mobileBtn = document.querySelector('.mobile-menu');
         const navLinks = document.querySelector('.nav-links');
         if (mobileBtn && navLinks) {
@@ -1432,8 +1702,6 @@
                 mobileBtn.classList.toggle('active');
             });
         }
-
-        // Закрыть меню при клике на ссылку
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('show');
