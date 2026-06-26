@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Агро Тендер - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
+    <meta name="description" content="АгроТенд - автоматизированные тендеры в Telegram для агросектора Беларуси. Экономия до 80% времени на закупках.">
     <meta name="keywords" content="тендеры Беларусь, закупки агропродукции, агро тендеры, зерно, сельскохозяйственные закупки, Telegram бот">
-    <meta property="og:title" content="Агро Тендер - Тендеры в Telegram для агросектора Беларуси">
+    <meta property="og:title" content="АгроТенд - Тендеры в Telegram для агросектора Беларуси">
     <meta property="og:description" content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через единого бота. Получайте лучшие цены от десятков поставщиков за 3 часа.">
     <meta property="og:type" content="website">
-    <title>Агро Тендер - Тендеры в Telegram для агросектора</title>
+    <title>АгроТенд - Тендеры в Telegram для агросектора</title>
     <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAdgAAAHYBTNsBmAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAABZSURBVFiF7dIxCgAgDETR3zFoJ1gLWovgRewi2CUQJxWEzOcHvgJ8TYhRN84uG2PMWZwl4gRJq/wqSbO00r6N1hqQUqp6SyliREScIEmVV32stQallKreUkpEzMwDnL4lHrEhC9oAAAAASUVORK5CYII=">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,12 +49,13 @@
         header { background: var(--bg-white); box-shadow: var(--shadow); position: sticky; top: 0; z-index: 1000; width: 100%; }
         nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; }
         .logo { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 22px; color: var(--primary); text-decoration: none; }
-        .logo img { height: 36px; width: auto; max-width: 48px; border-radius: 8px; object-fit: contain; background: #f0f0f0; }
+        .logo svg { height: 40px; width: auto; max-width: 48px; }
         .nav-links { display: flex; gap: 1.5rem; align-items: center; list-style: none; }
         .nav-links a { text-decoration: none; color: var(--text-gray); font-weight: 500; font-size: 14px; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
         .btn-header { display: inline-flex; align-items: center; gap: 6px; padding: 8px 20px; background: var(--cta); color: white !important; font-weight: 600; font-size: 14px; border-radius: 40px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(45,90,61,0.2); border: none; white-space: nowrap; }
         .btn-header:hover { background: var(--cta-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(45,90,61,0.3); color: white !important; }
+        .btn-header svg { width: 22px; height: 22px; }
         .mobile-menu { display: none; }
         @media (max-width: 768px) {
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: white; padding: 20px; gap: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); z-index: 999; border-top: 0px solid var(--border); }
@@ -71,7 +72,7 @@
             .mobile-menu.active span:nth-child(3) { top: 21px; transform: translateX(-50%) rotate(-45deg); }
             .btn-header { padding: 6px 14px; font-size: 12px; white-space: nowrap; }
             .logo { font-size: 18px; }
-            .logo img { height: 30px; }
+            .logo svg { height: 32px; }
         }
         .btn { display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px; border-radius: 40px !important; font-weight: 600; text-decoration: none; transition: all 0.3s; border: none; cursor: pointer; font-size: 16px; }
         .btn-primary { background: var(--gradient); color: white; box-shadow: var(--shadow); }
@@ -80,29 +81,19 @@
         .btn-accent:hover { background: var(--secondary-hover); transform: translateY(-2px); }
         .btn-cta { background: var(--cta); color: white; font-size: 18px; padding: 14px 28px; border-radius: 40px; }
         .btn-cta:hover { background: var(--cta-hover); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-cta svg { width: 22px; height: 22px; }
         .btn-outline { background: transparent; color: var(--primary); border: none; font-weight: 600; }
         .btn-outline:hover { background: transparent; color: var(--primary-dark); transform: translateY(-2px); }
         .btn-white { background: white; color: var(--primary); }
         .btn-white:hover { background: var(--secondary); transform: translateY(-2px); }
+        .btn-white svg { width: 22px; height: 22px; }
         .hero { background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%); color: white; padding: 100px 0; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23D4AF37" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom; background-size: cover; opacity: 0.3; }
         .hero-content { position: relative; z-index: 1; max-width: 800px; }
         .hero-badge { display: inline-block; background: rgba(212,175,55,0.2); border: 1px solid var(--accent); color: var(--accent); padding: 8px 16px; border-radius: 20px; font-weight: 600; margin-bottom: 24px; font-size: 14px; }
         .hero h1 { font-size: 56px; margin-bottom: 20px; font-weight: 800; }
         .hero-subtitle { font-size: 20px; margin-bottom: 32px; opacity: 0.95; line-height: 1.5; }
-        .hero-stats { display: flex; gap: 32px; margin: 40px 0; flex-wrap: wrap; }
-        .stat-item { display: flex; flex-direction: column; }
-        .stat-value { font-size: 36px; font-weight: 800; color: var(--accent); }
-        .stat-label { font-size: 14px; opacity: 0.9; }
         .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 32px; }
-        .live-tender { background: white; border-radius: 12px; padding: 24px; margin-top: 40px; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 24px; flex-wrap: wrap; animation: slideIn 0.5s ease-out; }
-        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .tender-live-badge { background: #10B981; color: white; padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; }
-        .tender-live-badge::before { content: ''; width: 8px; height: 8px; background: white; border-radius: 50%; animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .tender-info { flex: 1; }
-        .tender-info strong { color: var(--text-dark); font-size: 16px; }
-        .tender-details { display: flex; gap: 24px; margin-top: 8px; font-size: 14px; color: var(--text-gray); }
         section { padding: 80px 0; }
         .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
         .section-header h2 { margin-bottom: 16px; color: var(--text-dark); }
@@ -125,43 +116,6 @@
         .how-it-works .step p, .how-it-works .step h3, .how-it-works .step a { color: white; }
         .how-it-works .step a { text-decoration: underline; }
         .how-it-works .step-number { background: white; color: var(--primary); width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; margin: 0 auto 20px; }
-        .social-proof { background: var(--bg-white); padding: 80px 0; }
-        .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 80px; }
-        .testimonial-card { background: var(--bg-light); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); border: 1px solid var(--border); transition: transform 0.2s; }
-        .testimonial-card:hover { transform: translateY(-4px); }
-        .testimonial-avatar { width: 48px; height: 48px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; margin-bottom: 16px; }
-        .testimonial-text { color: var(--text-gray); margin-bottom: 20px; font-size: 15px; line-height: 1.5; }
-        .testimonial-name { font-weight: 700; color: var(--text-dark); margin-bottom: 4px; }
-        .testimonial-role { font-size: 13px; color: var(--text-light); }
-        .trust-badge { border-top: 1px solid var(--border); padding-top: 60px; text-align: center; }
-        .trust-badge h3 { font-size: 24px; font-weight: 700; color: var(--text-dark); margin-bottom: 12px; }
-        .trust-badge p { color: var(--text-gray); margin-bottom: 32px; font-size: 16px; }
-        .logo-strip { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; }
-        .logo-item { background: var(--bg-light); padding: 12px 24px; border-radius: 40px; border: 1px solid var(--border); font-weight: 500; color: var(--text-gray); transition: all 0.2s; font-size: 14px; }
-        .logo-item:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
-        .demo { background: var(--bg-light); }
-        .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; }
-        .demo-card { background: white; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s; text-align: center; padding: 32px 24px; }
-        .demo-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-        .demo-icon { width: 80px; height: 80px; background: var(--gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
-        .demo-icon svg { width: 40px; height: 40px; color: white; }
-        .demo-card h3 { margin-bottom: 12px; }
-        .demo-card p { color: var(--text-gray); margin-bottom: 20px; }
-        .sellers { background: linear-gradient(135deg, #F5F7FA 0%, #E8F0E9 100%); }
-        .sellers-content { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        @media (max-width: 768px) { .sellers-content { grid-template-columns: 1fr; } }
-        .sellers-form { background: white; padding: 40px; border-radius: 24px; box-shadow: var(--shadow-lg); }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text-dark); }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid var(--border); border-radius: 12px; font-size: 16px; font-family: inherit; transition: border-color 0.3s; }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(45,90,61,0.1); }
-        .checkbox-group { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
-        .checkbox-group input { width: 20px; height: 20px; margin: 0; }
-        .checkbox-group label { margin-bottom: 0; font-weight: 400; font-size: 14px; color: var(--text-gray); }
-        .form-note { font-size: 14px; color: var(--text-light); margin-top: 16px; text-align: center; }
-        .benefits-list { list-style: none; margin: 24px 0; }
-        .benefits-list li { padding: 12px 0; padding-left: 36px; position: relative; color: var(--text-gray); }
-        .benefits-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 700; font-size: 20px; }
         .faq-container { max-width: 800px; margin: 0 auto; }
         .faq-item { background: white; border-radius: 16px; margin-bottom: 16px; box-shadow: var(--shadow); overflow: hidden; border: 1px solid var(--border); }
         .faq-question { width: 100%; padding: 20px 24px; text-align: left; background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%); border: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 16px; color: var(--text-dark); transition: background 0.3s; }
@@ -177,18 +131,17 @@
         .footer-container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
         .footer-grid { display: grid; grid-template-columns: 1fr; gap: 32px; margin-bottom: 32px; }
         .footer-logo { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-        .footer-logo svg { width: 32px; height: 32px; color: #166534; }
+        .footer-logo svg { height: 32px; width: auto; max-width: 40px; }
         .footer-logo span { font-size: 1.25rem; font-weight: 700; color: white; }
         .footer-description { font-size: 0.875rem; color: #9ca3af; margin-bottom: 16px; }
-        .footer-legal { font-size: 0.75rem; color: #6b7280; }
         .footer-title { color: white; font-weight: 600; margin-bottom: 16px; }
         .footer-links { list-style: none; display: flex; flex-direction: column; gap: 8px; }
         .footer-links li { display: flex; align-items: center; gap: 8px; }
         .footer-links a { color: #d1d5db; text-decoration: none; transition: color 0.2s; }
         .footer-links a:hover { color: #15803d; }
         .footer-bottom { border-top: 1px solid #1f2937; padding-top: 32px; text-align: center; font-size: 0.875rem; color: #6b7280; }
-        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1024px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
         .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: #2D5A3D; color: white; padding: 12px 24px; border-radius: 40px; font-size: 14px; font-weight: 500; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1100; opacity: 0; transition: transform 0.3s, opacity 0.3s; pointer-events: none; }
@@ -196,16 +149,9 @@
         @media (max-width: 768px) {
             .hero { padding: 60px 0; }
             .hero h1 { font-size: 32px; }
-            .hero-stats { gap: 16px; }
-            .stat-value { font-size: 28px; }
             section { padding: 60px 0; }
-            .live-tender { flex-direction: column; text-align: center; }
-            .tender-details { flex-direction: column; gap: 8px; }
             .how-it-works .steps { grid-template-columns: 1fr; gap: 20px; }
             .how-it-works .step { padding: 24px 16px; }
-            .demo-icon { width: 60px; height: 60px; }
-            .logo-strip { gap: 16px; }
-            .logo-item { padding: 8px 16px; font-size: 12px; }
         }
     </style>
 </head>
@@ -215,19 +161,39 @@
     <div class="container">
         <nav>
             <a href="#" class="logo">
-                <img src="agro_group_logo.png" alt="Агро Тендер" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' fill=\'%232D5A3D\'/%3E%3Ctext x=\'50\' y=\'67\' font-size=\'50\' text-anchor=\'middle\' fill=\'white\' font-family=\'Arial\'%3E🌾%3C/text%3E%3C/svg%3E';">
-                <span>Агро Тендер</span>
+                <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="256" cy="256" r="256" fill="white"/>
+                    <path d="M155.731 20.3765C181.284 9.68107 207.417 3.19011 234.703 0.937825C283.416 -3.08309 329.647 5.80475 373.064 28.0057C419.401 51.6997 455.366 86.6351 480.558 132.431C496.814 161.982 506.765 193.669 510.387 227.217C516.796 286.583 504.082 341.755 472.741 392.396C455.54 420.191 433.141 443.257 406.809 462.639C380.856 481.742 352.503 495.615 321.371 503.495C266.498 517.385 212.385 514.473 159.866 493.197C113.192 474.288 75.1751 443.798 46.1271 402.364C29.3269 378.4 16.6422 352.44 9.22404 323.984C1.16192 293.058 -2.0305 261.852 1.31082 229.851C5.43627 190.339 17.4043 153.7 38.4236 120.112C66.1557 75.7963 104.234 43.4355 151.77 22.1721C152.978 21.6316 154.182 21.0814 155.731 20.3765ZM242.888 12.8332C228.244 14.1328 213.674 15.6964 199.321 19.244C153.007 30.6911 112.56 52.8971 79.9569 87.7508C24.3273 147.221 3.44603 218.176 16.3905 298.469C24.3247 347.684 47.1338 390.098 81.869 425.67C119.119 463.817 164.062 487.549 216.776 496.162C221.7 496.967 223.74 495.815 225.191 490.88C231.424 469.672 233.881 448.002 233.845 426.001C233.838 421.829 235.229 419.606 239.181 418.396C243.276 417.142 247.185 415.287 251.215 413.803C256.622 411.811 261.201 408.178 266.021 405.691C267.952 407.11 267.925 408.644 268.085 410.126C271.193 438.808 279.15 465.998 292.653 491.533C294.389 494.814 296.324 496.196 300.071 495.508C315.571 492.663 330.759 488.604 345.296 482.565C412.618 454.596 459.527 406.456 485.071 337.892C497.41 304.774 501.156 270.341 498.27 235.052C495.845 205.387 488.241 177.242 475.353 150.54C450.568 99.1906 412.386 61.1525 361.249 36.4491C324.19 18.5469 284.897 11.0221 242.888 12.8332Z" fill="#165136"/>
+                    <path d="M419.762 215.686C414.387 230.285 407.806 243.776 398.537 255.885C395.886 259.348 393.482 260.02 389.346 258.338C373.268 251.8 356.328 249.063 339.109 247.932C333.037 247.534 326.971 246.137 320.848 247.596C319.713 247.867 318.446 247.778 317.789 246.559C317.012 245.119 317.978 243.998 318.774 242.974C324.669 235.384 331.153 228.186 336.379 220.16C342.846 210.229 351.656 207.364 362.841 207.678C381.207 208.195 399.413 205.241 417.709 204.08C422.155 203.798 423.132 204.858 421.814 209.144C421.181 211.204 420.53 213.258 419.762 215.686Z" fill="#9FC56F"/>
+                    <path d="M234.642 345.921C235.693 347.439 236.514 348.687 237.419 349.869C237.7 350.235 238.209 350.425 238.828 350.839C241.572 348.613 241.273 345.26 241.917 342.357C242.664 338.997 244.185 337.911 247.527 339.301C253.784 341.904 260.111 344.34 266.445 346.751C268.669 347.597 269.43 348.913 269.093 351.323C267.041 365.994 266.524 380.752 267.291 395.528C267.465 398.881 266.395 400.712 263.633 402.309C255.884 406.789 248.04 411.03 239.6 414.08C234.187 416.037 233.257 415.59 233.032 409.617C232.748 402.084 231.062 394.85 229.258 387.596C221.606 356.818 205.974 330.316 186.128 306.051C177.405 295.386 168.1 285.265 158.17 275.722C157.37 274.953 156.373 274.259 156.596 271.699C186.441 292.944 214.688 314.702 234.642 345.921Z" fill="#4E8846"/>
+                    <path d="M260.377 215.426C266.145 192.34 279.317 174.722 297.193 160.299C299.48 158.453 301.967 157.025 303.01 161.419C307.569 180.627 312.035 199.851 309.909 219.865C309.632 222.478 308.71 224.595 306.767 226.39C292.103 239.935 279.15 254.966 268.032 271.582C267.398 272.529 266.835 273.607 264.388 274.075C256.796 255.143 255.224 235.785 260.377 215.426Z" fill="#195639"/>
+                    <path d="M363.622 255.052C373.166 257.547 382.625 258.969 391.205 263.55C389.657 267.639 386.735 269.671 384.205 271.963C361.202 292.797 334.095 302.124 303.268 300.721C299.499 300.549 295.771 299.587 292.012 299.089C289.411 298.744 288.494 297.484 289.521 295.007C295.514 280.561 302.827 266.84 311.865 254.068C313.385 251.919 315.669 251.718 317.999 251.419C333.319 249.451 348.251 252.391 363.622 255.052Z" fill="#185538"/>
+                    <path d="M202.12 337.783C202.832 339.135 203.297 340.209 203.908 341.192C206.07 344.667 204.793 346.225 201.093 346.942C166.21 353.709 135.175 346.553 109.119 321.385C107.134 319.468 104.231 316.808 109.06 315.123C128.548 308.326 147.932 301.008 169.067 301.202C173.205 301.24 176.104 302.568 178.879 305.732C187.546 315.614 195.053 326.3 202.12 337.783Z" fill="#164E35"/>
+                    <path d="M194.598 295.422C192.673 293.82 191.172 292.168 189.328 291.129C181.724 286.842 179.787 279.559 179.344 271.763C178.541 257.626 179.707 243.595 182.982 229.797C184.363 223.978 185.303 223.626 190.06 227.115C218.111 247.69 231.71 275.21 229.283 310.263C228.966 314.84 227.988 319.397 225.677 324.647C215.26 314.581 206.231 303.809 194.598 295.422Z" fill="#518A4B"/>
+                    <path d="M432.912 130.954C436.253 130.797 436.748 132.816 436.358 135.504C433.504 155.191 431.365 174.995 426.048 194.261C424.9 198.421 423.11 200.098 418.597 200.298C398.129 201.207 377.681 202.56 357.225 203.738C355.805 203.82 354.249 204.421 352.543 202.206C357.338 197.712 362.189 193.156 367.051 188.612C385.578 171.295 405.568 155.677 424.44 138.76C425.545 137.77 426.503 136.615 427.968 135.083C429.908 133.405 431.41 132.18 432.912 130.954Z" fill="#4F8548"/>
+                    <path d="M142.854 300.675C130.046 303.741 117.827 307.312 106.25 312.76C103.577 314.018 102.054 313.261 100.296 311.269C90.2376 299.873 83.8508 286.463 78.7664 272.304C77.6478 269.189 78.6411 267.93 81.8648 268.064C101.705 268.887 121.553 268.811 141.402 268.577C143.59 268.551 145.695 268.799 147.341 270.528C154.883 278.449 162.45 286.346 169.969 294.289C170.484 294.833 170.672 295.688 171.556 297.535C161.591 297.741 152.267 298.085 142.854 300.675Z" fill="#498749"/>
+                    <path d="M329.347 140.886C336.633 137.587 343.868 135.348 351.238 133.463C355.198 132.451 356.81 133.498 356.333 137.788C354.595 153.415 352.002 168.947 351.256 184.686C351.111 187.736 349.836 190.445 347.344 192.451C337.429 200.432 327.534 208.439 317.624 216.428C316.982 216.945 316.293 217.426 315.208 217.035C313.949 216.242 314.322 214.793 314.334 213.542C314.5 194.989 311.72 176.895 305.977 159.267C304.952 156.123 305.685 153.679 308.526 152.041C315.241 148.17 321.768 143.94 329.347 140.886Z" fill="#9DC26C"/>
+                    <path d="M282.866 298.584C277.434 312.051 273.431 325.542 271.144 339.509C270.581 342.951 269.165 343.593 266.07 342.314C260.418 339.979 254.708 337.77 248.943 335.735C245.241 334.428 244.252 332.451 245.398 328.547C252.279 305.118 264.203 284.462 278.824 265.125C296.573 241.651 318.136 222.164 340.932 203.901C342.004 203.043 343.025 201.669 345.78 202.86C319.784 231.545 297.538 262.379 282.866 298.584Z" fill="#1B563B"/>
+                    <path d="M433.052 130.654C431.41 132.179 429.908 133.405 428.153 134.791C413.59 142.958 400.61 152.945 387.312 162.454C378.036 169.088 368.867 175.873 359.625 182.556C358.592 183.303 357.714 184.45 356.066 184.311C354.244 182.981 355.017 181.06 355.354 179.409C358.142 165.734 358.677 151.811 359.82 137.966C360.222 133.11 361.802 130.713 366.85 129.648C387.267 125.342 407.801 125.185 428.433 127.055C430.365 127.23 433.463 126.589 433.052 130.654Z" fill="#4C8748"/>
+                    <path d="M69.4328 205.019C87.8093 221.475 107.422 236.418 126.459 252.066C130.57 255.446 135.062 258.492 138.633 262.858C136.08 264.648 133.722 264.65 131.501 264.666C114.982 264.792 98.4609 264.728 81.9424 264.909C78.0025 264.952 75.9205 263.482 74.8401 259.649C70.0651 242.707 66.8018 225.479 64.6125 208.027C64.316 205.663 64.891 204.082 68.1242 204.067C68.9449 204.48 69.1888 204.749 69.4328 205.019Z" fill="#195437"/>
+                    <path d="M137.727 214.829C137.501 211.297 135.732 208.411 136.29 204.685C141.342 204.245 145.922 206.074 150.632 207.332C160.143 209.872 168.926 214.01 177.416 218.915C180.17 220.506 181.754 222.308 180.757 225.709C175.886 242.326 174.896 259.31 176.104 276.496C176.145 277.079 175.815 277.689 175.659 278.28C173.122 278.645 171.862 276.85 170.334 275.738C163.113 270.477 156.055 264.982 148.707 259.908C144.732 257.163 144.299 253.142 143.596 249.077C141.644 237.801 139.731 226.519 137.727 214.829Z" fill="#9FC66E"/>
+                    <path d="M69.7544 205.087C69.1883 204.749 68.9444 204.48 68.5011 204.025C68.0809 200.017 71.3151 200.068 73.4524 199.87C91.2711 198.22 109.06 198.106 126.772 201.348C130.489 202.029 131.898 203.755 132.517 207.464C134.807 221.188 137.495 234.844 140.012 248.53C140.244 249.791 140.671 251.12 139.145 252.974C115.922 237.33 93.9199 219.872 69.7544 205.087Z" fill="#639246"/>
+                </svg>
+                <span>АгроТенд</span>
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Возможности</a></li>
                 <li><a href="#how-it-works">Как работает</a></li>
-                <li><a href="#demo">Демонстрация</a></li>
-                <li><a href="#for-sellers">Поставщикам</a></li>
                 <li><a href="#faq">FAQ</a></li>
                 <li>
                     <a href="https://t.me/agro_tender_bot" class="btn-header" target="_blank">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.1 240.1">
+                            <linearGradient id="Oval_1_" gradientUnits="userSpaceOnUse" x1="-838.041" y1="660.581" x2="-838.041" y2="660.3427" gradientTransform="matrix(1000 0 0 -1000 838161 660581)">
+                                <stop offset="0" style="stop-color:#2AABEE"/>
+                                <stop offset="1" style="stop-color:#229ED9"/>
+                            </linearGradient>
+                            <circle fill-rule="evenodd" clip-rule="evenodd" fill="url(#Oval_1_)" cx="120.1" cy="120.1" r="120.1"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"/>
                         </svg>
                         Бот
                     </a>
@@ -248,35 +214,21 @@
             <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
             <h1>Тендеры для агробизнеса в Telegram</h1>
             <p class="hero-subtitle">
-                Тендеры на закупку зерна, удобрений, техники и услуг через <strong>единого бота</strong>. Заказчики и поставщики работают в одном интерфейсе. Получайте лучшие цены от десятков поставщиков за 3 часа.
+                Современный инструмент для закупок в агросфере, созданный для среднего и малого бизнеса. Тендеры на закупку зерна, удобрений, техники и услуг через <strong>единого бота</strong>. Заказчики и поставщики работают в одном интерфейсе. Получайте лучшие цены от десятков поставщиков за 3 часа.
             </p>
-            
-            <div class="hero-stats">
-                <div class="stat-item"><span class="stat-value">150+</span><span class="stat-label">тендеров с 2024 года</span></div>
-                <div class="stat-item"><span class="stat-value">500+</span><span class="stat-label">активных участников</span></div>
-                <div class="stat-item"><span class="stat-value">10+</span><span class="stat-label">предложений на тендер</span></div>
-                <div class="stat-item"><span class="stat-value">3 часа</span><span class="stat-label">среднее время торгов</span></div>
-            </div>
 
             <div class="hero-buttons">
                 <a href="https://t.me/agro_tender_bot" class="btn btn-cta" target="_blank">
-                    📝 Начать в Telegram
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.1 240.1">
+                        <linearGradient id="Oval_2_" gradientUnits="userSpaceOnUse" x1="-838.041" y1="660.581" x2="-838.041" y2="660.3427" gradientTransform="matrix(1000 0 0 -1000 838161 660581)">
+                            <stop offset="0" style="stop-color:#2AABEE"/>
+                            <stop offset="1" style="stop-color:#229ED9"/>
+                        </linearGradient>
+                        <circle fill-rule="evenodd" clip-rule="evenodd" fill="url(#Oval_2_)" cx="120.1" cy="120.1" r="120.1"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"/>
+                    </svg>
+                    Открыть Telegram Бот
                 </a>
-                <a href="#for-sellers" class="btn btn-accent">
-                    🚚 Узнать о регистрации
-                </a>
-            </div>
-
-            <div class="live-tender">
-                <div class="tender-live-badge">LIVE</div>
-                <div class="tender-info">
-                    <strong>🌾 Пшеница 3 класс, 50 тонн</strong>
-                    <div class="tender-details">
-                        <span>💰 Текущая цена: 482 BYN</span>
-                        <span>⏱️ Осталось: 1 час 23 мин</span>
-                        <span>✅ 5 предложений</span>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -285,8 +237,8 @@
 <section id="features" class="features">
     <div class="container">
         <div class="section-header fade-in">
-            <h2>Почему Агро Тендер</h2>
-            <p>Современный инструмент для эффективных закупок в агросфере</p>
+            <h2>Почему АгроТенд</h2>
+            <p>Современный инструмент для эффективных закупок в агросфере для среднего и малого бизнеса</p>
         </div>
         <div class="features-grid">
             <div class="feature-card fade-in">
@@ -298,7 +250,7 @@
             <div class="feature-card fade-in">
                 <div class="feature-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div>
                 <h3>Прозрачные торги без посредников</h3>
-                <p>Все предложения видны участникам, победитель определяется автоматически по минимальной цене. Честно и открыто.</p>
+                <p>Все предложения видны участникам, победитель определяется автоматически по наилучшему предложению. Честно и открыто.</p>
                 <span class="feature-stat">🔒 Полное логирование</span>
             </div>
             <div class="feature-card fade-in">
@@ -336,134 +288,20 @@
             <p>Простой процесс из 4 шагов для заказчиков и поставщиков</p>
         </div>
 
-        <h3 style="text-align:center; margin-bottom:32px;">👨‍🌾 Для заказчиков</h3>
+        <h3 style="text-align:center; margin-bottom:32px;">Для заказчиков</h3>
         <div class="steps fade-in">
-            <div class="step"><div class="step-number">1</div><h3>Регистрация</h3><p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a>, нажмите /start и выберите роль <strong>«Заказчик»</strong>. <strong>Ожидайте подтверждения администратора.</strong></p></div>
+            <div class="step"><div class="step-number">1</div><h3>Регистрация</h3><p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a>, нажмите /start и выберите роль «Заказчик». Ожидайте подтверждения администратора.</p></div>
             <div class="step"><div class="step-number">2</div><h3>Создание заявки</h3><p>После подтверждения заполните форму: товар, объём, единицы измерения, аналоги, сроки, условия доставки и оплаты, возможность разделения и частичной поставки.</p></div>
             <div class="step"><div class="step-number">3</div><h3>Торги</h3><p>Заявка попадает в очередь. Торги длятся 3 часа. Все предложения видны в реальном времени. При перебитии цены участники получают уведомления.</p></div>
             <div class="step"><div class="step-number">4</div><h3>Результат</h3><p>Бот присылает список победителей с контактами. Вы связываетесь с поставщиками напрямую.</p></div>
         </div>
 
-        <h3 style="text-align:center; margin:48px 0 32px;">🚚 Для поставщиков</h3>
+        <h3 style="text-align:center; margin:48px 0 32px;">Для поставщиков</h3>
         <div class="steps fade-in">
-            <div class="step"><div class="step-number">1</div><h3>Регистрация</h3><p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a>, нажмите /start и выберите роль <strong>«Дилер»</strong>.</p></div>
-            <div class="step"><div class="step-number">2</div><h3>Ожидание подтверждения</h3><p>Администратор одобрит вашу заявку, и вы получите доступ к участию в тендерах.</p></div>
-            <div class="step"><div class="step-number">3</div><h3>Участие в торгах</h3><p>При старте торгов вы получаете приглашение. Делайте предложения: цена (с НДС/без), объём (весь или часть), дата поставки, комментарий.</p></div>
-            <div class="step"><div class="step-number">4</div><h3>Получайте заказы</h3><p>При победе – контакты заказчика. В среднем 3-5 новых клиентов в месяц.</p></div>
-        </div>
-    </div>
-</section>
-
-<section id="demo" class="demo">
-    <div class="container">
-        <div class="section-header fade-in">
-            <h2>Как выглядит сервис</h2>
-            <p>Единый бот для всех ролей</p>
-        </div>
-        <div class="demo-grid">
-            <div class="demo-card fade-in">
-                <div class="demo-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-                <h3>Единый бот</h3>
-                <p>Один Telegram-бот для заказчиков, поставщиков и администраторов. Регистрация с выбором роли, создание заявок и предложений, уведомления о перебитии цены, управление тендерами.</p>
-                <a href="https://t.me/agro_tender_bot" class="btn-outline" target="_blank">Перейти в бот →</a>
-            </div>
-            <div class="demo-card fade-in">
-                <div class="demo-icon"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg></div>
-                <h3>Администрирование</h3>
-                <p>Администраторы утверждают регистрации, управляют заявками.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="social-proof">
-    <div class="container">
-        <div class="section-header fade-in"><h2>Доверие участников</h2><p>Крупные агропредприятия и дилеры уже с нами</p></div>
-        <div class="testimonials fade-in">
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">АИ</div>
-                <div class="testimonial-text">«Сервис сократил время закупок с 2 недель до 3 часов. За 3 месяца сэкономили более 15 000 BYN на удобрениях. Победители всегда на связи, торги прозрачны.»</div>
-                <div class="testimonial-name">Алексей Иванов</div>
-                <div class="testimonial-role">Коммерческий директор, ООО «АгроХимПоставка»</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">СМ</div>
-                <div class="testimonial-text">«Как дилер, получаю новые заказы каждую неделю. Удобно, что все заявки в одном месте, а бот присылает уведомления о перебитии цены.»</div>
-                <div class="testimonial-name">Сергей Михайлов</div>
-                <div class="testimonial-role">Руководитель отдела продаж, ООО «Зернотрейд»</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="testimonial-avatar">ЕК</div>
-                <div class="testimonial-text">«Впервые попробовали тендеры в Telegram – результат превзошёл ожидания. Снизили стоимость закупки на 18% за счёт конкуренции.»</div>
-                <div class="testimonial-name">Елена Ковальчук</div>
-                <div class="testimonial-role">Снабженец, КФХ «Полесье»</div>
-            </div>
-        </div>
-        <div class="trust-badge fade-in">
-            <h3>Нам доверяют лидеры агрорынка</h3>
-            <p>Более 500 компаний уже используют наш сервис</p>
-            <div class="logo-strip">
-                <div class="logo-item">🌾 АгроХимПоставка</div>
-                <div class="logo-item">🌽 Зернотрейд</div>
-                <div class="logo-item">🚜 Белагро</div>
-                <div class="logo-item">🌻 Полесье</div>
-                <div class="logo-item">🏭 ГродноАзот</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="for-sellers" class="sellers">
-    <div class="container">
-        <div class="sellers-content">
-            <div class="fade-in">
-                <h2>Стать поставщиком (дилером)</h2>
-                <p style="font-size:18px; color:var(--text-gray); margin:16px 0 24px;">
-                    Участвуйте в тендерах, получайте заказы от агропредприятий Беларуси. 
-                    Расширьте клиентскую базу без холодных звонков и спама.
-                </p>
-                <ul class="benefits-list">
-                    <li>Средний чек заказа: <strong>12 500 BYN</strong></li>
-                    <li>3-5 новых клиентов в месяц</li>
-                    <li>Прозрачные условия торгов</li>
-                    <li>Мгновенные уведомления в Telegram</li>
-                    <li>Без скрытых комиссий и посредников</li>
-                </ul>
-                <div style="background:white; padding:24px; border-radius:16px; margin-top:24px; border-left:4px solid var(--accent); box-shadow:var(--shadow);">
-                    <strong style="color:var(--primary);">💡 Пример:</strong>
-                    <p style="margin:8px 0 0; color:var(--text-gray); font-size:15px;">
-                        Поставщик зерна участвует в 10-15 тендерах в месяц. 
-                        Выигрывает 3-5. Средний месячный доход от сервиса – 
-                        <strong>8 000 – 15 000 BYN</strong> (в зависимости от объёмов)
-                    </p>
-                </div>
-            </div>
-            <div class="sellers-form fade-in">
-                <h3 style="margin-bottom:24px; text-align:center;">Оставить заявку на участие</h3>
-                <form id="sellerForm">
-                    <div class="form-group"><label for="company">Название компании / ИП *</label><input type="text" id="company" name="company" required placeholder="ООО «АгроПоставка»"></div>
-                    <div class="form-group"><label for="contact">Контактное лицо *</label><input type="text" id="contact" name="contact" required placeholder="Иванов Иван"></div>
-                    <div class="form-group"><label for="phone">Телефон *</label><input type="tel" id="phone" name="phone" required inputmode="tel" placeholder="+375 (29) 123-45-67"></div>
-                    <div class="form-group"><label for="telegram">Telegram *</label><input type="text" id="telegram" name="telegram" required placeholder="@username"></div>
-                    <div class="form-group"><label for="sphere">Сфера деятельности *</label>
-                        <select id="sphere" name="sphere" required>
-                            <option value="">Выберите вариант</option>
-                            <option value="grain">Зерновые культуры</option>
-                            <option value="oilseeds">Масличные культуры</option>
-                            <option value="fertilizers">Удобрения</option>
-                            <option value="equipment">Сельхозтехника</option>
-                            <option value="other">Другое</option>
-                        </select>
-                    </div>
-                    <div class="form-group"><label for="comment">Комментарий</label><textarea id="comment" name="comment" rows="3" placeholder="Регион работы, объёмы, опыт..."></textarea></div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="agreement" required>
-                        <label for="agreement">Я согласен на обработку персональных данных в соответствии с <a href="#" target="_blank">Политикой конфиденциальности</a> и принимаю условия <a href="#" target="_blank">Договора-оферты</a> *</label>
-                    </div>
-                    <button type="submit" class="btn btn-cta" style="width:100%; justify-content:center;">Отправить заявку → получить приглашение</button>
-                    <p class="form-note">🔒 После отправки мы добавим вас в сервис и пришлём приглашение в личные сообщения Telegram</p>
-                </form>
-            </div>
+            <div class="step"><div class="step-number">1</div><h3>Регистрация</h3><p>Перейдите в <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a>, нажмите /start и выберите роль «Дилер». Ожидайте подтверждения администратора.</p></div>
+            <div class="step"><div class="step-number">2</div><h3>Доступ к тендерам</h3><p>После подтверждения вы получите доступ к участию в тендерах.</p></div>
+            <div class="step"><div class="step-number">3</div><h3>Участие в торгах</h3><p>При старте торгов вы получаете приглашение. Делайте предложения: цена, объём (весь или часть), дата поставки, комментарий.</p></div>
+            <div class="step"><div class="step-number">4</div><h3>Получайте заказы</h3><p>При победе – заказчик получает Ваши контакты для связи. В среднем 3-5 новых клиентов в месяц.</p></div>
         </div>
     </div>
 </section>
@@ -474,7 +312,7 @@
         <div class="faq-container fade-in">
             <div class="faq-item">
                 <button class="faq-question">Как гарантируется честность торгов?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                <div class="faq-answer">Все ставки видны участникам в реальном времени. Победитель определяется автоматически по минимальной цене. Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.</div>
+                <div class="faq-answer">Все ставки видны участникам в реальном времени. Победитель определяется автоматически по наилучшему предложению. Все действия логируются. Мы не вмешиваемся в процесс торгов и не влияем на результаты.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Что если поставщик не выполнит обязательства?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -482,7 +320,7 @@
             </div>
             <div class="faq-item">
                 <button class="faq-question">Можно ли отменить заявку?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                <div class="faq-answer">Да, заказчик может отменить заявку даже во время торгов (пока статус «активна»). После завершения торгов отмена невозможна. Если торги уже завершены, вы обязаны выбрать победителя.</div>
+                <div class="faq-answer">Заказчик может отменить заявку до начала торгов (пока она находится в очереди), а также во время активных торгов. Дилеры, в свою очередь, могут отменять свои собственные предложения в любой момент до завершения торгов.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Как происходит оплата?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -490,7 +328,7 @@
             </div>
             <div class="faq-item">
                 <button class="faq-question">Какая комиссия сервиса?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-                <div class="faq-answer">Для заказчиков – бесплатно. Для поставщиков – разовый взнос 482 BYN за участие в тендерах. Никаких дополнительных комиссий с сделок не взимаем.</div>
+                <div class="faq-answer">На данный момент сервис бесплатный.</div>
             </div>
             <div class="faq-item">
                 <button class="faq-question">Какие товары можно закупать?<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
@@ -503,10 +341,19 @@
 <section class="cta-section">
     <div class="container">
         <h2>Начните экономить на закупках уже сегодня</h2>
-        <p>Присоединяйтесь к 500+ участникам агротендеров в Беларуси</p>
+        <p>Присоединяйтесь к участникам агротендеров в Беларуси</p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
-            <a href="https://t.me/agro_tender_bot" class="btn btn-white" target="_blank">📝 Перейти в бот</a>
-            <a href="#for-sellers" class="btn btn-white">🚚 Стать поставщиком</a>
+            <a href="https://t.me/agro_tender_bot" class="btn btn-white" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240.1 240.1">
+                    <linearGradient id="Oval_3_" gradientUnits="userSpaceOnUse" x1="-838.041" y1="660.581" x2="-838.041" y2="660.3427" gradientTransform="matrix(1000 0 0 -1000 838161 660581)">
+                        <stop offset="0" style="stop-color:#2AABEE"/>
+                        <stop offset="1" style="stop-color:#229ED9"/>
+                    </linearGradient>
+                    <circle fill-rule="evenodd" clip-rule="evenodd" fill="url(#Oval_3_)" cx="120.1" cy="120.1" r="120.1"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"/>
+                </svg>
+                Открыть Telegram Бот
+            </a>
         </div>
     </div>
 </section>
@@ -515,15 +362,34 @@
     <div class="footer-container">
         <div class="footer-grid">
             <div>
-                <div class="footer-logo"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg><span>Агро Тендер</span></div>
-                <p class="footer-description">Единый бот для автоматизации тендеров в агросекторе Беларуси. Работаем с 2025 года.</p>
-                <p class="footer-legal">ООО «АгроТендерСервис»<br>УНП 123456789<br>г. Минск, ул. Примерная, д. 1</p>
+                <div class="footer-logo">
+                    <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="256" cy="256" r="256" fill="white"/>
+                        <path d="M155.731 20.3765C181.284 9.68107 207.417 3.19011 234.703 0.937825C283.416 -3.08309 329.647 5.80475 373.064 28.0057C419.401 51.6997 455.366 86.6351 480.558 132.431C496.814 161.982 506.765 193.669 510.387 227.217C516.796 286.583 504.082 341.755 472.741 392.396C455.54 420.191 433.141 443.257 406.809 462.639C380.856 481.742 352.503 495.615 321.371 503.495C266.498 517.385 212.385 514.473 159.866 493.197C113.192 474.288 75.1751 443.798 46.1271 402.364C29.3269 378.4 16.6422 352.44 9.22404 323.984C1.16192 293.058 -2.0305 261.852 1.31082 229.851C5.43627 190.339 17.4043 153.7 38.4236 120.112C66.1557 75.7963 104.234 43.4355 151.77 22.1721C152.978 21.6316 154.182 21.0814 155.731 20.3765ZM242.888 12.8332C228.244 14.1328 213.674 15.6964 199.321 19.244C153.007 30.6911 112.56 52.8971 79.9569 87.7508C24.3273 147.221 3.44603 218.176 16.3905 298.469C24.3247 347.684 47.1338 390.098 81.869 425.67C119.119 463.817 164.062 487.549 216.776 496.162C221.7 496.967 223.74 495.815 225.191 490.88C231.424 469.672 233.881 448.002 233.845 426.001C233.838 421.829 235.229 419.606 239.181 418.396C243.276 417.142 247.185 415.287 251.215 413.803C256.622 411.811 261.201 408.178 266.021 405.691C267.952 407.11 267.925 408.644 268.085 410.126C271.193 438.808 279.15 465.998 292.653 491.533C294.389 494.814 296.324 496.196 300.071 495.508C315.571 492.663 330.759 488.604 345.296 482.565C412.618 454.596 459.527 406.456 485.071 337.892C497.41 304.774 501.156 270.341 498.27 235.052C495.845 205.387 488.241 177.242 475.353 150.54C450.568 99.1906 412.386 61.1525 361.249 36.4491C324.19 18.5469 284.897 11.0221 242.888 12.8332Z" fill="#165136"/>
+                        <path d="M419.762 215.686C414.387 230.285 407.806 243.776 398.537 255.885C395.886 259.348 393.482 260.02 389.346 258.338C373.268 251.8 356.328 249.063 339.109 247.932C333.037 247.534 326.971 246.137 320.848 247.596C319.713 247.867 318.446 247.778 317.789 246.559C317.012 245.119 317.978 243.998 318.774 242.974C324.669 235.384 331.153 228.186 336.379 220.16C342.846 210.229 351.656 207.364 362.841 207.678C381.207 208.195 399.413 205.241 417.709 204.08C422.155 203.798 423.132 204.858 421.814 209.144C421.181 211.204 420.53 213.258 419.762 215.686Z" fill="#9FC56F"/>
+                        <path d="M234.642 345.921C235.693 347.439 236.514 348.687 237.419 349.869C237.7 350.235 238.209 350.425 238.828 350.839C241.572 348.613 241.273 345.26 241.917 342.357C242.664 338.997 244.185 337.911 247.527 339.301C253.784 341.904 260.111 344.34 266.445 346.751C268.669 347.597 269.43 348.913 269.093 351.323C267.041 365.994 266.524 380.752 267.291 395.528C267.465 398.881 266.395 400.712 263.633 402.309C255.884 406.789 248.04 411.03 239.6 414.08C234.187 416.037 233.257 415.59 233.032 409.617C232.748 402.084 231.062 394.85 229.258 387.596C221.606 356.818 205.974 330.316 186.128 306.051C177.405 295.386 168.1 285.265 158.17 275.722C157.37 274.953 156.373 274.259 156.596 271.699C186.441 292.944 214.688 314.702 234.642 345.921Z" fill="#4E8846"/>
+                        <path d="M260.377 215.426C266.145 192.34 279.317 174.722 297.193 160.299C299.48 158.453 301.967 157.025 303.01 161.419C307.569 180.627 312.035 199.851 309.909 219.865C309.632 222.478 308.71 224.595 306.767 226.39C292.103 239.935 279.15 254.966 268.032 271.582C267.398 272.529 266.835 273.607 264.388 274.075C256.796 255.143 255.224 235.785 260.377 215.426Z" fill="#195639"/>
+                        <path d="M363.622 255.052C373.166 257.547 382.625 258.969 391.205 263.55C389.657 267.639 386.735 269.671 384.205 271.963C361.202 292.797 334.095 302.124 303.268 300.721C299.499 300.549 295.771 299.587 292.012 299.089C289.411 298.744 288.494 297.484 289.521 295.007C295.514 280.561 302.827 266.84 311.865 254.068C313.385 251.919 315.669 251.718 317.999 251.419C333.319 249.451 348.251 252.391 363.622 255.052Z" fill="#185538"/>
+                        <path d="M202.12 337.783C202.832 339.135 203.297 340.209 203.908 341.192C206.07 344.667 204.793 346.225 201.093 346.942C166.21 353.709 135.175 346.553 109.119 321.385C107.134 319.468 104.231 316.808 109.06 315.123C128.548 308.326 147.932 301.008 169.067 301.202C173.205 301.24 176.104 302.568 178.879 305.732C187.546 315.614 195.053 326.3 202.12 337.783Z" fill="#164E35"/>
+                        <path d="M194.598 295.422C192.673 293.82 191.172 292.168 189.328 291.129C181.724 286.842 179.787 279.559 179.344 271.763C178.541 257.626 179.707 243.595 182.982 229.797C184.363 223.978 185.303 223.626 190.06 227.115C218.111 247.69 231.71 275.21 229.283 310.263C228.966 314.84 227.988 319.397 225.677 324.647C215.26 314.581 206.231 303.809 194.598 295.422Z" fill="#518A4B"/>
+                        <path d="M432.912 130.954C436.253 130.797 436.748 132.816 436.358 135.504C433.504 155.191 431.365 174.995 426.048 194.261C424.9 198.421 423.11 200.098 418.597 200.298C398.129 201.207 377.681 202.56 357.225 203.738C355.805 203.82 354.249 204.421 352.543 202.206C357.338 197.712 362.189 193.156 367.051 188.612C385.578 171.295 405.568 155.677 424.44 138.76C425.545 137.77 426.503 136.615 427.968 135.083C429.908 133.405 431.41 132.18 432.912 130.954Z" fill="#4F8548"/>
+                        <path d="M142.854 300.675C130.046 303.741 117.827 307.312 106.25 312.76C103.577 314.018 102.054 313.261 100.296 311.269C90.2376 299.873 83.8508 286.463 78.7664 272.304C77.6478 269.189 78.6411 267.93 81.8648 268.064C101.705 268.887 121.553 268.811 141.402 268.577C143.59 268.551 145.695 268.799 147.341 270.528C154.883 278.449 162.45 286.346 169.969 294.289C170.484 294.833 170.672 295.688 171.556 297.535C161.591 297.741 152.267 298.085 142.854 300.675Z" fill="#498749"/>
+                        <path d="M329.347 140.886C336.633 137.587 343.868 135.348 351.238 133.463C355.198 132.451 356.81 133.498 356.333 137.788C354.595 153.415 352.002 168.947 351.256 184.686C351.111 187.736 349.836 190.445 347.344 192.451C337.429 200.432 327.534 208.439 317.624 216.428C316.982 216.945 316.293 217.426 315.208 217.035C313.949 216.242 314.322 214.793 314.334 213.542C314.5 194.989 311.72 176.895 305.977 159.267C304.952 156.123 305.685 153.679 308.526 152.041C315.241 148.17 321.768 143.94 329.347 140.886Z" fill="#9DC26C"/>
+                        <path d="M282.866 298.584C277.434 312.051 273.431 325.542 271.144 339.509C270.581 342.951 269.165 343.593 266.07 342.314C260.418 339.979 254.708 337.77 248.943 335.735C245.241 334.428 244.252 332.451 245.398 328.547C252.279 305.118 264.203 284.462 278.824 265.125C296.573 241.651 318.136 222.164 340.932 203.901C342.004 203.043 343.025 201.669 345.78 202.86C319.784 231.545 297.538 262.379 282.866 298.584Z" fill="#1B563B"/>
+                        <path d="M433.052 130.654C431.41 132.179 429.908 133.405 428.153 134.791C413.59 142.958 400.61 152.945 387.312 162.454C378.036 169.088 368.867 175.873 359.625 182.556C358.592 183.303 357.714 184.45 356.066 184.311C354.244 182.981 355.017 181.06 355.354 179.409C358.142 165.734 358.677 151.811 359.82 137.966C360.222 133.11 361.802 130.713 366.85 129.648C387.267 125.342 407.801 125.185 428.433 127.055C430.365 127.23 433.463 126.589 433.052 130.654Z" fill="#4C8748"/>
+                        <path d="M69.4328 205.019C87.8093 221.475 107.422 236.418 126.459 252.066C130.57 255.446 135.062 258.492 138.633 262.858C136.08 264.648 133.722 264.65 131.501 264.666C114.982 264.792 98.4609 264.728 81.9424 264.909C78.0025 264.952 75.9205 263.482 74.8401 259.649C70.0651 242.707 66.8018 225.479 64.6125 208.027C64.316 205.663 64.891 204.082 68.1242 204.067C68.9449 204.48 69.1888 204.749 69.4328 205.019Z" fill="#195437"/>
+                        <path d="M137.727 214.829C137.501 211.297 135.732 208.411 136.29 204.685C141.342 204.245 145.922 206.074 150.632 207.332C160.143 209.872 168.926 214.01 177.416 218.915C180.17 220.506 181.754 222.308 180.757 225.709C175.886 242.326 174.896 259.31 176.104 276.496C176.145 277.079 175.815 277.689 175.659 278.28C173.122 278.645 171.862 276.85 170.334 275.738C163.113 270.477 156.055 264.982 148.707 259.908C144.732 257.163 144.299 253.142 143.596 249.077C141.644 237.801 139.731 226.519 137.727 214.829Z" fill="#9FC66E"/>
+                        <path d="M69.7544 205.087C69.1883 204.749 68.9444 204.48 68.5011 204.025C68.0809 200.017 71.3151 200.068 73.4524 199.87C91.2711 198.22 109.06 198.106 126.772 201.348C130.489 202.029 131.898 203.755 132.517 207.464C134.807 221.188 137.495 234.844 140.012 248.53C140.244 249.791 140.671 251.12 139.145 252.974C115.922 237.33 93.9199 219.872 69.7544 205.087Z" fill="#639246"/>
+                    </svg>
+                    <span>АгроТенд</span>
+                </div>
+                <p class="footer-description">Единый бот для автоматизации тендеров в агросекторе Беларуси. Работаем с 2026 года.</p>
             </div>
             <div>
                 <h4 class="footer-title">Контакты</h4>
                 <ul class="footer-links">
                     <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> <a href="mailto:agro@tenderbot.by">agro@tenderbot.by</a></li>
-                    <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> <a href="https://t.me/agro_tender_support" target="_blank">@agro_tender_support</a></li>
+                    <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg> <a href="https://t.me/agro_tender_bot" target="_blank">@agro_tender_bot</a></li>
                     <li><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg> Беларусь</li>
                 </ul>
             </div>
@@ -531,22 +397,11 @@
                 <h4 class="footer-title">Ссылки</h4>
                 <ul class="footer-links">
                     <li><a href="https://t.me/agro_tender_bot" target="_blank">Бот</a></li>
-                    <li><a href="#for-sellers">Стать поставщиком</a></li>
                     <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#">Пользовательское соглашение</a></li>
-                    <li><a href="#">Политика конфиденциальности</a></li>
-                </ul>
-            </div>
-            <div>
-                <h4 class="footer-title">Документы</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Договор-оферта</a></li>
-                    <li><a href="#">Политика обработки ПДн</a></li>
-                    <li><a href="#">Реквизиты</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">© 2025 Агро Тендер — единый бот для тендеров в Telegram в агросекторе Беларуси</div>
+        <div class="footer-bottom">© 2026 АгроТенд — единый бот для тендеров в Telegram в агросекторе Беларуси</div>
     </div>
 </footer>
 
@@ -569,47 +424,27 @@
         setTimeout(() => toast.classList.remove('show'), duration);
     }
 
-    document.getElementById('sellerForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        if (!document.getElementById('agreement').checked) {
-            showToast('⚠️ Пожалуйста, подтвердите согласие на обработку персональных данных');
-            return;
-        }
-        showToast('✅ Спасибо за заявку! Мы свяжемся с вами в ближайшее время.');
-        this.reset();
-    });
-
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, observerOptions);
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
+    // Исправленная прокрутка с учётом высоты хедера
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-    });
-
-    const phoneInput = document.getElementById('phone');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function(e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 0) {
-                if (value[0] === '7' || value[0] === '8') value = value.substring(1);
-                let formatted = '+375';
-                if (value.length > 0) formatted += ' (' + value.substring(0, 2);
-                if (value.length >= 2) formatted += ') ' + value.substring(2, 5);
-                if (value.length >= 5) formatted += '-' + value.substring(5, 7);
-                if (value.length >= 7) formatted += '-' + value.substring(7, 9);
-                e.target.value = formatted;
-            } else {
-                e.target.value = '';
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                const header = document.querySelector('header');
+                const headerHeight = header.getBoundingClientRect().height;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                window.scrollTo({ top: targetPosition, behavior: 'smooth' });
             }
         });
-    }
+    });
 
     const mobileBtn = document.querySelector('.mobile-menu');
     const navLinks = document.querySelector('.nav-links');
