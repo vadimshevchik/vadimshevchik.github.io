@@ -439,20 +439,6 @@
                 background: var(--bg-light);
                 padding: 80px 0;
             }
-            .features .video-wrapper {
-                max-width: 800px;
-                margin: 0 auto 60px;
-                border-radius: 16px;
-                overflow: hidden;
-                box-shadow: var(--shadow-lg);
-                background: #000;
-            }
-            .features .video-wrapper video {
-                width: 100%;
-                display: block;
-                aspect-ratio: 16 / 9;
-                background: #000;
-            }
             .section-header {
                 text-align: center;
                 max-width: 700px;
@@ -521,6 +507,7 @@
             .how-it-works {
                 background: var(--gradient);
                 color: white;
+                padding: 80px 0;
             }
             .how-it-works .section-header h2,
             .how-it-works .section-header p {
@@ -571,6 +558,45 @@
                 font-weight: 800;
                 margin: 0 auto 20px;
             }
+            .how-it-works .sub-block {
+                margin-bottom: 60px;
+            }
+            .how-it-works .sub-block:last-child {
+                margin-bottom: 0;
+            }
+            .how-it-works .sub-block h3 {
+                text-align: center;
+                margin-bottom: 16px;
+            }
+            .video-section {
+                background: rgba(255, 255, 255, 0.08);
+                backdrop-filter: blur(4px);
+                border: 1px solid rgba(255, 255, 255, 0.15);
+                border-radius: 16px;
+                padding: 32px 24px;
+                margin-top: 40px;
+            }
+            .video-section h4 {
+                text-align: center;
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+            .video-wrapper {
+                max-width: 800px;
+                margin: 0 auto;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--shadow-lg);
+                background: #000;
+            }
+            .video-wrapper video {
+                width: 100%;
+                display: block;
+                aspect-ratio: 16 / 9;
+                background: #000;
+            }
             .faq-container {
                 max-width: 800px;
                 margin: 0 auto;
@@ -610,7 +636,7 @@
                 transform: rotate(180deg);
             }
             .faq-answer {
-                padding: 0 24px 24px;
+                padding: 20px 24px 24px;
                 color: var(--text-gray);
                 display: none;
                 border-top: 1px solid var(--border);
@@ -618,6 +644,9 @@
             }
             .faq-item.active .faq-answer {
                 display: block;
+            }
+            #faq {
+                padding: 80px 0;
             }
             .cta-section {
                 background: var(--gradient);
@@ -760,6 +789,17 @@
                 }
                 .how-it-works .step {
                     padding: 24px 16px;
+                }
+                .how-it-works,
+                #faq {
+                    padding: 60px 0;
+                }
+                .video-section {
+                    padding: 20px 16px;
+                    margin-top: 30px;
+                }
+                .video-section h4 {
+                    font-size: 16px;
                 }
             }
         </style>
@@ -981,19 +1021,6 @@
                         агросфере для среднего и малого бизнеса
                     </p>
                 </div>
-
-                <div class="video-wrapper">
-                    <video
-                        controls
-                        muted
-                        preload="metadata"
-                        poster="promo_preview.jpg"
-                    >
-                        <source src="promo.mp4" type="video/mp4" />
-                        Ваш браузер не поддерживает видео.
-                    </video>
-                </div>
-
                 <div class="features-grid">
                     <div class="feature-card fade-in">
                         <div class="feature-icon">
@@ -1147,89 +1174,120 @@
                     </p>
                 </div>
 
-                <h3 style="text-align: center; margin-bottom: 32px">
-                    Для заказчиков
-                </h3>
-                <div class="steps fade-in">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Регистрация</h3>
-                        <p>
-                            Перейдите в
-                            <a href="https://t.me/agrotend_bot" target="_blank"
-                                >@agrotend_bot</a
-                            >, нажмите /start и выберите роль «Заказчик».
-                            Ожидайте подтверждения администратора.
-                        </p>
+                <!-- Блок для заказчиков -->
+                <div class="sub-block fade-in">
+                    <h3>Для заказчиков</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Регистрация</h3>
+                            <p>
+                                Перейдите в
+                                <a href="https://t.me/agrotend_bot" target="_blank"
+                                    >@agrotend_bot</a
+                                >, нажмите /start и выберите роль «Заказчик».
+                                Ожидайте подтверждения администратора.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Создание заявки</h3>
+                            <p>
+                                После подтверждения заполните форму: товар, объём,
+                                единицы измерения, аналоги, сроки, условия доставки
+                                и оплаты, возможность разделения и частичной
+                                поставки.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Торги</h3>
+                            <p>
+                                Заявка попадает в очередь. Торги длятся 3 часа. Все
+                                предложения видны в реальном времени.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Результат</h3>
+                            <p>
+                                Бот присылает список победителей с контактами. Вы
+                                связываетесь с поставщиками напрямую.
+                            </p>
+                        </div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Создание заявки</h3>
-                        <p>
-                            После подтверждения заполните форму: товар, объём,
-                            единицы измерения, аналоги, сроки, условия доставки
-                            и оплаты, возможность разделения и частичной
-                            поставки.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Торги</h3>
-                        <p>
-                            Заявка попадает в очередь. Торги длятся 3 часа. Все
-                            предложения видны в реальном времени. При перебитии
-                            цены участники получают уведомления.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Результат</h3>
-                        <p>
-                            Бот присылает список победителей с контактами. Вы
-                            связываетесь с поставщиками напрямую.
-                        </p>
+
+                    <!-- Видео-блок для заказчиков -->
+                    <div class="video-section">
+                        <h4>Демонстрация процесса регистрации заказчика и создания заявки для торгов</h4>
+                        <div class="video-wrapper">
+                            <video
+                                controls
+                                muted
+                                preload="metadata"
+                                poster="customer_preview.jpg"
+                            >
+                                <source src="customer_demo.mp4" type="video/mp4" />
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
                     </div>
                 </div>
 
-                <h3 style="text-align: center; margin: 48px 0 32px">
-                    Для поставщиков
-                </h3>
-                <div class="steps fade-in">
-                    <div class="step">
-                        <div class="step-number">1</div>
-                        <h3>Регистрация</h3>
-                        <p>
-                            Перейдите в
-                            <a href="https://t.me/agrotend_bot" target="_blank"
-                                >@agrotend_bot</a
-                            >, нажмите /start и выберите роль «Дилер». Ожидайте
-                            подтверждения администратора.
-                        </p>
+                <!-- Блок для поставщиков -->
+                <div class="sub-block fade-in">
+                    <h3>Для поставщиков</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Регистрация</h3>
+                            <p>
+                                Перейдите в
+                                <a href="https://t.me/agrotend_bot" target="_blank"
+                                    >@agrotend_bot</a
+                                >, нажмите /start и выберите роль «Дилер». Ожидайте
+                                подтверждения администратора.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Доступ к тендерам</h3>
+                            <p>
+                                После подтверждения вы получите доступ к участию в торгах.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Участие в торгах</h3>
+                            <p>
+                                При старте торгов вы получаете приглашение. Делайте
+                                предложения: цена, объём (весь или часть), дата поставки.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Получайте заказы</h3>
+                            <p>
+                                При победе – заказчик получает Ваши контакты для
+                                связи.
+                            </p>
+                        </div>
                     </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <h3>Доступ к тендерам</h3>
-                        <p>
-                            После подтверждения вы получите доступ к участию в
-                            тендерах.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <h3>Участие в торгах</h3>
-                        <p>
-                            При старте торгов вы получаете приглашение. Делайте
-                            предложения: цена, объём (весь или часть), дата
-                            поставки, комментарий.
-                        </p>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <h3>Получайте заказы</h3>
-                        <p>
-                            При победе – заказчик получает Ваши контакты для
-                            связи. В среднем 3-5 новых клиентов в месяц.
-                        </p>
+
+                    <!-- Видео-блок для поставщиков -->
+                    <div class="video-section">
+                        <h4>Демонстрация процесса регистрации дилера и участия в торгах</h4>
+                        <div class="video-wrapper">
+                            <video
+                                controls
+                                muted
+                                preload="metadata"
+                                poster="dealer_preview.jpg"
+                            >
+                                <source src="dealer_demo.mp4" type="video/mp4" />
+                                Ваш браузер не поддерживает видео.
+                            </video>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1535,25 +1593,6 @@
                                         stroke-linecap="round"
                                         stroke-linejoin="round"
                                         stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                                    ></path>
-                                </svg>
-                                <a href="mailto:agro@tenderbot.by"
-                                    >agro@tenderbot.by</a
-                                >
-                            </li>
-                            <li>
-                                <svg
-                                    width="16"
-                                    height="16"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
                                         d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
                                     ></path>
                                 </svg>
@@ -1584,7 +1623,7 @@
                                         d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                                     ></path>
                                 </svg>
-                                Беларусь
+                                Беларусь, Минск
                             </li>
                         </ul>
                     </div>
