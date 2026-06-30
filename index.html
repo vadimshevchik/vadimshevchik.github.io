@@ -618,9 +618,10 @@
             }
             .video-wrapper video {
                 width: 100%;
+                height: auto;
                 display: block;
-                aspect-ratio: 16 / 9;
                 background: #000;
+                object-fit: contain;
             }
             .faq-container {
                 max-width: 800px;
@@ -837,6 +838,9 @@
                 }
                 .cta-section h2 {
                     font-size: 28px;
+                }
+                .video-wrapper video {
+                    max-height: 70vh;
                 }
             }
         </style>
@@ -1262,6 +1266,7 @@
                             <video
                                 controls
                                 muted
+                                playsinline
                                 preload="metadata"
                                 poster="customer_preview.jpg"
                             >
@@ -1318,6 +1323,7 @@
                             <video
                                 controls
                                 muted
+                                playsinline
                                 preload="metadata"
                                 poster="dealer_preview.jpg"
                             >
