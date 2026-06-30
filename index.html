@@ -623,22 +623,6 @@
                 background: #000;
                 object-fit: contain;
             }
-            /* Стили для полноэкранного режима видео */
-            video:-webkit-full-screen {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-            }
-            video:-moz-full-screen {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-            }
-            video:fullscreen {
-                width: 100% !important;
-                height: 100% !important;
-                object-fit: cover !important;
-            }
             .faq-container {
                 max-width: 800px;
                 margin: 0 auto;
@@ -1282,7 +1266,6 @@
                             <video
                                 controls
                                 muted
-                                playsinline
                                 preload="metadata"
                                 poster="customer_preview.jpg"
                             >
@@ -1339,7 +1322,6 @@
                             <video
                                 controls
                                 muted
-                                playsinline
                                 preload="metadata"
                                 poster="dealer_preview.jpg"
                             >
