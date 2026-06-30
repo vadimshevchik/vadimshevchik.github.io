@@ -20,7 +20,7 @@
         />
         <meta
             property="og:description"
-            content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через единого бота. Получайте лучшие цены от десятков поставщиков за 3 часа."
+            content="Тендеры на закупку зерна, удобрений, техники и услуг в Telegram через Telegram бота. Получайте лучшие цены от десятков поставщиков за 3 часа."
         />
         <meta property="og:type" content="website" />
         <title>АгроТенд - Тендеры в Telegram для агросектора</title>
@@ -128,12 +128,12 @@
                 align-items: center;
                 gap: 12px;
                 font-weight: 800;
-                font-size: 22px;
+                font-size: 26px;
                 color: var(--primary);
                 text-decoration: none;
             }
             .logo svg {
-                height: 40px;
+                height: 44px;
                 width: auto;
                 max-width: 48px;
             }
@@ -181,6 +181,54 @@
             }
             .mobile-menu {
                 display: none;
+                width: 48px;
+                height: 48px;
+                background: var(--gradient);
+                border-radius: 16px;
+                position: relative;
+                cursor: pointer;
+                transition: background 0.2s, transform 0.1s;
+                border: none;
+                outline: none;
+                justify-content: center;
+                align-items: center;
+            }
+            .mobile-menu:hover {
+                opacity: 0.9;
+            }
+            .mobile-menu:active {
+                transform: scale(0.92);
+            }
+            .mobile-menu span {
+                position: absolute;
+                left: 50%;
+                width: 18px;
+                height: 2px;
+                background: white;
+                border-radius: 2px;
+                transition: all 0.3s ease-in-out;
+                transform: translateX(-50%);
+            }
+            .mobile-menu span:nth-child(1) {
+                top: 18px;
+            }
+            .mobile-menu span:nth-child(2) {
+                top: 23px;
+            }
+            .mobile-menu span:nth-child(3) {
+                top: 28px;
+            }
+            .mobile-menu.active span:nth-child(1) {
+                top: 23px;
+                transform: translateX(-50%) rotate(45deg);
+            }
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+                transform: translateX(-50%) scale(0);
+            }
+            .mobile-menu.active span:nth-child(3) {
+                top: 23px;
+                transform: translateX(-50%) rotate(-45deg);
             }
             @media (max-width: 768px) {
                 .nav-links {
@@ -201,55 +249,7 @@
                     display: flex;
                 }
                 .mobile-menu {
-                    position: relative;
                     display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 42px;
-                    height: 42px;
-                    background: var(--cta);
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition:
-                        background 0.2s,
-                        transform 0.1s;
-                }
-                .mobile-menu:hover {
-                    background: var(--cta-hover);
-                }
-                .mobile-menu:active {
-                    transform: scale(0.92);
-                }
-                .mobile-menu span {
-                    position: absolute;
-                    left: 50%;
-                    width: 16px;
-                    height: 1px;
-                    background: white;
-                    border-radius: 1px;
-                    transition: all 0.3s ease-in-out;
-                    transform: translateX(-50%);
-                }
-                .mobile-menu span:nth-child(1) {
-                    top: 16px;
-                }
-                .mobile-menu span:nth-child(2) {
-                    top: 21px;
-                }
-                .mobile-menu span:nth-child(3) {
-                    top: 26px;
-                }
-                .mobile-menu.active span:nth-child(1) {
-                    top: 21px;
-                    transform: translateX(-50%) rotate(45deg);
-                }
-                .mobile-menu.active span:nth-child(2) {
-                    opacity: 0;
-                    transform: translateX(-50%) scale(0);
-                }
-                .mobile-menu.active span:nth-child(3) {
-                    top: 21px;
-                    transform: translateX(-50%) rotate(-45deg);
                 }
                 .btn-header {
                     padding: 6px 14px;
@@ -257,10 +257,10 @@
                     white-space: nowrap;
                 }
                 .logo {
-                    font-size: 18px;
+                    font-size: 22px;
                 }
                 .logo svg {
-                    height: 32px;
+                    height: 36px;
                 }
             }
             .btn {
@@ -365,14 +365,21 @@
                 z-index: 1;
             }
             .hero-content {
+                flex: 1 1 100%;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 40px;
+            }
+            .hero-content .text-content {
                 flex: 1 1 55%;
                 max-width: 600px;
             }
-            .hero-media {
+            .hero-content .hero-media {
                 flex: 0 0 320px;
                 max-width: 320px;
             }
-            .hero-media .image-frame {
+            .hero-content .hero-media .image-frame {
                 width: 100%;
                 aspect-ratio: 9 / 16;
                 background: rgba(0, 0, 0, 0.3);
@@ -381,7 +388,7 @@
                 border: 2px solid rgba(255, 255, 255, 0.15);
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             }
-            .hero-media .image-frame img {
+            .hero-content .hero-media .image-frame img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -392,11 +399,11 @@
                 background: rgba(212, 175, 55, 0.2);
                 border: 1px solid var(--accent);
                 color: var(--accent);
-                padding: 8px 16px;
+                padding: 8px 20px;
                 border-radius: 20px;
                 font-weight: 600;
                 margin-bottom: 24px;
-                font-size: 14px;
+                font-size: 16px;
             }
             .hero h1 {
                 font-size: 56px;
@@ -424,15 +431,27 @@
                     gap: 30px;
                 }
                 .hero-content {
+                    flex-direction: column;
+                    text-align: center;
+                    gap: 24px;
+                }
+                .hero-content .text-content {
                     flex: 1 1 100%;
                     max-width: 100%;
                 }
-                .hero-media {
-                    flex: 0 0 150px;
-                    max-width: 150px;
+                .hero-content .hero-media {
+                    flex: 0 0 200px;
+                    max-width: 200px;
+                    margin: 0 auto;
                 }
                 .hero h1 {
                     font-size: 32px;
+                }
+                .hero-subtitle {
+                    font-size: 18px;
+                }
+                .hero-buttons {
+                    justify-content: center;
                 }
             }
             .features {
@@ -517,12 +536,17 @@
                 color: white;
             }
             .how-it-works .steps {
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 32px;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: stretch;
+                justify-content: center;
+                gap: 0;
                 margin-top: 48px;
             }
             .how-it-works .step {
+                flex: 1 1 0;
+                min-width: 150px;
+                margin: 0 4px;
                 background: rgba(255, 255, 255, 0.1);
                 backdrop-filter: blur(4px);
                 border: 1px solid rgba(255, 255, 255, 0.2);
@@ -531,6 +555,10 @@
                 text-align: center;
                 transition: all 0.3s;
                 box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
             }
             .how-it-works .step:hover {
                 transform: translateY(-4px);
@@ -545,18 +573,15 @@
             .how-it-works .step a {
                 text-decoration: underline;
             }
-            .how-it-works .step-number {
-                background: white;
-                color: var(--primary);
-                width: 64px;
-                height: 64px;
-                border-radius: 50%;
+            .how-it-works .step-arrow {
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 font-size: 28px;
-                font-weight: 800;
-                margin: 0 auto 20px;
+                color: rgba(255, 255, 255, 0.5);
+                padding: 0 8px;
+                flex: 0 0 auto;
+                transition: transform 0.3s;
             }
             .how-it-works .sub-block {
                 margin-bottom: 60px;
@@ -655,7 +680,7 @@
                 padding: 80px 0;
             }
             .cta-section h2 {
-                font-size: 42px;
+                font-size: 36px;
                 margin-bottom: 20px;
             }
             .cta-section p {
@@ -784,11 +809,20 @@
                     padding: 60px 0;
                 }
                 .how-it-works .steps {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0;
                 }
                 .how-it-works .step {
-                    padding: 24px 16px;
+                    flex: 0 0 auto;
+                    width: 100%;
+                    max-width: 400px;
+                    margin: 0 0 4px 0;
+                }
+                .how-it-works .step-arrow {
+                    transform: rotate(90deg);
+                    font-size: 24px;
+                    padding: 4px 0;
                 }
                 .how-it-works,
                 #faq {
@@ -800,6 +834,9 @@
                 }
                 .video-section h4 {
                     font-size: 16px;
+                }
+                .cta-section h2 {
+                    font-size: 28px;
                 }
             }
         </style>
@@ -931,7 +968,7 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="mobile-menu">
+                    <div class="mobile-menu" role="button" aria-label="Открыть меню">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -943,70 +980,72 @@
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
-                    <h1>Тендеры для агробизнеса в Telegram</h1>
-                    <p class="hero-subtitle">
-                        Современный инструмент для закупок в агросфере,
-                        созданный для среднего и малого бизнеса. Тендеры на
-                        закупку зерна, удобрений, техники и услуг через
-                        <strong>единого бота</strong>. Заказчики и поставщики
-                        работают в одном интерфейсе. Получайте лучшие цены от
-                        десятков поставщиков за 3 часа.
-                    </p>
-                    <div class="hero-buttons">
-                        <a
-                            href="https://t.me/agrotend_bot"
-                            class="btn btn-cta"
-                            target="_blank"
-                        >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 240.1 240.1"
+                    <div class="text-content">
+                        <div class="hero-badge">🇧🇾 Работаем по всей Беларуси</div>
+                        <h1>Тендеры для агробизнеса в Telegram</h1>
+                        <p class="hero-subtitle">
+                            Современный инструмент для закупок в агросфере,
+                            созданный для среднего и малого бизнеса. Тендеры на
+                            закупку зерна, удобрений, техники и услуг через
+                            <strong>Telegram бота</strong>. Заказчики и поставщики
+                            работают в одном интерфейсе. Получайте лучшие цены от
+                            десятков поставщиков за 3 часа.
+                        </p>
+                        <div class="hero-buttons">
+                            <a
+                                href="https://t.me/agrotend_bot"
+                                class="btn btn-cta"
+                                target="_blank"
                             >
-                                <linearGradient
-                                    id="Oval_2_"
-                                    gradientUnits="userSpaceOnUse"
-                                    x1="-838.041"
-                                    y1="660.581"
-                                    x2="-838.041"
-                                    y2="660.3427"
-                                    gradientTransform="matrix(1000 0 0 -1000 838161 660581)"
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 240.1 240.1"
                                 >
-                                    <stop
-                                        offset="0"
-                                        style="stop-color: #2aabee"
+                                    <linearGradient
+                                        id="Oval_2_"
+                                        gradientUnits="userSpaceOnUse"
+                                        x1="-838.041"
+                                        y1="660.581"
+                                        x2="-838.041"
+                                        y2="660.3427"
+                                        gradientTransform="matrix(1000 0 0 -1000 838161 660581)"
+                                    >
+                                        <stop
+                                            offset="0"
+                                            style="stop-color: #2aabee"
+                                        />
+                                        <stop
+                                            offset="1"
+                                            style="stop-color: #229ed9"
+                                        />
+                                    </linearGradient>
+                                    <circle
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        fill="url(#Oval_2_)"
+                                        cx="120.1"
+                                        cy="120.1"
+                                        r="120.1"
                                     />
-                                    <stop
-                                        offset="1"
-                                        style="stop-color: #229ed9"
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        fill="#FFFFFF"
+                                        d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"
                                     />
-                                </linearGradient>
-                                <circle
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    fill="url(#Oval_2_)"
-                                    cx="120.1"
-                                    cy="120.1"
-                                    r="120.1"
-                                />
-                                <path
-                                    fill-rule="evenodd"
-                                    clip-rule="evenodd"
-                                    fill="#FFFFFF"
-                                    d="M54.3,118.8c35-15.2,58.3-25.3,70-30.2 c33.3-13.9,40.3-16.3,44.8-16.4c1,0,3.2,0.2,4.7,1.4c1.2,1,1.5,2.3,1.7,3.3s0.4,3.1,0.2,4.7c-1.8,19-9.6,65.1-13.6,86.3 c-1.7,9-5,12-8.2,12.3c-7,0.6-12.3-4.6-19-9c-10.6-6.9-16.5-11.2-26.8-18c-11.9-7.8-4.2-12.1,2.6-19.1c1.8-1.8,32.5-29.8,33.1-32.3 c0.1-0.3,0.1-1.5-0.6-2.1c-0.7-0.6-1.7-0.4-2.5-0.2c-1.1,0.2-17.9,11.4-50.6,33.5c-4.8,3.3-9.1,4.9-13,4.8 c-4.3-0.1-12.5-2.4-18.7-4.4c-7.5-2.4-13.5-3.7-13-7.9C45.7,123.3,48.7,121.1,54.3,118.8z"
-                                />
-                            </svg>
-                            Открыть Telegram Бот
-                        </a>
+                                </svg>
+                                Открыть Telegram Бот
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-media">
-                    <div class="image-frame">
-                        <img
-                            src="bot_preview.png"
-                            alt="Скриншот бота АгроТенд"
-                            loading="lazy"
-                        />
+                    <div class="hero-media">
+                        <div class="image-frame">
+                            <img
+                                src="bot_preview.png"
+                                alt="Скриншот бота АгроТенд"
+                                loading="lazy"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1179,7 +1218,6 @@
                     <h3>Для заказчиков</h3>
                     <div class="steps">
                         <div class="step">
-                            <div class="step-number">1</div>
                             <h3>Регистрация</h3>
                             <p>
                                 Перейдите в
@@ -1189,8 +1227,8 @@
                                 Ожидайте подтверждения администратора.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">2</div>
                             <h3>Создание заявки</h3>
                             <p>
                                 После подтверждения заполните форму: товар, объём,
@@ -1199,16 +1237,16 @@
                                 поставки.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">3</div>
                             <h3>Торги</h3>
                             <p>
                                 Заявка попадает в очередь. Торги длятся 3 часа. Все
                                 предложения видны в реальном времени.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">4</div>
                             <h3>Результат</h3>
                             <p>
                                 Бот присылает список победителей с контактами. Вы
@@ -1239,7 +1277,6 @@
                     <h3>Для поставщиков</h3>
                     <div class="steps">
                         <div class="step">
-                            <div class="step-number">1</div>
                             <h3>Регистрация</h3>
                             <p>
                                 Перейдите в
@@ -1249,23 +1286,23 @@
                                 подтверждения администратора.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">2</div>
                             <h3>Доступ к тендерам</h3>
                             <p>
                                 После подтверждения вы получите доступ к участию в торгах.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">3</div>
                             <h3>Участие в торгах</h3>
                             <p>
                                 При старте торгов вы получаете приглашение. Делайте
                                 предложения: цена, объём (весь или часть), дата поставки.
                             </p>
                         </div>
+                        <div class="step-arrow">→</div>
                         <div class="step">
-                            <div class="step-number">4</div>
                             <h3>Получайте заказы</h3>
                             <p>
                                 При победе – заказчик получает Ваши контакты для
@@ -1574,7 +1611,7 @@
                             <span>АгроТенд</span>
                         </div>
                         <p class="footer-description">
-                            Единый бот для автоматизации тендеров в агросекторе
+                            Telegram бот для автоматизации тендеров в агросекторе
                             Беларуси. Работаем с 2026 года.
                         </p>
                     </div>
@@ -1642,8 +1679,7 @@
                     </div>
                 </div>
                 <div class="footer-bottom">
-                    © 2026 АгроТенд — единый бот для тендеров в Telegram в
-                    агросекторе Беларуси
+                    © 2026 АгроТенд — Telegram бот для тендеров в агросекторе Беларуси
                 </div>
             </div>
         </footer>
