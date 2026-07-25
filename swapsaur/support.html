@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Support / Поддержка</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f5f5f7;
+            color: #1c1c1e;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 20px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #d1d1d6;
+            border-radius: 6px;
+            padding: 4px 10px;
+            cursor: pointer;
+            font-size: 13px;
+            color: #1c1c1e;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #FF8C42;
+            color: #fff;
+            border-color: #FF8C42;
+        }
+
+        .lang-btn:hover {
+            background: #e5e5ea;
+        }
+
+        .lang-btn.active:hover {
+            background: #e67a2e;
+        }
+
+        .lang-content {
+            display: block;
+        }
+        .lang-content.hidden {
+            display: none !important;
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6px;
+            color: #1c1c1e;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #1c1c1e;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 16px;
+            font-family: inherit;
+            border: 1.5px solid #e5e5ea;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.7);
+            color: #1c1c1e;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #FF8C42;
+            box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.15);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #fff;
+            background: #FF8C42;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.25);
+        }
+
+        .btn:hover {
+            background: #e67a2e;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 13px;
+            text-align: center;
+            color: #8e8e93;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 18px;
+        }
+
+        .footer a {
+            color: #FF8C42;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: transparent;
+                color: #f5f5f7;
+            }
+
+            .container {
+                background: rgba(30, 30, 32, 0.88);
+                border-color: rgba(255, 255, 255, 0.08);
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            }
+
+            h1 {
+                color: #f5f5f7;
+            }
+
+            label {
+                color: #f5f5f7;
+            }
+
+            input,
+            textarea {
+                background: rgba(255, 255, 255, 0.08);
+                border-color: #3a3a3c;
+                color: #f5f5f7;
+            }
+
+            input:focus,
+            textarea:focus {
+                border-color: #FF8C42;
+                box-shadow: 0 0 0 3px rgba(255, 140, 66, 0.2);
+            }
+
+            .btn {
+                background: #FF8C42;
+                box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+            }
+            .btn:hover {
+                background: #e67a2e;
+            }
+
+            .footer {
+                border-top-color: rgba(255, 255, 255, 0.08);
+                color: #8e8e93;
+            }
+            .footer a {
+                color: #FF8C42;
+            }
+
+            .lang-btn {
+                border-color: #555;
+                color: #f5f5f7;
+            }
+            .lang-btn:hover {
+                background: #3a3a3c;
+            }
+            .lang-btn.active {
+                background: #FF8C42;
+                border-color: #FF8C42;
+                color: #fff;
+            }
+            .lang-btn.active:hover {
+                background: #e67a2e;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Переключатель языков -->
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+            <button class="lang-btn" data-lang="zh">中文</button>
+            <button class="lang-btn" data-lang="ja">日本語</button>
+            <button class="lang-btn" data-lang="de">Deutsch</button>
+            <button class="lang-btn" data-lang="fr">Français</button>
+            <button class="lang-btn" data-lang="ko">한국어</button>
+            <button class="lang-btn" data-lang="es">Español</button>
+        </div>
+
+        <!-- Русский -->
+        <div id="lang-ru" class="lang-content">
+            <h1>Служба поддержки</h1>
+            <p class="subtitle">Свяжитесь с нами, и мы ответим вам как можно скорее</p>
+            <form onsubmit="sendEmail(event, 'ru')">
+                <div class="form-group">
+                    <label for="name-ru">Ваше имя</label>
+                    <input type="text" id="name-ru" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-ru">Ваш email</label>
+                    <input type="email" id="email-ru" placeholder="ivan@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-ru">Сообщение</label>
+                    <textarea id="message-ru" placeholder="Опишите вашу проблему или предложение..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+            <div class="footer">
+                <p>Или напишите нам напрямую: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- English -->
+        <div id="lang-en" class="lang-content hidden">
+            <h1>Support</h1>
+            <p class="subtitle">Contact us and we'll get back to you as soon as possible</p>
+            <form onsubmit="sendEmail(event, 'en')">
+                <div class="form-group">
+                    <label for="name-en">Your name</label>
+                    <input type="text" id="name-en" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-en">Your email</label>
+                    <input type="email" id="email-en" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-en">Message</label>
+                    <textarea id="message-en" placeholder="Describe your issue or suggestion..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <div class="footer">
+                <p>Or email us directly: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- 中文 -->
+        <div id="lang-zh" class="lang-content hidden">
+            <h1>支持</h1>
+            <p class="subtitle">联系我们，我们会尽快回复您</p>
+            <form onsubmit="sendEmail(event, 'zh')">
+                <div class="form-group">
+                    <label for="name-zh">您的名字</label>
+                    <input type="text" id="name-zh" placeholder="张三" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-zh">您的邮箱</label>
+                    <input type="email" id="email-zh" placeholder="zhangsan@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-zh">消息</label>
+                    <textarea id="message-zh" placeholder="描述您的问题或建议..." required></textarea>
+                </div>
+                <button type="submit" class="btn">发送</button>
+            </form>
+            <div class="footer">
+                <p>或者直接给我们发邮件: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- 日本語 -->
+        <div id="lang-ja" class="lang-content hidden">
+            <h1>サポート</h1>
+            <p class="subtitle">お問い合わせはこちらから。できるだけ早くご返信いたします。</p>
+            <form onsubmit="sendEmail(event, 'ja')">
+                <div class="form-group">
+                    <label for="name-ja">お名前</label>
+                    <input type="text" id="name-ja" placeholder="山田 太郎" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-ja">メールアドレス</label>
+                    <input type="email" id="email-ja" placeholder="taro@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-ja">メッセージ</label>
+                    <textarea id="message-ja" placeholder="問題や提案を記入してください..." required></textarea>
+                </div>
+                <button type="submit" class="btn">送信</button>
+            </form>
+            <div class="footer">
+                <p>または直接メールで: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Deutsch -->
+        <div id="lang-de" class="lang-content hidden">
+            <h1>Support</h1>
+            <p class="subtitle">Kontaktieren Sie uns, wir antworten so schnell wie möglich</p>
+            <form onsubmit="sendEmail(event, 'de')">
+                <div class="form-group">
+                    <label for="name-de">Ihr Name</label>
+                    <input type="text" id="name-de" placeholder="Max Mustermann" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-de">Ihre E-Mail</label>
+                    <input type="email" id="email-de" placeholder="max@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-de">Nachricht</label>
+                    <textarea id="message-de" placeholder="Beschreiben Sie Ihr Problem oder Ihren Vorschlag..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Senden</button>
+            </form>
+            <div class="footer">
+                <p>Oder schreiben Sie uns direkt: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Français -->
+        <div id="lang-fr" class="lang-content hidden">
+            <h1>Assistance</h1>
+            <p class="subtitle">Contactez-nous et nous vous répondrons dès que possible</p>
+            <form onsubmit="sendEmail(event, 'fr')">
+                <div class="form-group">
+                    <label for="name-fr">Votre nom</label>
+                    <input type="text" id="name-fr" placeholder="Jean Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-fr">Votre email</label>
+                    <input type="email" id="email-fr" placeholder="jean@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-fr">Message</label>
+                    <textarea id="message-fr" placeholder="Décrivez votre problème ou suggestion..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Envoyer</button>
+            </form>
+            <div class="footer">
+                <p>Ou écrivez-nous directement : <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- 한국어 -->
+        <div id="lang-ko" class="lang-content hidden">
+            <h1>고객 지원</h1>
+            <p class="subtitle">문의해 주시면 최대한 빨리 답변해 드리겠습니다</p>
+            <form onsubmit="sendEmail(event, 'ko')">
+                <div class="form-group">
+                    <label for="name-ko">이름</label>
+                    <input type="text" id="name-ko" placeholder="홍길동" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-ko">이메일</label>
+                    <input type="email" id="email-ko" placeholder="hong@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-ko">메시지</label>
+                    <textarea id="message-ko" placeholder="문제나 제안을 설명해 주세요..." required></textarea>
+                </div>
+                <button type="submit" class="btn">보내기</button>
+            </form>
+            <div class="footer">
+                <p>또는 직접 이메일로: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- Español -->
+        <div id="lang-es" class="lang-content hidden">
+            <h1>Soporte</h1>
+            <p class="subtitle">Contáctenos y le responderemos lo antes posible</p>
+            <form onsubmit="sendEmail(event, 'es')">
+                <div class="form-group">
+                    <label for="name-es">Su nombre</label>
+                    <input type="text" id="name-es" placeholder="Juan Pérez" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-es">Su email</label>
+                    <input type="email" id="email-es" placeholder="juan@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-es">Mensaje</label>
+                    <textarea id="message-es" placeholder="Describa su problema o sugerencia..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Enviar</button>
+            </form>
+            <div class="footer">
+                <p>O escríbanos directamente: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Переключение языка
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('lang-' + lang);
+            if (target) target.classList.remove('hidden');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        // Определение языка по умолчанию
+        function getDefaultLang() {
+            const params = new URLSearchParams(window.location.search);
+            const langParam = params.get('lang');
+            if (langParam && document.getElementById('lang-' + langParam)) return langParam;
+            const stored = localStorage.getItem('preferredLang');
+            if (stored && document.getElementById('lang-' + stored)) return stored;
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langMap = {
+                'ru': 'ru',
+                'zh': 'zh',
+                'ja': 'ja',
+                'de': 'de',
+                'fr': 'fr',
+                'ko': 'ko',
+                'es': 'es'
+            };
+            for (let key of Object.keys(langMap)) {
+                if (browserLang.startsWith(key)) return langMap[key];
+            }
+            return 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultLang = getDefaultLang();
+            switchLanguage(defaultLang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+        });
+
+        // Отправка письма через mailto:
+        function sendEmail(event, lang) {
+            event.preventDefault();
+            const nameField = document.getElementById('name-' + lang);
+            const emailField = document.getElementById('email-' + lang);
+            const messageField = document.getElementById('message-' + lang);
+            const name = nameField.value.trim();
+            const email = emailField.value.trim();
+            const message = messageField.value.trim();
+            if (!name || !email || !message) {
+                alert('Пожалуйста, заполните все поля.'); // можно заменить на мультиязычный alert
+                return;
+            }
+            const subject = encodeURIComponent('Support: ' + name);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message
+            );
+            window.location.href = 'mailto:shevchik.vadim@gmail.com?subject=' + subject + '&body=' + body;
+        }
+    </script>
+</body>
+</html>
