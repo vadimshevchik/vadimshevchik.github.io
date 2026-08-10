@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Правила игры — LINT 87</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(30, 30, 32, 0.92);
+            border-radius: 20px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #555;
+            border-radius: 6px;
+            padding: 4px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #e0e0e0;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #F2F0C3;
+            color: #1a1a1a;
+            border-color: #F2F0C3;
+        }
+
+        .lang-btn:hover {
+            background: #3a3a3c;
+        }
+
+        .lang-btn.active:hover {
+            background: #e0deb0;
+        }
+
+        .lang-content {
+            display: block;
+        }
+        .lang-content.hidden {
+            display: none !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #F2F0C3;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #F2F0C3;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            color: #8e8e93;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+
+        <!-- Русский -->
+        <div id="lang-ru" class="lang-content">
+            <h1>Правила игры</h1>
+            <p class="subtitle">Руководство для выживания</p>
+
+            <h2>Кто вы и в чём ваша задача</h2>
+            <p>Вы управляете <strong>роботом-пылесосом LINT 87</strong>, единственным уцелевшим из экспериментальной серии. Уже три года вы стоите на страже у входа в бункер, где укрылись последние люди. Вы модернизировали свой корпус: теперь на нём закреплены сменные модули с оружием. Ваша цель — не пропускать орды зомби, которые каждый день пытаются ворваться внутрь.</p>
+
+            <h2>Как управлять роботом</h2>
+            <ul>
+                <li><strong>Перемещение</strong> — коснитесь пальцем героя и ведите его влево или вправо.</li>
+                <li><strong>Стрельба</strong> — просто удерживайте палец на герое, и он начнёт стрелять автоматически.</li>
+                <li><strong>Специальный залп</strong> — быстро дважды коснитесь героя. Он выпустит мощный залп по трём рядам сразу. После использования нужно немного подождать, пока способность восстановится.</li>
+                <li><strong>Бомба</strong> — внизу экрана есть иконка с бомбой. Нажмите на неё, и начнётся бомбардировка, которая уничтожит всех зомби на поле и все препятствия.</li>
+                <li><strong>Пауза и настройки</strong> — кнопка с двумя полосками в центре нижней панели ставит игру на паузу, а шестерёнка справа открывает настройки.</li>
+            </ul>
+
+            <h2>Как устроены уровни</h2>
+            <p>Игра идёт волнами — каждый уровень это новая волна зомби. Они спускаются сверху, и ваша задача — перестрелять всех, не потеряв все свои жизни.</p>
+            <ul>
+                <li><strong>Уровни становятся сложнее</strong> — с каждым разом появляются новые виды зомби, их становится больше, они быстрее и живучее.</li>
+                <li><strong>Открытия</strong> — после прохождения уровня вы узнаете, что нового появилось: например, какой-то зомби, новый бонус или механика.</li>
+                <li><strong>Счёт</strong> — за каждого убитого зомби вы получаете очки. Чем опаснее зомби, тем больше очков. Общий счёт накапливается и сохраняется.</li>
+                <li><strong>Лучший результат</strong> — игра запоминает ваш максимальный счёт за всё время.</li>
+            </ul>
+
+            <h2>Кто такие зомби и как их побеждать</h2>
+            <p>Над головой каждого зомби вы видите полоску здоровья — чем она длиннее, тем крепче противник. На первых уровнях вам встретятся простые зомби, но позже появятся более опасные разновидности:</p>
+            <ul>
+                <li><strong>Бродяги, панки, алиены и андроиды</strong> — основные типы зомби первого уровня, отличаются прочностью.</li>
+                <li><strong>Спринтер</strong> — очень быстрый бегун.</li>
+                <li><strong>Толстяк</strong> — при смерти взрывается и может задеть соседей.</li>
+                <li><strong>Стрелок</strong> — может стрелять в вас.</li>
+                <li><strong>Выпивоха</strong> — перемещается по диагонали.</li>
+                <li><strong>Телепорт</strong> — иногда перепрыгивает в другой ряд.</li>
+                <li><strong>SWAT</strong> — получает вдвое меньше урона.</li>
+                <li><strong>Дракула</strong> — движется прямо к вам, игнорируя ряды.</li>
+                <li><strong>Привидение</strong> — почти невидимо, появляется лишь на мгновение.</li>
+                <li><strong>Мумия</strong> — когда здоровье падает до минимума, она превращается в другого зомби и восстанавливает часть здоровья.</li>
+                <li><strong>Босс</strong> — огромный и очень живучий противник, появляется ближе к концу уровня.</li>
+            </ul>
+            <p>Когда вы переходите на следующий уровень, игра показывает, какие новые зомби теперь могут встретиться.</p>
+
+            <h2>Бонусы и оружие</h2>
+            <p>В начале игры у вас есть обычный пистолет. Но время от времени на поле падают бонусы в виде иконок оружия. Подберите их, чтобы временно усилить свою атаку:</p>
+            <ul>
+                <li><strong>«Ускоренный пистолет»</strong> — стреляет чуть быстрее.</li>
+                <li><strong>«Дробовик»</strong> — выпускает два снаряда, которые летят веером.</li>
+                <li><strong>«Автомат»</strong> — даёт очередь из трёх пуль.</li>
+                <li><strong>«Мощный патрон»</strong> — убивает любого зомби с одного выстрела.</li>
+            </ul>
+            <p>Эффект действует 20 секунд. Вы увидите иконку бонуса в верхней части экрана и таймер, показывающий, сколько времени осталось.</p>
+            <p>Кроме оружия, иногда выпадает <strong>сердце</strong> — оно восстанавливает одну жизнь, если у вас меньше трёх.</p>
+
+            <h2>Препятствия — блоки</h2>
+            <p>Начиная с пятого уровня, на поле появляются блоки. Они мешают зомби, но и вам тоже — пули могут разбивать их. Зомби, упёршись в блок, со временем его разрушают. Блоки могут восстановиться через некоторое время после разрушения.</p>
+
+            <h2>Жизни и поражение</h2>
+            <ul>
+                <li>У вас три жизни — они отображаются в правом верхнем углу.</li>
+                <li>Если зомби коснётся вас — вы теряете одну жизнь. Если у вас был активный бонус оружия, он сгорает вместо жизни.</li>
+                <li>Если зомби доберётся до нижнего края экрана — вы также теряете жизнь.</li>
+                <li>Когда жизни заканчиваются, игра завершается. Вы можете начать заново с первого уровня.</li>
+            </ul>
+
+            <h2>Что происходит после каждого уровня</h2>
+            <p>Когда вы уничтожаете всех зомби, игра показывает экран с результатами. Там перечисляются все новинки, которые откроются на следующем уровне: новые зомби, бонусы, улучшения блоков или изменение сложности.</p>
+
+            <h2>Информация на экране во время игры</h2>
+            <ul>
+                <li><strong>Вверху слева</strong> — номер текущего уровня и ваши очки.</li>
+                <li><strong>Вверху по центру</strong> — лучший счёт за всё время и сколько зомби осталось убить на уровне.</li>
+                <li><strong>Полоска под ними</strong> — показывает, сколько зомби вы уже уничтожили (заполняется постепенно).</li>
+                <li><strong>Вверху справа</strong> — ваши жизни (красные сердечки).</li>
+                <li><strong>Справа вверху, около жизней</strong> — индикатор специального залпа и, если активен бонус, его иконка с обратным отсчётом.</li>
+                <li><strong>Внизу</strong> — кнопки бомбы, паузы и настроек.</li>
+            </ul>
+
+            <h2>Настройки игры</h2>
+            <p>В настройках вы можете:</p>
+            <ul>
+                <li><strong>Выбрать режим дня</strong> — только день, только ночь или их чередование (меняется фон).</li>
+                <li><strong>Настроить сложность</strong> — от 10% до 100%. Чем выше процент, тем сильнее и многочисленнее зомби.</li>
+                <li><strong>Включить или выключить звук</strong> и вибрацию.</li>
+            </ul>
+
+            <h2>Сохранение прогресса</h2>
+            <p>Игра автоматически запоминает все ваши достижения: текущий уровень, общий счёт, рекорд, открытые виды зомби и бонусы. Когда вы закрываете игру и открываете снова, вы продолжаете с того же уровня.</p>
+
+            <div class="footer-note">Удачи вам, LINT 87. Бункер рассчитывает на вас!</div>
+        </div>
+
+        <!-- English -->
+        <div id="lang-en" class="lang-content hidden">
+            <h1>Game Rules</h1>
+            <p class="subtitle">Your Survival Guide</p>
+
+            <h2>Who You Are and Your Mission</h2>
+            <p>You control <strong>the robot vacuum cleaner LINT 87</strong>, the only survivor of an experimental series. For three years now, you have been standing guard at the entrance to the bunker where the last humans are hiding. You have upgraded your chassis with interchangeable weapon modules. Your goal is to keep the hordes of zombies from breaking in every single day.</p>
+
+            <h2>How to Control the Robot</h2>
+            <ul>
+                <li><strong>Movement</strong> – touch the hero with your finger and drag left or right.</li>
+                <li><strong>Shooting</strong> – simply keep your finger on the hero, and he will start shooting automatically.</li>
+                <li><strong>Special Salvo</strong> – quickly double‑tap the hero. He will unleash a powerful burst across three rows at once. After using it, you need to wait a little for the ability to recharge.</li>
+                <li><strong>Bomb</strong> – there is a bomb icon at the bottom of the screen. Tap it to start a bombardment that will destroy all zombies on the field and all obstacles.</li>
+                <li><strong>Pause and Settings</strong> – the button with two stripes in the centre of the bottom panel pauses the game, and the gear icon on the right opens the settings.</li>
+            </ul>
+
+            <h2>How Levels Work</h2>
+            <p>The game progresses in waves – each level is a new wave of zombies. They come down from the top, and your task is to shoot them all without losing all your lives.</p>
+            <ul>
+                <li><strong>Levels get harder</strong> – with each step, new types of zombies appear, they become more numerous, faster, and tougher.</li>
+                <li><strong>Unlocks</strong> – after completing a level, you will see what new things have appeared: for example, a zombie, a bonus, or a new mechanic.</li>
+                <li><strong>Score</strong> – you earn points for each zombie killed. The more dangerous the zombie, the more points you get. Your total score accumulates and is saved.</li>
+                <li><strong>Best Result</strong> – the game remembers your highest score ever achieved.</li>
+            </ul>
+
+            <h2>Who the Zombies Are and How to Defeat Them</h2>
+            <p>Above each zombie’s head you see a health bar – the longer it is, the tougher the enemy. In the early levels you will meet ordinary zombies, but later more dangerous kinds will appear:</p>
+            <ul>
+                <li><strong>Rogues, Punks, Aliens, and Androids</strong> – basic zombie types in the first level, differing in toughness.</li>
+                <li><strong>Sprinter</strong> – a very fast runner.</li>
+                <li><strong>Fatty</strong> – explodes upon death and can harm nearby enemies.</li>
+                <li><strong>Shooter</strong> – can shoot at you.</li>
+                <li><strong>Drunkard</strong> – moves diagonally.</li>
+                <li><strong>Teleporter</strong> – occasionally jumps to another row.</li>
+                <li><strong>SWAT</strong> – takes half the damage.</li>
+                <li><strong>Dracula</strong> – flies straight towards you, ignoring rows.</li>
+                <li><strong>Ghost</strong> – almost invisible, appears only for a moment.</li>
+                <li><strong>Mummy</strong> – when its health drops to a minimum, it transforms into another zombie and restores some health.</li>
+                <li><strong>Boss</strong> – a huge and very resilient enemy that appears near the end of the level.</li>
+            </ul>
+            <p>When you advance to the next level, the game shows you which new zombies may now appear.</p>
+
+            <h2>Bonuses and Weapons</h2>
+            <p>At the start you have a regular pistol. But from time to time, bonus icons drop onto the field. Collect them to temporarily boost your attack:</p>
+            <ul>
+                <li><strong>“Fast Pistol”</strong> – shoots a bit faster.</li>
+                <li><strong>“Shotgun”</strong> – fires two projectiles that spread out.</li>
+                <li><strong>“Assault Rifle”</strong> – gives a three-round burst.</li>
+                <li><strong>“Power Bullet”</strong> – kills any zombie with one shot.</li>
+            </ul>
+            <p>The effect lasts for 20 seconds. You will see the bonus icon at the top of the screen along with a countdown timer showing how much time is left.</p>
+            <p>In addition to weapons, sometimes a <strong>heart</strong> drops – it restores one life if you have fewer than three.</p>
+
+            <h2>Obstacles – Blocks</h2>
+            <p>Starting from level five, blocks appear on the field. They slow down the zombies, but they also get in your way – bullets can destroy them. Zombies that bump into a block will gradually break it. Blocks may respawn some time after being destroyed.</p>
+
+            <h2>Lives and Defeat</h2>
+            <ul>
+                <li>You have three lives – they are shown in the top‑right corner.</li>
+                <li>If a zombie touches you, you lose one life. If you had an active weapon bonus, it is consumed instead of a life.</li>
+                <li>If a zombie reaches the bottom edge of the screen, you also lose a life.</li>
+                <li>When your lives run out, the game ends. You can start over from level one.</li>
+            </ul>
+
+            <h2>What Happens After Each Level</h2>
+            <p>When you have eliminated all the zombies, the game shows a results screen. It lists all the new features that will be unlocked in the next level: new zombies, bonuses, block improvements, or difficulty changes.</p>
+
+            <h2>Information on the Screen During the Game</h2>
+            <ul>
+                <li><strong>Top‑left</strong> – current level number and your score.</li>
+                <li><strong>Top‑centre</strong> – your best score ever and how many zombies are left to kill on this level.</li>
+                <li><strong>Progress bar below them</strong> – shows how many zombies you have already eliminated (fills gradually).</li>
+                <li><strong>Top‑right</strong> – your lives (red hearts).</li>
+                <li><strong>Top‑right, near the lives</strong> – the special salvo indicator and, if a bonus is active, its icon with a countdown timer.</li>
+                <li><strong>Bottom panel</strong> – buttons for the bomb, pause, and settings.</li>
+            </ul>
+
+            <h2>Game Settings</h2>
+            <p>In the settings you can:</p>
+            <ul>
+                <li><strong>Choose the day mode</strong> – day only, night only, or alternating (changes the background).</li>
+                <li><strong>Adjust the difficulty</strong> – from 10% to 100%. The higher the percentage, the stronger and more numerous the zombies.</li>
+                <li><strong>Turn sound and vibration on or off</strong>.</li>
+            </ul>
+
+            <h2>Saving Progress</h2>
+            <p>The game automatically remembers all your achievements: current level, total score, record, unlocked zombie types and bonuses. When you close the game and open it again, you continue from the same level.</p>
+
+            <div class="footer-note">Good luck, LINT 87. The bunker is counting on you!</div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('lang-' + lang);
+            if (target) target.classList.remove('hidden');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function getDefaultLang() {
+            const params = new URLSearchParams(window.location.search);
+            const langParam = params.get('lang');
+            if (langParam && document.getElementById('lang-' + langParam)) return langParam;
+            const stored = localStorage.getItem('preferredLang');
+            if (stored && document.getElementById('lang-' + stored)) return stored;
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ru')) return 'ru';
+            return 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultLang = getDefaultLang();
+            switchLanguage(defaultLang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

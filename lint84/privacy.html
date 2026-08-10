@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Политика конфиденциальности — LINT 87</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(30, 30, 32, 0.92);
+            border-radius: 20px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #555;
+            border-radius: 6px;
+            padding: 4px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #e0e0e0;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #F2F0C3;
+            color: #1a1a1a;
+            border-color: #F2F0C3;
+        }
+
+        .lang-btn:hover {
+            background: #3a3a3c;
+        }
+
+        .lang-btn.active:hover {
+            background: #e0deb0;
+        }
+
+        .lang-content {
+            display: block;
+        }
+        .lang-content.hidden {
+            display: none !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            color: #F2F0C3;
+        }
+
+        .effective-date {
+            text-align: center;
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 24px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #F2F0C3;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        a {
+            color: #F2F0C3;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            color: #8e8e93;
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 18px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+
+        <!-- Русский -->
+        <div id="lang-ru" class="lang-content">
+            <h1>Политика конфиденциальности</h1>
+            <p class="effective-date"><strong>Дата вступления в силу:</strong> 23 июля 2026 г.</p>
+
+            <h2>1. Какие данные мы собираем</h2>
+            <p>Мы не собираем ваши личные данные (имя, email, номер телефона и т.д.). Единственная информация, которая хранится локально на вашем устройстве:</p>
+            <ul>
+                <li>Статистика игры (количество побед и поражений по уровням сложности).</li>
+                <li>Прогресс (пройденные уровни, общее количество очков).</li>
+                <li>Настройки приложения (режим дня/ночи, звук, вибрация и т.п.).</li>
+            </ul>
+            <p>Все данные сохраняются на вашем устройстве и никуда не отправляются.</p>
+
+            <h2>2. Реклама</h2>
+            <p>В приложении используется рекламный SDK Appodeal для показа рекламы. Рекламный SDK может собирать следующие обезличенные данные:</p>
+            <ul>
+                <li>Идентификаторы устройств (IDFA).</li>
+                <li>Информация о взаимодействии с рекламными объявлениями (просмотры, клики).</li>
+                <li>Данные о вашем устройстве (модель, версия ОС, язык, страна).</li>
+            </ul>
+            <p>Эти данные используются для показа таргетированной рекламы и аналитики. Вы можете управлять настройками рекламы через системные настройки вашего устройства (ограничение отслеживания, сброс рекламного идентификатора).</p>
+            <p>Более подробно с политикой Appodeal и списком их партнёров можно ознакомиться по ссылке: <a href="https://www.appodeal.com/privacy-policy" target="_blank">Политика конфиденциальности Appodeal</a>.</p>
+
+            <h2>3. Передача данных третьим лицам</h2>
+            <p>Мы не передаём ваши личные данные третьим лицам. Рекламный SDK может передавать обезличенные данные своим партнёрам для показа рекламы. Полный список партнёров и их политики доступны на сайте Appodeal по ссылке выше.</p>
+
+            <h2>4. Безопасность</h2>
+            <p>Все данные хранятся локально и защищены операционной системой вашего устройства.</p>
+
+            <div class="footer-note">Мы заботимся о вашей конфиденциальности.</div>
+        </div>
+
+        <!-- English -->
+        <div id="lang-en" class="lang-content hidden">
+            <h1>Privacy Policy</h1>
+            <p class="effective-date"><strong>Effective Date:</strong> July 23, 2026</p>
+
+            <h2>1. What Data We Collect</h2>
+            <p>We do not collect your personal data (name, email, phone number, etc.). The only information stored locally on your device:</p>
+            <ul>
+                <li>Game statistics (number of wins and losses by difficulty level).</li>
+                <li>Progress (completed levels, total score).</li>
+                <li>App settings (day/night mode, sound, vibration, etc.).</li>
+            </ul>
+            <p>All data is stored on your device and is not sent anywhere.</p>
+
+            <h2>2. Advertising</h2>
+            <p>We use the Appodeal advertising SDK to display ads. The SDK may collect the following anonymous data:</p>
+            <ul>
+                <li>Device identifiers (IDFA).</li>
+                <li>Interaction with ad units (views, clicks).</li>
+                <li>Device information (model, OS version, language, country).</li>
+            </ul>
+            <p>This data is used for targeted advertising and analytics. You can manage your ad settings via your device's system settings (limit ad tracking, reset advertising identifier).</p>
+            <p>For more details, see Appodeal's privacy policy: <a href="https://www.appodeal.com/privacy-policy" target="_blank">Appodeal Privacy Policy</a>.</p>
+
+            <h2>3. Data Sharing with Third Parties</h2>
+            <p>We do not share your personal data with third parties. The ad SDK may share anonymized data with its partners for ad serving. A full list of partners and their policies is available on the Appodeal website (link above).</p>
+
+            <h2>4. Security</h2>
+            <p>All data is stored locally and protected by your device's operating system.</p>
+
+            <div class="footer-note">We care about your privacy.</div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('lang-' + lang);
+            if (target) target.classList.remove('hidden');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function getDefaultLang() {
+            const params = new URLSearchParams(window.location.search);
+            const langParam = params.get('lang');
+            if (langParam && document.getElementById('lang-' + langParam)) return langParam;
+            const stored = localStorage.getItem('preferredLang');
+            if (stored && document.getElementById('lang-' + stored)) return stored;
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ru')) return 'ru';
+            return 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultLang = getDefaultLang();
+            switchLanguage(defaultLang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
