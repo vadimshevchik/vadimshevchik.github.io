@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Support — LINT 87</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            padding: 20px;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(30, 30, 32, 0.92);
+            border-radius: 20px;
+            padding: 30px 28px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .lang-switcher {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: 1px solid #555;
+            border-radius: 6px;
+            padding: 4px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #e0e0e0;
+            transition: background 0.2s, border-color 0.2s, color 0.2s;
+        }
+
+        .lang-btn.active {
+            background: #F2F0C3;
+            color: #1a1a1a;
+            border-color: #F2F0C3;
+        }
+
+        .lang-btn:hover {
+            background: #3a3a3c;
+        }
+
+        .lang-btn.active:hover {
+            background: #e0deb0;
+        }
+
+        .lang-content {
+            display: block;
+        }
+        .lang-content.hidden {
+            display: none !important;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 6px;
+            color: #F2F0C3;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #8e8e93;
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 4px;
+            color: #e0e0e0;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 16px;
+            font-family: inherit;
+            border: 1.5px solid #3a3a3c;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.06);
+            color: #e0e0e0;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #F2F0C3;
+            box-shadow: 0 0 0 3px rgba(242, 240, 195, 0.15);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #8e8e93;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: 100%;
+            padding: 14px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #F2F0C3;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(242, 240, 195, 0.2);
+        }
+
+        .btn:hover {
+            background: #e0deb0;
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            margin-top: 24px;
+            font-size: 14px;
+            text-align: center;
+            color: #8e8e93;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 18px;
+        }
+
+        .footer a {
+            color: #F2F0C3;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 16px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="lang-switcher">
+            <button class="lang-btn" data-lang="ru">Русский</button>
+            <button class="lang-btn" data-lang="en">English</button>
+        </div>
+
+        <!-- Русский -->
+        <div id="lang-ru" class="lang-content">
+            <h1>Служба поддержки</h1>
+            <p class="subtitle">Свяжитесь с нами, и мы ответим вам как можно скорее</p>
+            <form onsubmit="sendEmail(event, 'ru')">
+                <div class="form-group">
+                    <label for="name-ru">Ваше имя</label>
+                    <input type="text" id="name-ru" placeholder="Иван Иванов" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-ru">Ваш email</label>
+                    <input type="email" id="email-ru" placeholder="ivan@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-ru">Сообщение</label>
+                    <textarea id="message-ru" placeholder="Опишите вашу проблему или предложение..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Отправить</button>
+            </form>
+            <div class="footer">
+                <p>Или напишите нам напрямую: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+
+        <!-- English -->
+        <div id="lang-en" class="lang-content hidden">
+            <h1>Support</h1>
+            <p class="subtitle">Contact us and we'll get back to you as soon as possible</p>
+            <form onsubmit="sendEmail(event, 'en')">
+                <div class="form-group">
+                    <label for="name-en">Your name</label>
+                    <input type="text" id="name-en" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label for="email-en">Your email</label>
+                    <input type="email" id="email-en" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message-en">Message</label>
+                    <textarea id="message-en" placeholder="Describe your issue or suggestion..." required></textarea>
+                </div>
+                <button type="submit" class="btn">Send</button>
+            </form>
+            <div class="footer">
+                <p>Or email us directly: <a href="mailto:shevchik.vadim@gmail.com">shevchik.vadim@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchLanguage(lang) {
+            document.querySelectorAll('.lang-content').forEach(el => el.classList.add('hidden'));
+            const target = document.getElementById('lang-' + lang);
+            if (target) target.classList.remove('hidden');
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+            localStorage.setItem('preferredLang', lang);
+        }
+
+        function getDefaultLang() {
+            const params = new URLSearchParams(window.location.search);
+            const langParam = params.get('lang');
+            if (langParam && document.getElementById('lang-' + langParam)) return langParam;
+            const stored = localStorage.getItem('preferredLang');
+            if (stored && document.getElementById('lang-' + stored)) return stored;
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('ru')) return 'ru';
+            return 'en';
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultLang = getDefaultLang();
+            switchLanguage(defaultLang);
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    switchLanguage(this.dataset.lang);
+                });
+            });
+        });
+
+        function sendEmail(event, lang) {
+            event.preventDefault();
+            const nameField = document.getElementById('name-' + lang);
+            const emailField = document.getElementById('email-' + lang);
+            const messageField = document.getElementById('message-' + lang);
+            const name = nameField.value.trim();
+            const email = emailField.value.trim();
+            const message = messageField.value.trim();
+            if (!name || !email || !message) {
+                alert('Пожалуйста, заполните все поля.');
+                return;
+            }
+            const subject = encodeURIComponent('Поддержка LINT 87: ' + name);
+            const body = encodeURIComponent(
+                'Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message
+            );
+            window.location.href = 'mailto:shevchik.vadim@gmail.com?subject=' + subject + '&body=' + body;
+        }
+    </script>
+</body>
+</html>

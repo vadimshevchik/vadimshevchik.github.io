@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Game Rules</title>
+    <style>
+        /* ── reset & base ── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: transparent;
+            color: #1c1c1e;
+            padding: 20px;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.88);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        /* ── language switcher ── */
+        .lang-switcher {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 10px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .lang-switcher button {
+            background: transparent;
+            border: none;
+            padding: 4px 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #8e8e93;
+            cursor: pointer;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .lang-switcher button:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-switcher button.active {
+            color: #007aff;
+            background: rgba(0, 122, 255, 0.12);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .lang-switcher {
+                border-bottom-color: rgba(255, 255, 255, 0.1);
+            }
+            .lang-switcher button {
+                color: #8e8e93;
+            }
+            .lang-switcher button:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+            .lang-switcher button.active {
+                color: #0a84ff;
+                background: rgba(10, 132, 255, 0.2);
+            }
+        }
+
+        /* ── content ── */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 8px;
+            color: #007aff;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 16px;
+        }
+
+        li {
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            background: #f0f0f5;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 24px;
+            color: #8e8e93;
+            font-size: 14px;
+        }
+
+        /* ── dark mode ── */
+        @media (prefers-color-scheme: dark) {
+            body {
+                color: #f5f5f7;
+            }
+            .container {
+                background: rgba(30, 30, 32, 0.88);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            }
+            .highlight {
+                background: #3a3a3c;
+            }
+            h2 {
+                color: #0a84ff;
+            }
+        }
+
+        /* ── responsive ── */
+        @media (max-width: 480px) {
+            .lang-switcher button {
+                font-size: 12px;
+                padding: 3px 6px;
+            }
+            .container {
+                padding: 16px;
+            }
+            h1 {
+                font-size: 22px;
+            }
+            h2 {
+                font-size: 17px;
+            }
+            p,
+            li {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ===== LANGUAGE SWITCHER ===== -->
+        <div class="lang-switcher" role="tablist">
+            <button class="active" data-lang="en" role="tab">English</button>
+            <button data-lang="de" role="tab">Deutsch</button>
+            <button data-lang="es" role="tab">Español</button>
+            <button data-lang="fr" role="tab">Français</button>
+            <button data-lang="ja" role="tab">日本語</button>
+            <button data-lang="ko" role="tab">한국어</button>
+            <button data-lang="ru" role="tab">Русский</button>
+            <button data-lang="zh" role="tab">简体中文</button>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- ENGLISH -->
+        <!-- ============================================================ -->
+        <div class="lang-content active" id="lang-en" role="tabpanel">
+            <h1>Game Rules</h1>
+
+            <h2>Goal of the Game</h2>
+            <p>Match three or more identical tiles to earn points and complete the level objective. Objectives can be of two types: reach a target score or collect all special emoji tiles (these levels appear every 5th level).</p>
+
+            <h2>How to Play</h2>
+            <ul>
+                <li><strong>Swipe:</strong> swipe from one tile to an adjacent one to swap them.</li>
+                <li><strong>Matches:</strong> if a swap creates a row of 3 or more tiles of the same color, they disappear and you earn points.</li>
+                <li><strong>Cascades:</strong> after tiles disappear, new ones fall from above, potentially creating additional matches.</li>
+            </ul>
+
+            <h2>Obstacles: Stone Walls</h2>
+            <p>From mid-levels onward, stone walls (rocks) appear on the board. These tiles cannot be moved or participate in normal matches. They can only be destroyed by explosions from special bombs (regular, cross, or color bombs). Walls add an extra layer of strategy: you must plan your moves to create bombs and clear the path.</p>
+
+            <h2>Special Bonuses</h2>
+            <ul>
+                <li><span class="highlight">Bomb</span> — created from a match of 5 tiles in a row. Explodes tiles in a 1‑cell radius.</li>
+                <li><span class="highlight">Color Bomb</span> — created from a match of 6 tiles in a row. Destroys all tiles of one color on the board.</li>
+                <li><span class="highlight">Cross Bomb</span> — created from an L- or T‑shaped match of 7 or more tiles. Clears an entire row and column.</li>
+            </ul>
+
+            <h2>Level Objectives</h2>
+            <ul>
+                <li><strong>Score:</strong> reach the required number of points within the given moves or time.</li>
+                <li><strong>Collect Emojis:</strong> destroy all emoji tiles on the board.</li>
+            </ul>
+
+            <h2>Stars</h2>
+            <ul>
+                <li>3 stars — used no more than 60% of moves or time.</li>
+                <li>2 stars — used no more than 80% of moves or time.</li>
+                <li>1 star — level completed.</li>
+            </ul>
+
+            <h2>Game Modes</h2>
+            <ul>
+                <li><strong>Moves:</strong> you have a limited number of moves. Each swap costs one move.</li>
+                <li><strong>Time:</strong> you have limited time (from 3 to 6 minutes depending on level and difficulty). Each move is free, but time runs out.</li>
+            </ul>
+
+            <h2>Difficulty</h2>
+            <ul>
+                <li><strong>Easy:</strong> starting colours – 4, moves – 40.</li>
+                <li><strong>Medium:</strong> starting colours – 5, moves – 35.</li>
+                <li><strong>Hard:</strong> starting colours – 6, moves – 30.</li>
+                <li><strong>Expert:</strong> starting colours – 7, moves – 25.</li>
+                <li><strong>Genius:</strong> starting colours – 8, moves – 20, always time mode (3 min), board 12×14.</li>
+            </ul>
+            <p>Colours and moves change with each level: colours increase, moves decrease. Exact values depend on chosen difficulty.</p>
+
+            <h2>Hints and Boosts</h2>
+            <ul>
+                <li><strong>Hint:</strong> shows a possible move. You get 2 free hints per level, then via ad.</li>
+                <li><strong>Boost:</strong> removes random tiles on the board. There is <strong>1 boost available per level</strong>.
+                    <ul>
+                        <li>The first boost each day is <strong>free</strong>.</li>
+                        <li>Subsequent boosts on the same day require watching an ad.</li>
+                        <li>Boosts reset every day at midnight.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Board Size</h2>
+            <ul>
+                <li>In Settings you can choose board size from 7×9 to 12×14. Larger size increases complexity and colour count.</li>
+            </ul>
+
+            <p class="footer-note">Good luck!</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- GERMAN -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-de" role="tabpanel">
+            <h1>Spielregeln</h1>
+
+            <h2>Ziel des Spiels</h2>
+            <p>Bilde Dreier- oder Mehrfachkombinationen aus gleichen Steinen, um Punkte zu sammeln und das Levelziel zu erreichen. Es gibt zwei Arten von Zielen: Erreiche eine bestimmte Punktzahl oder sammle alle speziellen Emoji-Steine (solche Level erscheinen alle 5 Level).</p>
+
+            <h2>Wie man spielt</h2>
+            <ul>
+                <li><strong>Wischen:</strong> Wische von einem Stein zum benachbarten, um sie zu tauschen.</li>
+                <li><strong>Kombinationen:</strong> Wenn durch den Tausch eine Reihe von 3 oder mehr Steinen gleicher Farbe entsteht, verschwinden sie und du erhältst Punkte.</li>
+                <li><strong>Kaskaden:</strong> Nach dem Verschwinden der Steine fallen neue von oben herab, was zusätzliche Kombinationen auslösen kann.</li>
+            </ul>
+
+            <h2>Hindernisse: Steinmauern</h2>
+            <p>Ab den mittleren Leveln erscheinen Steinmauern (Felsen) auf dem Spielfeld. Diese Steine können nicht bewegt werden und nehmen nicht an normalen Kombinationen teil. Sie können nur durch Explosionen von Spezialbomben (normal, Kreuz- oder Farbbombe) zerstört werden. Steinmauern erfordern strategische Planung: Du musst Bomben erzeugen, um den Weg freizuräumen.</p>
+
+            <h2>Spezialboni</h2>
+            <ul>
+                <li><span class="highlight">Bombe</span> — entsteht bei einer Kombination von 5 Steinen in einer Reihe. Explodiert im Umkreis von 1 Zelle.</li>
+                <li><span class="highlight">Farbbombe</span> — entsteht bei einer Kombination von 6 Steinen in einer Reihe. Zerstört alle Steine einer Farbe auf dem Spielfeld.</li>
+                <li><span class="highlight">Kreuzbombe</span> — entsteht bei einer L- oder T‑förmigen Kombination von 7 oder mehr Steinen. Löscht eine gesamte Zeile und Spalte.</li>
+            </ul>
+
+            <h2>Levelziele</h2>
+            <ul>
+                <li><strong>Punkte:</strong> Erreiche die vorgegebene Punktzahl innerhalb der Züge oder Zeit.</li>
+                <li><strong>Emojis sammeln:</strong> Zerstöre alle Emoji-Steine auf dem Spielfeld.</li>
+            </ul>
+
+            <h2>Sterne</h2>
+            <ul>
+                <li>3 Sterne — nicht mehr als 60% der Züge oder Zeit verbraucht.</li>
+                <li>2 Sterne — nicht mehr als 80% der Züge oder Zeit verbraucht.</li>
+                <li>1 Stern — Level bestanden.</li>
+            </ul>
+
+            <h2>Spielmodi</h2>
+            <ul>
+                <li><strong>Züge:</strong> Du hast eine begrenzte Anzahl von Zügen. Jeder Tausch kostet einen Zug.</li>
+                <li><strong>Zeit:</strong> Du hast eine begrenzte Zeit (je nach Level und Schwierigkeit 3 bis 6 Minuten). Jeder Tausch ist kostenlos, aber die Zeit läuft.</li>
+            </ul>
+
+            <h2>Schwierigkeitsgrad</h2>
+            <ul>
+                <li><strong>Einfach:</strong> Startfarben – 4, Züge – 40.</li>
+                <li><strong>Mittel:</strong> Startfarben – 5, Züge – 35.</li>
+                <li><strong>Schwer:</strong> Startfarben – 6, Züge – 30.</li>
+                <li><strong>Experte:</strong> Startfarben – 7, Züge – 25.</li>
+                <li><strong>Genie:</strong> Startfarben – 8, Züge – 20, immer Zeitmodus (3 Min.), Spielfeld 12×14.</li>
+            </ul>
+            <p>Farben und Züge ändern sich mit jedem Level: Farben steigen, Züge sinken. Genauere Werte hängen vom gewählten Schwierigkeitsgrad ab.</p>
+
+            <h2>Hinweise und Boosts</h2>
+            <ul>
+                <li><strong>Hinweis:</strong> Zeigt einen möglichen Zug. Du erhältst 2 kostenlose Hinweise pro Level, danach gegen Werbung.</li>
+                <li><strong>Boost:</strong> Entfernt zufällige Steine vom Spielfeld. Pro Level steht <strong>1 Boost</strong> zur Verfügung.
+                    <ul>
+                        <li>Der erste Boost pro Tag ist <strong>kostenlos</strong>.</li>
+                        <li>Weitere Boosts am selben Tag erfordern das Ansehen einer Werbung.</li>
+                        <li>Boosts werden jeden Tag um Mitternacht zurückgesetzt.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Spielfeldgröße</h2>
+            <ul>
+                <li>In den Einstellungen kannst du die Spielfeldgröße von 7×9 bis 12×14 wählen. Eine größere Größe erhöht die Komplexität und die Anzahl der Farben.</li>
+            </ul>
+
+            <p class="footer-note">Viel Erfolg!</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- SPANISH -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-es" role="tabpanel">
+            <h1>Reglas del juego</h1>
+
+            <h2>Objetivo del juego</h2>
+            <p>Combina tres o más fichas iguales para ganar puntos y cumplir el objetivo del nivel. Los objetivos pueden ser de dos tipos: alcanzar una puntuación determinada o recolectar todas las fichas especiales de emoji (estos niveles aparecen cada 5 niveles).</p>
+
+            <h2>Cómo jugar</h2>
+            <ul>
+                <li><strong>Deslizar:</strong> desliza desde una ficha a la adyacente para intercambiarlas.</li>
+                <li><strong>Combinaciones:</strong> si un intercambio crea una línea de 3 o más fichas del mismo color, desaparecen y obtienes puntos.</li>
+                <li><strong>Cascadas:</strong> después de que las fichas desaparezcan, caen nuevas desde arriba, lo que puede crear combinaciones adicionales.</li>
+            </ul>
+
+            <h2>Obstáculos: muros de piedra</h2>
+            <p>A partir de los niveles intermedios, aparecen muros de piedra (rocas) en el tablero. Estas fichas no se pueden mover ni participan en combinaciones normales. Solo se pueden destruir con explosiones de bombas especiales (bomba normal, cruzada o de color). Los muros añaden una capa estratégica: debes planificar tus movimientos para crear bombas y despejar el camino.</p>
+
+            <h2>Bonificaciones especiales</h2>
+            <ul>
+                <li><span class="highlight">Bomba</span> — se crea al combinar 5 fichas en línea. Explota en un radio de 1 celda.</li>
+                <li><span class="highlight">Bomba de color</span> — se crea al combinar 6 fichas en línea. Destruye todas las fichas de un color en el tablero.</li>
+                <li><span class="highlight">Bomba cruzada</span> — se crea con una combinación en forma de L o T (7 fichas o más). Elimina una fila y una columna enteras.</li>
+            </ul>
+
+            <h2>Objetivos de nivel</h2>
+            <ul>
+                <li><strong>Puntuación:</strong> alcanza la puntuación requerida en los movimientos o tiempo dados.</li>
+                <li><strong>Recolectar emojis:</strong> destruye todas las fichas de emoji en el tablero.</li>
+            </ul>
+
+            <h2>Estrellas</h2>
+            <ul>
+                <li>3 estrellas — utilizado no más del 60% de movimientos o tiempo.</li>
+                <li>2 estrellas — utilizado no más del 80% de movimientos o tiempo.</li>
+                <li>1 estrella — nivel completado.</li>
+            </ul>
+
+            <h2>Modos de juego</h2>
+            <ul>
+                <li><strong>Movimientos:</strong> tienes un número limitado de movimientos. Cada intercambio cuesta un movimiento.</li>
+                <li><strong>Tiempo:</strong> tienes tiempo limitado (de 3 a 6 minutos según el nivel y la dificultad). Cada movimiento es gratuito, pero el tiempo corre.</li>
+            </ul>
+
+            <h2>Dificultad</h2>
+            <ul>
+                <li><strong>Fácil:</strong> colores iniciales – 4, movimientos – 40.</li>
+                <li><strong>Medio:</strong> colores iniciales – 5, movimientos – 35.</li>
+                <li><strong>Difícil:</strong> colores iniciales – 6, movimientos – 30.</li>
+                <li><strong>Experto:</strong> colores iniciales – 7, movimientos – 25.</li>
+                <li><strong>Genio:</strong> colores iniciales – 8, movimientos – 20, siempre en modo tiempo (3 min), tablero 12×14.</li>
+            </ul>
+            <p>Los colores y movimientos cambian en cada nivel: los colores aumentan, los movimientos disminuyen. Los valores exactos dependen de la dificultad elegida.</p>
+
+            <h2>Pistas y potenciadores</h2>
+            <ul>
+                <li><strong>Pista:</strong> muestra un movimiento posible. Recibes 2 pistas gratis por nivel, luego mediante anuncio.</li>
+                <li><strong>Potenciador:</strong> elimina fichas aleatorias del tablero. Cada nivel ofrece <strong>1 potenciador</strong>.
+                    <ul>
+                        <li>El primer potenciador del día es <strong>gratuito</strong>.</li>
+                        <li>Los siguientes potenciadores el mismo día requieren ver un anuncio.</li>
+                        <li>Los potenciadores se reinician cada día a medianoche.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Tamaño del tablero</h2>
+            <ul>
+                <li>En Ajustes puedes elegir el tamaño del tablero desde 7×9 hasta 12×14. Un tamaño mayor aumenta la complejidad y el número de colores.</li>
+            </ul>
+
+            <p class="footer-note">¡Buena suerte!</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- FRENCH -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-fr" role="tabpanel">
+            <h1>Règles du jeu</h1>
+
+            <h2>But du jeu</h2>
+            <p>Associez trois tuiles identiques ou plus pour gagner des points et atteindre l'objectif du niveau. Les objectifs peuvent être de deux types : atteindre un score cible ou collecter toutes les tuiles émoji spéciales (ces niveaux apparaissent tous les 5 niveaux).</p>
+
+            <h2>Comment jouer</h2>
+            <ul>
+                <li><strong>Glisser :</strong> glissez d'une tuile vers une tuile adjacente pour les échanger.</li>
+                <li><strong>Combinaisons :</strong> si un échange crée une ligne de 3 tuiles ou plus de la même couleur, elles disparaissent et vous gagnez des points.</li>
+                <li><strong>Cascades :</strong> après la disparition des tuiles, de nouvelles tombent d'en haut, ce qui peut créer des combinaisons supplémentaires.</li>
+            </ul>
+
+            <h2>Obstacles : murs de pierre</h2>
+            <p>À partir des niveaux intermédiaires, des murs de pierre (rochers) apparaissent sur le plateau. Ces tuiles ne peuvent pas être déplacées et ne participent pas aux combinaisons normales. Elles ne peuvent être détruites que par des explosions de bombes spéciales (bombe normale, croix ou couleur). Les murs ajoutent une dimension stratégique : vous devez planifier vos mouvements pour créer des bombes et dégager le chemin.</p>
+
+            <h2>Bonus spéciaux</h2>
+            <ul>
+                <li><span class="highlight">Bombe</span> — créée par une combinaison de 5 tuiles en ligne. Explose dans un rayon d'une cellule.</li>
+                <li><span class="highlight">Bombe de couleur</span> — créée par une combinaison de 6 tuiles en ligne. Détruit toutes les tuiles d'une couleur sur le plateau.</li>
+                <li><span class="highlight">Bombe croix</span> — créée par une combinaison en L ou en T (7 tuiles ou plus). Efface une ligne et une colonne entières.</li>
+            </ul>
+
+            <h2>Objectifs des niveaux</h2>
+            <ul>
+                <li><strong>Score :</strong> atteignez le nombre de points requis dans le temps ou les mouvements impartis.</li>
+                <li><strong>Collecte d'émojis :</strong> détruisez toutes les tuiles émoji sur le plateau.</li>
+            </ul>
+
+            <h2>Étoiles</h2>
+            <ul>
+                <li>3 étoiles — utilisé au maximum 60% des mouvements ou du temps.</li>
+                <li>2 étoiles — utilisé au maximum 80% des mouvements ou du temps.</li>
+                <li>1 étoile — niveau réussi.</li>
+            </ul>
+
+            <h2>Modes de jeu</h2>
+            <ul>
+                <li><strong>Mouvements :</strong> vous disposez d'un nombre limité de mouvements. Chaque échange coûte un mouvement.</li>
+                <li><strong>Temps :</strong> vous disposez d'un temps limité (de 3 à 6 minutes selon le niveau et la difficulté). Chaque mouvement est gratuit, mais le temps s'écoule.</li>
+            </ul>
+
+            <h2>Difficulté</h2>
+            <ul>
+                <li><strong>Facile :</strong> couleurs de départ – 4, mouvements – 40.</li>
+                <li><strong>Moyen :</strong> couleurs de départ – 5, mouvements – 35.</li>
+                <li><strong>Difficile :</strong> couleurs de départ – 6, mouvements – 30.</li>
+                <li><strong>Expert :</strong> couleurs de départ – 7, mouvements – 25.</li>
+                <li><strong>Génie :</strong> couleurs de départ – 8, mouvements – 20, toujours en mode temps (3 min), plateau 12×14.</li>
+            </ul>
+            <p>Les couleurs et les mouvements évoluent à chaque niveau : les couleurs augmentent, les mouvements diminuent. Les valeurs exactes dépendent de la difficulté choisie.</p>
+
+            <h2>Indices et boosts</h2>
+            <ul>
+                <li><strong>Indice :</strong> affiche un mouvement possible. Vous bénéficiez de 2 indices gratuits par niveau, puis via publicité.</li>
+                <li><strong>Boost :</strong> supprime des tuiles aléatoires sur le plateau. Chaque niveau propose <strong>1 boost</strong>.
+                    <ul>
+                        <li>Le premier boost par jour est <strong>gratuit</strong>.</li>
+                        <li>Les boosts suivants le même jour nécessitent de regarder une publicité.</li>
+                        <li>Les boosts sont réinitialisés chaque jour à minuit.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Taille du plateau</h2>
+            <ul>
+                <li>Dans les paramètres, vous pouvez choisir la taille du plateau de 7×9 à 12×14. Une taille plus grande augmente la complexité et le nombre de couleurs.</li>
+            </ul>
+
+            <p class="footer-note">Bonne chance !</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- JAPANESE -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-ja" role="tabpanel">
+            <h1>ゲームルール</h1>
+
+            <h2>ゲームの目的</h2>
+            <p>3つ以上同じタイルを揃えて得点を獲得し、レベルの目標を達成しましょう。目標は2種類あります：指定されたスコアに達するか、すべての特殊絵文字タイルを収集する（このようなレベルは5レベルごとに出現します）。</p>
+
+            <h2>遊び方</h2>
+            <ul>
+                <li><strong>スワイプ：</strong>タイルを隣接するタイルにスワイプして交換します。</li>
+                <li><strong>マッチ：</strong>交換後に同色のタイルが3つ以上並ぶと、それらは消え、得点が入ります。</li>
+                <li><strong>カスケード：</strong>タイルが消えた後、上から新しいタイルが落下し、追加のマッチが発生することがあります。</li>
+            </ul>
+
+            <h2>障害物：石壁</h2>
+            <p>中盤以降のレベルでは、ボード上に石壁（岩）が現れます。これらのタイルは移動できず、通常のマッチにも参加しません。通常ボム、クロスボム、カラーボムの爆発でのみ破壊できます。石壁は戦略の幅を広げます：ボムを作り、道を切り開くために手を計画する必要があります。</p>
+
+            <h2>スペシャルボーナス</h2>
+            <ul>
+                <li><span class="highlight">ボム</span> — 5個のタイルが一列に並ぶと生成。周囲1マスのタイルを爆発させます。</li>
+                <li><span class="highlight">カラーボム</span> — 6個のタイルが一列に並ぶと生成。ボード上の同色タイルをすべて破壊します。</li>
+                <li><span class="highlight">クロスボム</span> — L字またはT字型（7個以上）のマッチで生成。行と列全体を消去します。</li>
+            </ul>
+
+            <h2>レベルの目標</h2>
+            <ul>
+                <li><strong>スコア：</strong>指定された手数または時間内に目標スコアに到達。</li>
+                <li><strong>絵文字収集：</strong>ボード上のすべての絵文字タイルを破壊。</li>
+            </ul>
+
+            <h2>スター</h2>
+            <ul>
+                <li>3スター — 手数または時間の60%以内でクリア。</li>
+                <li>2スター — 手数または時間の80%以内でクリア。</li>
+                <li>1スター — レベルクリア。</li>
+            </ul>
+
+            <h2>ゲームモード</h2>
+            <ul>
+                <li><strong>手数モード：</strong>限られた手数があります。各スワップで1手消費。</li>
+                <li><strong>時間モード：</strong>制限時間があります（レベルと難易度により3〜6分）。各スワップは手数を消費しませんが、時間が経過します。</li>
+            </ul>
+
+            <h2>難易度</h2>
+            <ul>
+                <li><strong>イージー：</strong>初期色数 – 4、手数 – 40。</li>
+                <li><strong>ミディアム：</strong>初期色数 – 5、手数 – 35。</li>
+                <li><strong>ハード：</strong>初期色数 – 6、手数 – 30。</li>
+                <li><strong>エキスパート：</strong>初期色数 – 7、手数 – 25。</li>
+                <li><strong>ジーニアス：</strong>初期色数 – 8、手数 – 20、常に時間モード（3分）、ボード12×14。</li>
+            </ul>
+            <p>色数と手数は各レベルで変化します：色数は増加し、手数は減少します。詳細は選択した難易度に依存します。</p>
+
+            <h2>ヒントとブースト</h2>
+            <ul>
+                <li><strong>ヒント：</strong>可能な手を表示。各レベルで2回無料、その後は広告視聴で。</li>
+                <li><strong>ブースト：</strong>ボード上のランダムなタイルを削除。各レベルで <strong>1 回</strong> 利用可能。
+                    <ul>
+                        <li>1日1回 <strong>無料</strong>。</li>
+                        <li>同日の追加ブーストは広告視聴が必要。</li>
+                        <li>ブーストは毎日深夜にリセットされます。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>ボードサイズ</h2>
+            <ul>
+                <li>設定でボードサイズを7×9から12×14まで選択可能。大きなサイズは複雑性と色数を増加させます。</li>
+            </ul>
+
+            <p class="footer-note">良いゲームを！</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- KOREAN -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-ko" role="tabpanel">
+            <h1>게임 규칙</h1>
+
+            <h2>게임 목표</h2>
+            <p>3개 이상의 동일한 타일을 매치하여 점수를 획득하고 레벨 목표를 달성하세요. 목표는 두 가지 유형입니다: 목표 점수 달성 또는 모든 특수 이모지 타일 수집 (이러한 레벨은 5레벨마다 나타납니다).</p>
+
+            <h2>플레이 방법</h2>
+            <ul>
+                <li><strong>스와이프:</strong> 타일에서 인접한 타일로 스와이프하여 교환합니다.</li>
+                <li><strong>매치:</strong> 교환 후 3개 이상의 동일한 색상 타일이 나란히 있으면 사라지고 점수를 획득합니다.</li>
+                <li><strong>캐스케이드:</strong> 타일이 사라진 후 위에서 새 타일이 떨어져 추가 매치가 발생할 수 있습니다.</li>
+            </ul>
+
+            <h2>장애물: 돌벽</h2>
+            <p>중간 레벨부터 보드에 돌벽(바위)이 나타납니다. 이 타일은 이동할 수 없으며 일반 매치에 참여하지 않습니다. 일반 폭탄, 십자 폭탄 또는 색상 폭탄의 폭발로만 파괴할 수 있습니다. 돌벽은 전략적 계획을 요구합니다: 폭탄을 만들어 길을 열어야 합니다.</p>
+
+            <h2>특수 보너스</h2>
+            <ul>
+                <li><span class="highlight">폭탄</span> — 5개의 타일이 일렬로 매치되면 생성됩니다. 주변 1셀 범위의 타일을 폭발시킵니다.</li>
+                <li><span class="highlight">색상 폭탄</span> — 6개의 타일이 일렬로 매치되면 생성됩니다. 보드의 동일한 색상 타일을 모두 파괴합니다.</li>
+                <li><span class="highlight">십자 폭탄</span> — L자 또는 T자 형태(7개 이상)로 매치되면 생성됩니다. 전체 행과 열을 제거합니다.</li>
+            </ul>
+
+            <h2>레벨 목표</h2>
+            <ul>
+                <li><strong>점수:</strong> 주어진 턴 또는 시간 내에 목표 점수에 도달.</li>
+                <li><strong>이모지 수집:</strong> 보드의 모든 이모지 타일을 파괴.</li>
+            </ul>
+
+            <h2>별</h2>
+            <ul>
+                <li>3별 — 턴 또는 시간의 60% 이하 사용.</li>
+                <li>2별 — 턴 또는 시간의 80% 이하 사용.</li>
+                <li>1별 — 레벨 클리어.</li>
+            </ul>
+
+            <h2>게임 모드</h2>
+            <ul>
+                <li><strong>턴 모드:</strong> 제한된 턴이 있습니다. 각 교환은 1턴을 소모합니다.</li>
+                <li><strong>시간 모드:</strong> 제한 시간이 있습니다 (레벨과 난이도에 따라 3~6분). 각 교환은 턴을 소모하지 않지만 시간이 흐릅니다.</li>
+            </ul>
+
+            <h2>난이도</h2>
+            <ul>
+                <li><strong>쉬움:</strong> 시작 색상 – 4, 턴 – 40.</li>
+                <li><strong>보통:</strong> 시작 색상 – 5, 턴 – 35.</li>
+                <li><strong>어려움:</strong> 시작 색상 – 6, 턴 – 30.</li>
+                <li><strong>전문가:</strong> 시작 색상 – 7, 턴 – 25.</li>
+                <li><strong>천재:</strong> 시작 색상 – 8, 턴 – 20, 항상 시간 모드 (3분), 보드 12×14.</li>
+            </ul>
+            <p>색상과 턴은 각 레벨마다 변화합니다: 색상은 증가하고 턴은 감소합니다. 정확한 값은 선택한 난이도에 따라 다릅니다.</p>
+
+            <h2>힌트와 부스트</h2>
+            <ul>
+                <li><strong>힌트:</strong> 가능한 움직임을 표시합니다. 레벨당 2회 무료, 이후 광고 시청.</li>
+                <li><strong>부스트:</strong> 보드에서 무작위 타일을 제거합니다. 각 레벨에서 <strong>1회</strong> 사용 가능.
+                    <ul>
+                        <li>하루 첫 부스트는 <strong>무료</strong>.</li>
+                        <li>같은 날 추가 부스트는 광고 시청 필요.</li>
+                        <li>부스트는 매일 자정에 초기화됩니다.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>보드 크기</h2>
+            <ul>
+                <li>설정에서 보드 크기를 7×9에서 12×14까지 선택할 수 있습니다. 더 큰 크기는 복잡성과 색상 수를 증가시킵니다.</li>
+            </ul>
+
+            <p class="footer-note">행운을 빕니다!</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- RUSSIAN -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-ru" role="tabpanel">
+            <h1>Правила игры</h1>
+
+            <h2>Цель игры</h2>
+            <p>Собирайте комбинации из трёх и более одинаковых блоков, чтобы набрать очки и выполнить цель уровня. Цель может быть двух типов: набрать заданное количество очков или собрать все специальные блоки с эмодзи (такие уровни встречаются каждый 5-й уровень).</p>
+
+            <h2>Как играть</h2>
+            <ul>
+                <li><strong>Свайп:</strong> проведите пальцем от одного блока к соседнему, чтобы поменять их местами.</li>
+                <li><strong>Комбинации:</strong> если после обмена образуется ряд из 3 и более блоков одного цвета, они исчезают, и вы получаете очки.</li>
+                <li><strong>Каскады:</strong> после исчезновения блоков сверху падают новые, что может создавать дополнительные комбинации.</li>
+            </ul>
+
+            <h2>Препятствия: каменные стены</h2>
+            <p>Начиная со средних уровней, на поле появляются каменные стены (скалы). Эти блоки не могут быть перемещены или участвовать в обычных комбинациях. Их можно разрушить только с помощью взрывов специальных бомб (обычная, крестовая или цветная). Стены добавляют дополнительную стратегию: вам придётся планировать ходы так, чтобы создавать бомбы и использовать их для расчистки пути.</p>
+
+            <h2>Специальные бонусы</h2>
+            <ul>
+                <li><span class="highlight">Бомба</span> — создаётся при комбинации из 5 блоков в ряд. Взрывает блоки вокруг себя (в радиусе 1 клетки).</li>
+                <li><span class="highlight">Цветная бомба</span> — создаётся при комбинации из 6 блоков в ряд. Уничтожает все блоки одного цвета на поле.</li>
+                <li><span class="highlight">Крестовая бомба</span> — создаётся при L- или T-образной комбинации из 7 и более блоков. Удаляет целую строку и столбец.</li>
+            </ul>
+
+            <h2>Цели уровня</h2>
+            <ul>
+                <li><strong>Очки:</strong> достигните указанного количества очков за отведённое количество ходов или время.</li>
+                <li><strong>Сбор эмодзи:</strong> уничтожьте все блоки с эмодзи на поле.</li>
+            </ul>
+
+            <h2>Звёзды</h2>
+            <ul>
+                <li>3 звезды — использовано не более 60% ходов или времени.</li>
+                <li>2 звезды — использовано не более 80% ходов или времени.</li>
+                <li>1 звезда — уровень пройден.</li>
+            </ul>
+
+            <h2>Режимы игры</h2>
+            <ul>
+                <li><strong>На ходы:</strong> у вас есть ограниченное число ходов. Каждый ход тратится на обмен двух блоков.</li>
+                <li><strong>На время:</strong> у вас есть ограниченное время (от 3 до 6 минут в зависимости от уровня и сложности). Каждый ход выполняется без ограничений по количеству, но время идёт.</li>
+            </ul>
+
+            <h2>Сложность</h2>
+            <ul>
+                <li><strong>Лёгкая:</strong> начальное количество цветов — 4, ходов — 40.</li>
+                <li><strong>Средняя:</strong> начальное количество цветов — 5, ходов — 35.</li>
+                <li><strong>Сложная:</strong> начальное количество цветов — 6, ходов — 30.</li>
+                <li><strong>Эксперт:</strong> начальное количество цветов — 7, ходов — 25.</li>
+                <li><strong>Гений:</strong> начальное количество цветов — 8, ходов — 20, игра всегда на время (3 минуты), размер поля 12x14.</li>
+            </ul>
+            <p>Количество цветов и ходов изменяется с каждым уровнем: цвета увеличиваются, ходы уменьшаются. Подробные значения зависят от выбранной сложности.</p>
+
+            <h2>Подсказки и бусты</h2>
+            <ul>
+                <li><strong>Подсказка:</strong> показывает возможный ход. Каждый уровень даётся 2 бесплатные подсказки, затем за просмотр рекламы.</li>
+                <li><strong>Буст:</strong> удаляет случайные блоки на доске. На каждом уровне доступен <strong>1 буст</strong>.
+                    <ul>
+                        <li>Первый буст в сутки — <strong>бесплатный</strong>.</li>
+                        <li>Последующие бусты в тот же день — за просмотр рекламы.</li>
+                        <li>Бусты сбрасываются каждый день в полночь.</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>Размер доски</h2>
+            <ul>
+                <li>В настройках можно выбрать размер поля от 7x9 до 12x14. Больший размер увеличивает сложность и количество цветов.</li>
+            </ul>
+
+            <p class="footer-note">Удачи в игре!</p>
+        </div>
+
+        <!-- ============================================================ -->
+        <!-- CHINESE (SIMPLIFIED) -->
+        <!-- ============================================================ -->
+        <div class="lang-content" id="lang-zh" role="tabpanel">
+            <h1>游戏规则</h1>
+
+            <h2>游戏目标</h2>
+            <p>匹配三个或更多相同图块以得分并完成关卡目标。目标有两种类型：达到目标分数或收集所有特殊表情符号图块（此类关卡每5关出现一次）。</p>
+
+            <h2>如何游玩</h2>
+            <ul>
+                <li><strong>滑动：</strong>从一块图块滑向相邻图块以交换位置。</li>
+                <li><strong>匹配：</strong>若交换后形成3个及以上同色图块行列，它们会消失，您将获得分数。</li>
+                <li><strong>连锁：</strong>图块消失后，上方新图块落下，可能产生更多匹配。</li>
+            </ul>
+
+            <h2>障碍：石墙</h2>
+            <p>从中期关卡开始，棋盘上会出现石墙（岩石）。这些图块不能移动，也不能参与普通匹配。只能通过特殊炸弹（普通、十字或彩色炸弹）的爆炸摧毁。石墙增加了策略层次：您需要规划移动以制造炸弹并清除道路。</p>
+
+            <h2>特殊奖励</h2>
+            <ul>
+                <li><span class="highlight">炸弹</span> — 由5个图块排成一行产生。爆炸周围1格半径内的图块。</li>
+                <li><span class="highlight">彩色炸弹</span> — 由6个图块排成一行产生。摧毁棋盘上所有同色图块。</li>
+                <li><span class="highlight">十字炸弹</span> — 由L形或T形匹配（7个及以上图块）产生。清除整行和整列。</li>
+            </ul>
+
+            <h2>关卡目标</h2>
+            <ul>
+                <li><strong>得分：</strong>在限定步数或时间内达到指定分数。</li>
+                <li><strong>收集表情符号：</strong>摧毁棋盘上所有表情符号图块。</li>
+            </ul>
+
+            <h2>星数</h2>
+            <ul>
+                <li>3星 — 使用不超过步数或时间的60%。</li>
+                <li>2星 — 使用不超过步数或时间的80%。</li>
+                <li>1星 — 关卡完成。</li>
+            </ul>
+
+            <h2>游戏模式</h2>
+            <ul>
+                <li><strong>步数模式：</strong>您有有限的步数。每次交换消耗一步。</li>
+                <li><strong>时间模式：</strong>您有有限的时间（根据关卡和难度，3到6分钟）。每次交换不限步数，但时间流逝。</li>
+            </ul>
+
+            <h2>难度</h2>
+            <ul>
+                <li><strong>简单：</strong>初始颜色 – 4，步数 – 40。</li>
+                <li><strong>中等：</strong>初始颜色 – 5，步数 – 35。</li>
+                <li><strong>困难：</strong>初始颜色 – 6，步数 – 30。</li>
+                <li><strong>专家：</strong>初始颜色 – 7，步数 – 25。</li>
+                <li><strong>天才：</strong>初始颜色 – 8，步数 – 20，始终为时间模式（3分钟），棋盘12×14。</li>
+            </ul>
+            <p>颜色和步数随关卡变化：颜色增加，步数减少。具体值取决于所选难度。</p>
+
+            <h2>提示和增益</h2>
+            <ul>
+                <li><strong>提示：</strong>显示可能的移动。每关有2次免费提示，之后通过广告获得。</li>
+                <li><strong>增益：</strong>移除棋盘上的随机图块。每关有 <strong>1 个增益</strong>。
+                    <ul>
+                        <li>每天首次增益 <strong>免费</strong>。</li>
+                        <li>当天后续增益需观看广告。</li>
+                        <li>增益每日午夜重置。</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>棋盘大小</h2>
+            <ul>
+                <li>在设置中可选择棋盘大小从7×9到12×14。更大的尺寸会增加复杂性和颜色数量。</li>
+            </ul>
+
+            <p class="footer-note">祝您游戏愉快！</p>
+        </div>
+
+    </div><!-- /container -->
+
+    <!-- ============================================================ -->
+    <!-- SCRIPT: language switcher -->
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            const buttons = document.querySelectorAll('.lang-switcher button');
+            const contents = {
+                en: document.getElementById('lang-en'),
+                de: document.getElementById('lang-de'),
+                es: document.getElementById('lang-es'),
+                fr: document.getElementById('lang-fr'),
+                ja: document.getElementById('lang-ja'),
+                ko: document.getElementById('lang-ko'),
+                ru: document.getElementById('lang-ru'),
+                zh: document.getElementById('lang-zh')
+            };
+
+            function setLanguage(lang) {
+                // update buttons
+                buttons.forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.lang === lang);
+                });
+                // update content
+                Object.keys(contents).forEach(key => {
+                    contents[key].classList.toggle('active', key === lang);
+                });
+                // store preference
+                try {
+                    localStorage.setItem('preferred-language', lang);
+                } catch (_) { /* ignore */ }
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const lang = this.dataset.lang;
+                    setLanguage(lang);
+                });
+            });
+
+            // restore preference
+            let preferred = null;
+            try {
+                preferred = localStorage.getItem('preferred-language');
+            } catch (_) { /* ignore */ }
+
+            if (preferred && contents[preferred]) {
+                setLanguage(preferred);
+            } else {
+                // fallback: use browser language
+                const browserLang = navigator.language || navigator.userLanguage || 'en';
+                let match = 'en';
+                if (browserLang.startsWith('de')) match = 'de';
+                else if (browserLang.startsWith('es')) match = 'es';
+                else if (browserLang.startsWith('fr')) match = 'fr';
+                else if (browserLang.startsWith('ja')) match = 'ja';
+                else if (browserLang.startsWith('ko')) match = 'ko';
+                else if (browserLang.startsWith('ru')) match = 'ru';
+                else if (browserLang.startsWith('zh')) match = 'zh';
+                // if browserLang is e.g. 'zh-CN' or 'zh-TW', we still use 'zh'
+                if (contents[match]) {
+                    setLanguage(match);
+                } else {
+                    setLanguage('en');
+                }
+            }
+        })();
+    </script>
+
+</body>
+</html>
