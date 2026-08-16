@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Промо</title>
     <style>
         /* Сброс отступов */
@@ -37,29 +37,60 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* сохраняем пропорции, вписывая в контейнер */
             display: block;
             background: transparent;
-            /* на случай, если у PNG есть прозрачность */
+            /* Отключаем выделение и перетаскивание */
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
             -webkit-user-drag: none;
+            touch-action: none;
+            pointer-events: auto; /* чтобы клики работали, если нужно */
         }
 
-        /* ── альтернативный вариант через background (закомментирован) ── */
-        /*
-        .promo-wrapper {
-            width: 100vw;
-            height: 100vh;
-            background: transparent url('promo.png') no-repeat center / contain;
+        /* Глобальный запрет выделения и контекстного меню */
+        body, .promo-wrapper, * {
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            touch-action: none !important;
         }
-        */
+
+        /* Убираем подсветку при касании на iOS */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
 <body>
-
     <div class="promo-wrapper">
-        <img src="promo.png" alt="Промо" />
+        <img src="promo.png" alt="Промо" draggable="false" />
     </div>
 
+    <script>
+        // Полностью отключаем контекстное меню (долгое нажатие)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Отключаем выделение (для надёжности)
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Для iOS: предотвращаем системные жесты (например, открытие ссылок)
+        document.addEventListener('touchstart', function(e) {
+            // Разрешаем клики, но блокируем только долгие нажатия
+            // Дополнительно можно проверить, что это не клик
+        }, { passive: true });
+
+        // Отключаем все жесты масштабирования на изображении
+        var img = document.querySelector('img');
+        if (img) {
+            img.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+            img.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+            img.addEventListener('gestureend', function(e) { e.preventDefault(); });
+        }
+    </script>
 </body>
 </html>
