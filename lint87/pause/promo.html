@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Промо</title>
+    <style>
+        /* Сброс отступов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* HTML и body — на всю высоту, прозрачный фон */
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            overflow: hidden;
+            /* убираем скролл */
+        }
+
+        /* Контейнер на всю область */
+        .promo-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        /* Изображение — aspect fit, центрировано */
+        .promo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* сохраняем пропорции, вписывая в контейнер */
+            display: block;
+            background: transparent;
+            /* на случай, если у PNG есть прозрачность */
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* ── альтернативный вариант через background (закомментирован) ── */
+        /*
+        .promo-wrapper {
+            width: 100vw;
+            height: 100vh;
+            background: transparent url('promo.png') no-repeat center / contain;
+        }
+        */
+    </style>
+</head>
+<body>
+
+    <div class="promo-wrapper">
+        <img src="promo.png" alt="Промо" />
+    </div>
+
+</body>
+</html>
