@@ -64,7 +64,13 @@
 </head>
 <body>
     <div class="promo-wrapper">
-        <img src="promo.png" alt="Промо" draggable="false" />
+        <img src="promo.png" alt="Промо"
+             draggable="false"
+             oncontextmenu="return false;"
+             onselectstart="return false;"
+             ontouchstart="return false;"
+             ontouchend="return false;"
+             style="pointer-events: none;" />
     </div>
 
     <script>
