@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Скачать приложение</title>
+    <style>
+        /* Сброс отступов и установка прозрачного фона */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-height: 100vh;
+            background: transparent; /* Прозрачный фон */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Контейнер для всего содержимого */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Картинка – фиксированный размер 100×100 */
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            margin-bottom: 16px;
+        }
+
+        /* Текст под картинкой */
+        .description {
+            font-size: 18px;
+            line-height: 1.4;
+            color: #1c1c1e;
+            margin: 0 0 24px 0;
+            font-weight: 400;
+            word-wrap: break-word;
+        }
+
+        /* Оранжевая кнопка с закруглёнными углами */
+        .download-btn {
+            display: inline-block;
+            background-color: #f97316; /* ярко-оранжевый */
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 14px 40px;
+            border-radius: 30px; /* закругление */
+            text-decoration: none;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
+            border: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        /* Эффект при наведении / касании */
+        .download-btn:hover {
+            background-color: #ea580c;
+            box-shadow: 0 6px 12px rgba(249, 115, 22, 0.4);
+        }
+        .download-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Адаптивность для маленьких экранов */
+        @media (max-width: 480px) {
+            .app-icon {
+                width: 80px;
+                height: 80px;
+            }
+            .description {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+            .download-btn {
+                font-size: 18px;
+                padding: 12px 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Картинка 100×100 (файл AppIcon.png должен лежать рядом) -->
+        <img src="AppIcon.png" alt="App Icon" class="app-icon" width="100" height="100">
+
+        <!-- Текст -->
+        <p class="description">Меняйте блоки, проходите уровни и собирайте звёзды</p>
+
+        <!-- Кнопка-ссылка -->
+        <a href="https://apps.apple.com/app/id6794062348" 
+           class="download-btn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           Скачать
+        </a>
+    </div>
+</body>
+</html>
