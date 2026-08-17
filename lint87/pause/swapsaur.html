@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Скачать приложение</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Промо</title>
     <style>
-        /* Сброс отступов и установка прозрачного фона */
-        html, body {
+        /* Сброс отступов */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* HTML и body — на всю высоту, прозрачный фон, без скролла */
+        html,
+        body {
             width: 100%;
-            min-height: 100vh;
-            background: transparent; /* Прозрачный фон */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            height: 100%;
+            background: transparent;
+            overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Контейнер для всего содержимого */
-        .container {
+        /* Контейнер на всю область, флекс для центрирования */
+        .promo-wrapper {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            padding: 20px;
+        }
+
+        /* Блок с содержимым */
+        .content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
             max-width: 400px;
             width: 100%;
-            box-sizing: border-box;
+            max-height: 100%;
         }
 
-        /* Картинка – фиксированный размер 100×100 */
+        /* Иконка 150×150 с закруглением 20px */
         .app-icon {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             flex-shrink: 0;
             margin-bottom: 16px;
+            border-radius: 30px; /* Закругление углов */
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-drag: none;
+            touch-action: none;
+            pointer-events: none;
         }
 
-        /* Текст под картинкой */
+        /* Текст */
         .description {
             font-size: 18px;
             line-height: 1.4;
@@ -47,26 +68,29 @@
             margin: 0 0 24px 0;
             font-weight: 400;
             word-wrap: break-word;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        /* Оранжевая кнопка с закруглёнными углами */
+        /* Оранжевая кнопка */
         .download-btn {
             display: inline-block;
-            background-color: #f97316; /* ярко-оранжевый */
+            background-color: #f97316;
             color: #ffffff;
             font-size: 20px;
             font-weight: 600;
             padding: 14px 40px;
-            border-radius: 30px; /* закругление */
+            border-radius: 30px;
             text-decoration: none;
             transition: background-color 0.2s ease, transform 0.1s ease;
             box-shadow: 0 4px 8px rgba(249, 115, 22, 0.3);
             border: none;
             cursor: pointer;
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            touch-action: manipulation;
         }
-
-        /* Эффект при наведении / касании */
         .download-btn:hover {
             background-color: #ea580c;
             box-shadow: 0 6px 12px rgba(249, 115, 22, 0.4);
@@ -75,38 +99,93 @@
             transform: scale(0.96);
         }
 
-        /* Адаптивность для маленьких экранов */
-        @media (max-width: 480px) {
+        /* Адаптация для маленьких экранов */
+        @media (max-width: 480px), (max-height: 600px) {
             .app-icon {
-                width: 80px;
-                height: 80px;
+                width: 120px;
+                height: 120px;
+                margin-bottom: 12px;
+                /* Радиус скругления оставляем 20px (можно было бы уменьшить, но по заданию — 20px) */
             }
             .description {
                 font-size: 16px;
-                padding: 0 10px;
+                margin-bottom: 18px;
             }
             .download-btn {
                 font-size: 18px;
                 padding: 12px 32px;
             }
         }
+
+        /* Для совсем узких экранов */
+        @media (max-width: 360px) {
+            .description {
+                font-size: 14px;
+            }
+            .download-btn {
+                font-size: 16px;
+                padding: 10px 24px;
+            }
+        }
+
+        /* Глобальный запрет выделения и контекстного меню */
+        body, .promo-wrapper, * {
+            -webkit-touch-callout: none !important;
+            -webkit-user-select: none !important;
+            user-select: none !important;
+            touch-action: none !important;
+        }
+
+        /* Убираем подсветку при касании на iOS */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Картинка 100×100 (файл AppIcon.png должен лежать рядом) -->
-        <img src="AppIcon.png" alt="App Icon" class="app-icon" width="100" height="100">
+    <div class="promo-wrapper">
+        <div class="content">
+            <!-- Иконка 150×150 с закруглением (CSS сам добавит скругление) -->
+            <img src="AppIcon.png" alt="App Icon" class="app-icon"
+                 width="150" height="150"
+                 draggable="false"
+                 oncontextmenu="return false;"
+                 onselectstart="return false;"
+                 ontouchstart="return false;"
+                 ontouchend="return false;" />
 
-        <!-- Текст -->
-        <p class="description">Меняйте блоки, проходите уровни и собирайте звёзды</p>
+            <p class="description">Меняйте блоки, проходите уровни и собирайте звёзды</p>
 
-        <!-- Кнопка-ссылка -->
-        <a href="https://apps.apple.com/app/id6794062348" 
-           class="download-btn" 
-           target="_blank" 
-           rel="noopener noreferrer">
-           Скачать
-        </a>
+            <a href="https://apps.apple.com/app/id6794062348"
+               class="download-btn"
+               target="_blank"
+               rel="noopener noreferrer"
+               draggable="false"
+               oncontextmenu="return false;"
+               onselectstart="return false;"
+               ontouchstart="return false;">
+               Скачать
+            </a>
+        </div>
     </div>
+
+    <script>
+        // Полностью отключаем контекстное меню (долгое нажатие)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Отключаем системные жесты масштабирования на всех элементах
+        var allElements = document.querySelectorAll('*');
+        allElements.forEach(function(el) {
+            el.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+            el.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+            el.addEventListener('gestureend', function(e) { e.preventDefault(); });
+        });
+    </script>
 </body>
 </html>
