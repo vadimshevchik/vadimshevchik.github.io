@@ -45,13 +45,13 @@
             max-height: 100%;
         }
 
-        /* Иконка 150×150 с закруглением 20px */
+        /* Иконка 150×150 с закруглением 30px */
         .app-icon {
             width: 150px;
             height: 150px;
             flex-shrink: 0;
             margin-bottom: 16px;
-            border-radius: 30px; /* Закругление углов */
+            border-radius: 30px;
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
@@ -75,8 +75,8 @@
         /* Оранжевая кнопка */
         .download-btn {
             display: inline-block;
-            background-color: #DA651B;
-            color: #F2F0C3;
+            background-color: #FF741C;
+            color: #FFFFFF;
             font-size: 20px;
             font-weight: 600;
             padding: 18px 50px;
@@ -92,7 +92,7 @@
             touch-action: manipulation;
         }
         .download-btn:hover {
-            background-color: #DA651B;
+            background-color: #FFFFFF;
             box-shadow: 0 6px 12px rgba(249, 115, 22, 0.4);
         }
         .download-btn:active {
@@ -105,7 +105,6 @@
                 width: 120px;
                 height: 120px;
                 margin-bottom: 12px;
-                /* Радиус скругления оставляем 20px (можно было бы уменьшить, но по заданию — 20px) */
             }
             .description {
                 font-size: 16px;
@@ -145,7 +144,6 @@
 <body>
     <div class="promo-wrapper">
         <div class="content">
-            <!-- Иконка 150×150 с закруглением (CSS сам добавит скругление) -->
             <img src="AppIcon.png" alt="App Icon" class="app-icon"
                  width="150" height="150"
                  draggable="false"
@@ -156,9 +154,9 @@
 
             <p class="description">Меняйте блоки, проходите уровни и собирайте звёзды</p>
 
+            <!-- Убран target="_blank", чтобы навигация происходила в том же окне и перехватывалась в decidePolicyFor -->
             <a href="https://apps.apple.com/app/id6794062348"
                class="download-btn"
-               target="_blank"
                rel="noopener noreferrer"
                draggable="false"
                oncontextmenu="return false;"
@@ -170,7 +168,6 @@
     </div>
 
     <script>
-        // Полностью отключаем контекстное меню (долгое нажатие)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
@@ -179,7 +176,6 @@
             e.preventDefault();
         });
 
-        // Отключаем системные жесты масштабирования на всех элементах
         var allElements = document.querySelectorAll('*');
         allElements.forEach(function(el) {
             el.addEventListener('gesturestart', function(e) { e.preventDefault(); });
