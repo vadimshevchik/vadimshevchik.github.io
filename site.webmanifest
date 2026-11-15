@@ -1,0 +1,30 @@
+{
+  "name": "HETONG — гибридная бетонотехника",
+  "short_name": "HETONG",
+  "description": "Официальный дилер HETONG в Беларуси: гибридные бетононасосы-миксеры на шасси HOWO и ISUZU.",
+  "lang": "ru-BY",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111a22",
+  "icons": [
+    {
+      "src": "/favicon-180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
